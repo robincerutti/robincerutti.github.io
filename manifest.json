@@ -5,7 +5,20 @@
       "label": "PORTRAITS",
       "type": "photos",
       "group": "",
-      "photos": []
+      "photos": [
+        {
+          "url": "photos/01-portraits/06042022-051A6323-Modifier-Modifier-2.jpeg",
+          "caption": "051A6323 Modifier Modifier 2"
+        },
+        {
+          "url": "photos/01-portraits/09072022-051A5300.jpg",
+          "caption": "051A5300"
+        },
+        {
+          "url": "photos/01-portraits/Untitled-1_1.jpeg",
+          "caption": "Untitled 1 1"
+        }
+      ]
     },
     {
       "id": "projects-introspection",
@@ -57,5 +70,5 @@
       "photos": []
     }
   ],
-  "generated": "2026-03-26T19:48:04.800Z"
+  "generated": "2026-03-26T21:28:27.915Z"
 }
