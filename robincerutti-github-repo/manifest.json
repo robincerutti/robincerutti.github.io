@@ -1,0 +1,61 @@
+{
+  "sections": [
+    {
+      "id": "portraits",
+      "label": "PORTRAITS",
+      "type": "photos",
+      "group": "",
+      "photos": []
+    },
+    {
+      "id": "projects-introspection",
+      "label": "introspection",
+      "type": "photos",
+      "group": "PROJECTS",
+      "photos": []
+    },
+    {
+      "id": "projects-lookup",
+      "label": "lookup",
+      "type": "photos",
+      "group": "PROJECTS",
+      "photos": []
+    },
+    {
+      "id": "projects-mirror",
+      "label": "mirror",
+      "type": "photos",
+      "group": "PROJECTS",
+      "photos": []
+    },
+    {
+      "id": "projects-mural-abenakis",
+      "label": "mural abenakis",
+      "type": "photos",
+      "group": "PROJECTS",
+      "photos": []
+    },
+    {
+      "id": "projects-parts-of-life",
+      "label": "parts of life",
+      "type": "photos",
+      "group": "PROJECTS",
+      "photos": []
+    },
+    {
+      "id": "projects-presence",
+      "label": "presence",
+      "type": "photos",
+      "group": "PROJECTS",
+      "photos": []
+    },
+    {
+      "id": "commissioned",
+      "label": "COMMISSIONED",
+      "type": "photos",
+      "group": "",
+      "photos": []
+    }
+  ],
+  "generated": "2026-03-26T19:48:04.800Z"
+}

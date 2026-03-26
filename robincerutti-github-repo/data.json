@@ -1,0 +1,23 @@
+{
+  "name": "ROBIN\nCERUTTI",
+  "email": "hello@robincerutti.com",
+  "infoText": "Robin Cerutti — artiste et photographe.<br><br>Basé à Montréal.",
+  "links": [
+    {
+      "section": "Social",
+      "items": [
+        { "name": "Instagram", "url": "https://www.instagram.com/robincerutti/" },
+        { "name": "Linktree", "url": "https://linktr.ee/robincerutti" }
+      ]
+    },
+    {
+      "section": "Press",
+      "items": []
+    }
+  ],
+  "extraSections": [
+    { "id": "info", "label": "INFO", "type": "info", "group": "" },
+    { "id": "contact", "label": "CONTACT", "type": "contact", "group": "" },
+    { "id": "links", "label": "LINKS", "type": "links", "group": "" }
+  ]
+}
