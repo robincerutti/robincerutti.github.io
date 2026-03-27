@@ -235,9 +235,6 @@ body.light .view-toggle:hover, body.light .view-toggle.active, body.light .arrow
 }
 #loading.done { opacity: 0; pointer-events: none; }
 
-/* ══════════════════════════════
-   MOBILE BACK BUTTON (hidden on desktop)
-══════════════════════════════ */
 #mobile-back { display: none; }
 
 /* ══════════════════════════════
@@ -245,16 +242,21 @@ body.light .view-toggle:hover, body.light .view-toggle.active, body.light .arrow
 ══════════════════════════════ */
 #mobile-fs {
   display: none; position: fixed; inset: 0; z-index: 200;
-  background: #000; flex-direction: column;
-  align-items: center; justify-content: center;
+  background: #000; overflow: hidden;
   touch-action: none;
 }
-#mobile-fs.open { display: flex; }
+#mobile-fs.open { display: block; }
 
-#mobile-fs-img {
+.fs-slot {
+  position: absolute; top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.fs-slot img {
   max-width: 100%; max-height: 100vh;
   object-fit: contain; user-select: none;
-  transition: opacity .15s ease;
+  transform-origin: center center;
 }
 
 #mobile-fs-close {
@@ -275,37 +277,35 @@ body.light .view-toggle:hover, body.light .view-toggle.active, body.light .arrow
    MOBILE LAYOUT
 ══════════════════════════════ */
 @media (max-width: 640px) {
+  html, body { height: auto; overflow-y: auto; }
 
-  /* ── Menu state: sidebar takes full screen ── */
-  #shell.mobile-menu #sidebar {
-    width: 100%; border-right: none;
-    padding: 36px 28px 28px;
-  }
-  #shell.mobile-menu #main { display: none; }
+  /* Page scrolls verticalement : menu en haut, photos en dessous */
+  #shell { flex-direction: column; height: auto; min-height: 100vh; overflow: visible; }
 
-  /* ── Photos/content state: main takes full width ── */
-  #shell.mobile-photos #sidebar { display: none; }
-  #shell.mobile-photos #main { width: 100%; }
-  #shell.mobile-photos #topbar { display: none; }
-
-  /* Back button */
-  #shell.mobile-photos #mobile-back {
-    display: block; flex-shrink: 0;
-    padding: 18px 16px 10px;
-    font-size: 10px; letter-spacing: .06em; text-transform: uppercase;
-    color: var(--text-dim); cursor: pointer;
+  #sidebar {
+    width: 100%; border-right: none; overflow: visible;
     border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 20px 20px 16px;
   }
-  body.light #shell.mobile-photos #mobile-back { border-bottom-color: rgba(0,0,0,0.07); }
+  body.light #sidebar { border-bottom-color: rgba(0,0,0,0.07); }
 
-  /* Vertical photo feed */
-  #view-grid { padding: 0 0 32px; }
+  #site-name { margin-bottom: 16px; }
+  .nav-item { font-size: 10px; padding: 4px 0; }
+  .nav-item.sub { padding-left: 12px; }
+
+  /* Main : prend toute la largeur, pas de scroll interne */
+  #main { overflow: visible; position: static; height: auto; flex: 1; }
+  #topbar { display: none !important; }
+  #mobile-back { display: none !important; }
+  #view-slide { display: none !important; }
+
+  /* Feed photo pleine largeur */
+  #view-grid { flex: none; overflow: visible; padding: 0 0 60px; }
   .grid-wrap { grid-template-columns: 1fr; gap: 3px; }
   .grid-thumb { aspect-ratio: unset; }
   .grid-thumb img { height: auto; object-fit: fill; }
 
-  /* Text pages on mobile */
-  #view-text { padding: 24px 20px 40px; max-width: 100%; }
+  #view-text { flex: none; overflow: visible; padding: 24px 20px 40px; max-width: 100%; }
 }
 </style>
 </head>
@@ -316,7 +316,8 @@ body.light .view-toggle:hover, body.light .view-toggle.active, body.light .arrow
 <!-- Mobile fullscreen overlay -->
 <div id="mobile-fs">
   <button id="mobile-fs-close" onclick="closeMobileFS()">✕</button>
-  <img id="mobile-fs-img" alt="">
+  <div class="fs-slot" id="mobile-fs-slot-a"><img id="mobile-fs-img-a" alt=""></div>
+  <div class="fs-slot" id="mobile-fs-slot-b"><img id="mobile-fs-img-b" alt=""></div>
   <div id="mobile-fs-counter"></div>
 </div>
 
@@ -404,13 +405,7 @@ async function init() {
     document.getElementById('theme-btn').textContent = 'light';
   }
 
-  if (isMobile()) {
-    // Mobile: start on menu
-    updateMobileShell();
-  } else {
-    // Desktop: open portraits by default
-    selectSection('portraits');
-  }
+  selectSection('portraits');
 
   setTimeout(() => document.getElementById('loading').classList.add('done'), 200);
 }
@@ -418,70 +413,194 @@ async function init() {
 // ════════════════════════════════════════════════════
 //  MOBILE SHELL STATE
 // ════════════════════════════════════════════════════
-function updateMobileShell() {
-  const shell = document.getElementById('shell');
-  if (!isMobile()) {
-    shell.classList.remove('mobile-menu', 'mobile-photos');
-    return;
-  }
-  if (curSection) {
-    shell.classList.replace('mobile-menu', 'mobile-photos') ||
-      shell.classList.add('mobile-photos');
-    shell.classList.remove('mobile-menu');
-  } else {
-    shell.classList.replace('mobile-photos', 'mobile-menu') ||
-      shell.classList.add('mobile-menu');
-    shell.classList.remove('mobile-photos');
-  }
-}
+function updateMobileShell() {}
 
 // ════════════════════════════════════════════════════
 //  MOBILE FULLSCREEN
 // ════════════════════════════════════════════════════
-let fsStartX = 0, fsStartY = 0;
+let fsActive = 'a';
+let fsStartX = 0, fsStartY = 0, fsDragging = false, fsLocked = false, fsPendingDir = 0;
+let fsScale = 1, fsPanX = 0, fsPanY = 0, fsPanStartX = 0, fsPanStartY = 0;
+let fsZooming = false, fsInitDist = 0, fsInitScale = 1, fsInitPinchX = 0, fsInitPinchY = 0, fsInitPanX = 0, fsInitPanY = 0;
+let fsLastTap = 0;
+
+function fsSlot(s) { return document.getElementById(`mobile-fs-slot-${s}`); }
+function fsImg(s)  { return document.getElementById(`mobile-fs-img-${s}`); }
+function fsOther() { return fsActive === 'a' ? 'b' : 'a'; }
+
+function fsDist(t) {
+  const dx = t[0].clientX - t[1].clientX, dy = t[0].clientY - t[1].clientY;
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+function applyZoom(slot) {
+  fsImg(slot).style.transform = `translate(${fsPanX}px, ${fsPanY}px) scale(${fsScale})`;
+}
+
+function resetZoom(slot, animate) {
+  const img = fsImg(slot);
+  img.style.transition = animate ? 'transform .25s ease' : 'none';
+  img.style.transform = '';
+  fsScale = 1; fsPanX = 0; fsPanY = 0;
+}
 
 function openMobileFS(idx) {
   curPhotoIdx = idx;
   const photos = curSection ? curSection.photos || [] : [];
   const p = photos[idx];
   if (!p) return;
-  const img = document.getElementById('mobile-fs-img');
-  img.style.opacity = '1';
-  img.src = p.url;
+  fsActive = 'a';
+  fsScale = 1; fsPanX = 0; fsPanY = 0;
+  fsImg('a').src = p.url;
+  fsImg('a').style.transition = 'none';
+  fsImg('a').style.transform = '';
+  fsSlot('a').style.transition = 'none';
+  fsSlot('a').style.transform = 'translateX(0)';
+  fsImg('b').src = '';
+  fsImg('b').style.transform = '';
+  fsSlot('b').style.transform = `translateX(${window.innerWidth}px)`;
   document.getElementById('mobile-fs-counter').textContent = `${idx + 1} / ${photos.length}`;
   document.getElementById('mobile-fs').classList.add('open');
 }
 
 function closeMobileFS() {
   document.getElementById('mobile-fs').classList.remove('open');
+  resetZoom(fsActive, false);
 }
 
 function navigateMobileFS(dir) {
   const photos = curSection ? curSection.photos || [] : [];
   if (!photos.length) return;
   curPhotoIdx = (curPhotoIdx + dir + photos.length) % photos.length;
-  const p = photos[curPhotoIdx];
-  const img = document.getElementById('mobile-fs-img');
-  img.style.opacity = '0';
-  setTimeout(() => {
-    img.src = p.url;
-    img.onload = () => { img.style.opacity = '1'; };
-  }, 150);
+  resetZoom(fsActive, false);
+  fsImg(fsActive).src = photos[curPhotoIdx].url;
   document.getElementById('mobile-fs-counter').textContent = `${curPhotoIdx + 1} / ${photos.length}`;
 }
 
-// Swipe handling for fullscreen
+// ── Fullscreen touch handling ──
 const fsEl = document.getElementById('mobile-fs');
+
 fsEl.addEventListener('touchstart', e => {
+  // Double-tap to reset zoom
+  const now = Date.now();
+  if (e.touches.length === 1 && now - fsLastTap < 280 && fsScale > 1) {
+    resetZoom(fsActive, true);
+    fsLastTap = 0;
+    return;
+  }
+  if (e.touches.length === 1) fsLastTap = now;
+
+  // Pinch start
+  if (e.touches.length === 2) {
+    fsDragging = false;
+    fsZooming = true;
+    fsInitDist = fsDist(e.touches);
+    fsInitScale = fsScale;
+    fsInitPanX = fsPanX; fsInitPanY = fsPanY;
+    fsInitPinchX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+    fsInitPinchY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+    fsImg(fsActive).style.transition = 'none';
+    return;
+  }
+
+  if (fsLocked || fsZooming) return;
   fsStartX = e.touches[0].clientX;
   fsStartY = e.touches[0].clientY;
+  fsPanStartX = fsPanX; fsPanStartY = fsPanY;
+  fsDragging = false; fsPendingDir = 0;
+  if (fsScale === 1) fsSlot(fsActive).style.transition = 'none';
 }, { passive: true });
-fsEl.addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - fsStartX;
-  const dy = e.changedTouches[0].clientY - fsStartY;
-  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-    navigateMobileFS(dx < 0 ? 1 : -1);
+
+fsEl.addEventListener('touchmove', e => {
+  // Pinch zoom
+  if (e.touches.length === 2 && fsZooming) {
+    const ratio = fsDist(e.touches) / fsInitDist;
+    fsScale = Math.max(1, Math.min(4, fsInitScale * ratio));
+    const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+    const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+    fsPanX = fsInitPanX + (midX - fsInitPinchX);
+    fsPanY = fsInitPanY + (midY - fsInitPinchY);
+    applyZoom(fsActive);
+    return;
   }
+
+  if (fsLocked || fsZooming || e.touches.length !== 1) return;
+  const dx = e.touches[0].clientX - fsStartX;
+  const dy = e.touches[0].clientY - fsStartY;
+
+  // Pan when zoomed
+  if (fsScale > 1) {
+    fsPanX = fsPanStartX + dx;
+    fsPanY = fsPanStartY + dy;
+    applyZoom(fsActive);
+    return;
+  }
+
+  // Swipe detection
+  if (!fsDragging && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
+    fsDragging = true;
+    fsPendingDir = dx < 0 ? 1 : -1;
+    const photos = curSection ? curSection.photos || [] : [];
+    const nextIdx = (curPhotoIdx + fsPendingDir + photos.length) % photos.length;
+    const other = fsOther();
+    fsImg(other).style.transition = 'none';
+    fsImg(other).src = photos[nextIdx].url;
+    fsSlot(other).style.transition = 'none';
+    fsSlot(other).style.transform = `translateX(${fsPendingDir * window.innerWidth}px)`;
+  }
+  if (fsDragging) {
+    const W = window.innerWidth;
+    fsSlot(fsActive).style.transform = `translateX(${dx}px)`;
+    fsSlot(fsOther()).style.transform = `translateX(${fsPendingDir * W + dx}px)`;
+  }
+}, { passive: true });
+
+fsEl.addEventListener('touchend', e => {
+  // End of pinch
+  if (fsZooming && e.touches.length < 2) {
+    fsZooming = false;
+    if (fsScale < 1.05) resetZoom(fsActive, true);
+    return;
+  }
+
+  if (fsLocked || fsZooming) return;
+
+  // End of pan
+  if (fsScale > 1) return;
+
+  const dx = e.changedTouches[0].clientX - fsStartX;
+  const W = window.innerWidth;
+  const cur = fsActive, nxt = fsOther();
+
+  if (!fsDragging || Math.abs(dx) < 60) {
+    fsSlot(cur).style.transition = 'transform .2s ease';
+    fsSlot(cur).style.transform = 'translateX(0)';
+    if (fsPendingDir !== 0) {
+      fsSlot(nxt).style.transition = 'transform .2s ease';
+      fsSlot(nxt).style.transform = `translateX(${fsPendingDir * W}px)`;
+    }
+    return;
+  }
+
+  // Complete swipe
+  fsLocked = true;
+  const dir = fsPendingDir;
+  fsSlot(cur).style.transition = 'transform .22s ease';
+  fsSlot(cur).style.transform = `translateX(${-dir * W}px)`;
+  fsSlot(nxt).style.transition = 'transform .22s ease';
+  fsSlot(nxt).style.transform = 'translateX(0)';
+
+  setTimeout(() => {
+    const photos = curSection ? curSection.photos || [] : [];
+    curPhotoIdx = (curPhotoIdx + dir + photos.length) % photos.length;
+    document.getElementById('mobile-fs-counter').textContent = `${curPhotoIdx + 1} / ${photos.length}`;
+    fsActive = nxt;
+    fsSlot(cur).style.transition = 'none';
+    fsSlot(cur).style.transform = `translateX(${dir * W}px)`;
+    fsImg(cur).style.transform = '';
+    fsScale = 1; fsPanX = 0; fsPanY = 0;
+    fsLocked = false; fsPendingDir = 0;
+  }, 220);
 }, { passive: true });
 
 // ════════════════════════════════════════════════════
