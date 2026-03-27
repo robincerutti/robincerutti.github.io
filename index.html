@@ -405,7 +405,9 @@ async function init() {
     document.getElementById('theme-btn').textContent = 'light';
   }
 
+  viewMode = 'slide';
   selectSection('portraits');
+  if (!isMobile()) showSlide();
 
   setTimeout(() => document.getElementById('loading').classList.add('done'), 200);
 }
