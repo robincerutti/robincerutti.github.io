@@ -423,7 +423,7 @@ async function init() {
   document.getElementById('site-name').innerHTML = DATA.name.replace(/\n/g, '<br>');
   renderNav();
 
-  if (localStorage.getItem('rc-theme') === 'light') {
+  if (localStorage.getItem('rc-theme') !== 'dark') {
     document.body.classList.add('light');
     document.getElementById('theme-btn').textContent = 'light';
   }

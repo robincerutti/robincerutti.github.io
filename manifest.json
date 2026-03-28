@@ -932,7 +932,60 @@
       "type": "photos",
       "group": "PROJECTS",
       "description": "In Presence,the research explore identity by projecting images of the subjects faces on their own bodies. These photographic anamorphoses fine tuned during the shoot, and not in postproduction, make the spectator question his or her vision. Prior to shooting, I visualize the image he wants to achieve by superimposing the different layers of images doing an art installation that will make up the final result. The goal is to divert the spectator’s gaze, which alternates between the projected face and the canvas-body , between surprises and equivocal evidence. Through playful, ambiguous and dreamlike compositions, and despite the nudity of the models, the series seeks to reveal the strength of the authenticity of the posing subject; an intimate body, incarnated and desexualized.",
-      "photos": []
+      "photos": [
+        {
+          "url": "photos/02-projects/020-presence/presence-matea-9931-base-40x60-240dpi-Modifier-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/020-presence/rc-jessica-presence--1732-Modifier.jpg",
+          "caption": "rc-jessica-presence"
+        },
+        {
+          "url": "photos/02-projects/020-presence/rc-presence-ak-1-16x24in_240dpi.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/020-presence/rc-presence-jess-40x60in-300dpi-test-sharp&denoise.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/020-presence/rc-presence-laurence-6437-base-dvpt--40x60-240dpi-v1.jpg",
+          "caption": "rc-presence-laurence-6437-base-dvpt"
+        },
+        {
+          "url": "photos/02-projects/020-presence/sans titre-0251-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/020-presence/sans titre-0969-Modifier-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/020-presence/sans titre-1135.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/020-presence/sans titre-1958-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/020-presence/sans titre-4615.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/020-presence/sans titre-5598-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/020-presence/sans titre-6332-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/020-presence/sans titre-9696.jpg",
+          "caption": ""
+        }
+      ]
     },
     {
       "id": "projects-parts-of-life",
@@ -1176,5 +1229,5 @@
       "photos": []
     }
   ],
-  "generated": "2026-03-28T20:20:44.806Z"
+  "generated": "2026-03-28T20:28:49.481Z"
 }
