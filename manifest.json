@@ -8,10 +8,6 @@
       "description": "Ladies and Gentlemen - from 2005 to now",
       "photos": [
         {
-          "url": "photos/01-portraits/-7457.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/01-portraits/00fc1cb9-8646-441d-85b8-6846d467f37f_rw_1920.jpg",
           "caption": ""
         },
@@ -48,10 +44,6 @@
           "caption": ""
         },
         {
-          "url": "photos/01-portraits/0d04e014-3b88-4864-8aed-24f6387a22f2_rw_1920.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/01-portraits/0efd6899-e2e4-488e-87ad-760c0ada68ca_rw_1920.jpg",
           "caption": ""
         },
@@ -65,6 +57,10 @@
         },
         {
           "url": "photos/01-portraits/109190_1920_8298d6.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/01-portraits/10_0d04e014-3b88-4864-8aed-24f6387a22f2_rw_1920.jpg",
           "caption": ""
         },
         {
@@ -228,11 +224,11 @@
           "caption": ""
         },
         {
-          "url": "photos/01-portraits/2e5afa49-4ffc-448b-b4d6-2ffe65b9c157_rw_3840.jpg",
+          "url": "photos/01-portraits/2e6c9e4c-e858-45c2-9293-52beab94c3ec_rw_3840.jpg",
           "caption": ""
         },
         {
-          "url": "photos/01-portraits/2e6c9e4c-e858-45c2-9293-52beab94c3ec_rw_3840.jpg",
+          "url": "photos/01-portraits/300-cocoon 2009-7457.jpg",
           "caption": ""
         },
         {
@@ -1132,6 +1128,56 @@
       ]
     },
     {
+      "id": "projects-wet exploration ( since 2010 )",
+      "label": "wet exploration ( since 2010 )",
+      "type": "photos",
+      "group": "PROJECTS",
+      "description": "The world seen from water\n\nWater is a fundamental element. In wet exploration that started in 2007 the world is photographed from the water in order to make the viewer not only discovering urban or country landscape from a very different angle but also to take conscience that we are surrounded by this amazing yet necessary element. \n \nSo Far wet exploration takes you from the alps to nyc via marseille, dominican republic, canada and mexico.",
+      "photos": [
+        {
+          "url": "photos/02-projects/070-wet exploration ( since 2010 )/sans titre-2804.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/070-wet exploration ( since 2010 )/sans titre-7019-Modifier.jpg",
+          "caption": ""
+        }
+      ]
+    },
+    {
+      "id": "projects-parallels",
+      "label": "parallels",
+      "type": "photos",
+      "group": "PROJECTS",
+      "description": "The PARALLEL series explores the relationship between the underwater world and the world above it, with a focus on the human element. Using water as a medium, I narrate a story and depict interactions between these two realms, and how they intersect through the presence of a person. I use properties of water such as refraction and reflection to create a sense of otherworldliness and challenge viewer's perception of reality. I capture fleeting moments of beauty and energy within the natural world and the human experience. My goal is to create thought-provoking photographs that question the viewer's understanding of reality and the human connection to nature.",
+      "photos": [
+        {
+          "url": "photos/02-projects/075-parallels/-parallel-a--robincerutti-20110619_13h11_60.jpg",
+          "caption": "-parallel-a"
+        },
+        {
+          "url": "photos/02-projects/075-parallels/-parallel-b--robincerutti-20110620_09h28_60.jpg",
+          "caption": "-parallel-b"
+        },
+        {
+          "url": "photos/02-projects/075-parallels/-parallel-c--robincerutti-20110722_13h40_60.jpg",
+          "caption": "-parallel-c"
+        },
+        {
+          "url": "photos/02-projects/075-parallels/-parallel-d--robincerutti-20120204_16h10_4.jpg",
+          "caption": "-parallel-d"
+        },
+        {
+          "url": "photos/02-projects/075-parallels/-parallel-e--robincerutti-20120713_18h18_60.jpg",
+          "caption": "-parallel-e"
+        },
+        {
+          "url": "photos/02-projects/075-parallels/-parallel-f--robincerutti-20120713_18h37_60.jpg",
+          "caption": "-parallel-f"
+        }
+      ]
+    },
+    {
       "id": "projects-inside escape",
       "label": "inside escape",
       "type": "photos",
@@ -1139,86 +1185,94 @@
       "description": "New Yorker versus New York Visitors are not touched by the same aspect of the city. While Tourist get amazed by the dense amount of skycrappers and the density of life in the city, New Yorkers are kept in their thought, stress and objectives. Living in NYC for 3 years, Robin, who was also a stressed worker of the city started to look for visual escape within the usual ‘scrap’ that we face when we are living in the city and not looking ‘UP’ anymore. This result in a serie named Inside escape that allows any kind of newyorker to travel.",
       "photos": [
         {
-          "url": "photos/02-projects/070-inside escape/739895_1920_5a0856.jpg",
+          "url": "photos/02-projects/080-inside escape/739895_1920_5a0856.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/762534_1920_279caf.jpg",
+          "url": "photos/02-projects/080-inside escape/762534_1920_279caf.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/762535_1920_da6336.jpg",
+          "url": "photos/02-projects/080-inside escape/762535_1920_da6336.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/762646_1920_e795d2.jpg",
+          "url": "photos/02-projects/080-inside escape/762646_1920_e795d2.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/762649_1920_d653ec.jpg",
+          "url": "photos/02-projects/080-inside escape/762649_1920_d653ec.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/8100_1920_2e27e2.jpg",
+          "url": "photos/02-projects/080-inside escape/8100_1920_2e27e2.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/8101_1920_8e5ec9.jpg",
+          "url": "photos/02-projects/080-inside escape/8101_1920_8e5ec9.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/8102_1920_d88164.jpg",
+          "url": "photos/02-projects/080-inside escape/8102_1920_d88164.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/8103_1920_d21d5b.jpg",
+          "url": "photos/02-projects/080-inside escape/8103_1920_d21d5b.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/8104_1920_5ed9f9.jpg",
+          "url": "photos/02-projects/080-inside escape/8104_1920_5ed9f9.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/834590_1920_74bfe6.jpg",
+          "url": "photos/02-projects/080-inside escape/834590_1920_74bfe6.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/rc-nyc-1211-Modifier.jpg",
+          "url": "photos/02-projects/080-inside escape/rc-nyc-1211-Modifier.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/rc-nyc-1211-Modifier_1.jpg",
+          "url": "photos/02-projects/080-inside escape/rc-nyc-1211-Modifier_1.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/rc-nyc-1219.jpg",
+          "url": "photos/02-projects/080-inside escape/rc-nyc-1219.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/rc-nyc-1222-Modifier.jpg",
+          "url": "photos/02-projects/080-inside escape/rc-nyc-1222-Modifier.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/robincerutti-20060924_06h12_rc-inside-escape-1-30x45-2.jpg",
+          "url": "photos/02-projects/080-inside escape/robincerutti-20060924_06h12_rc-inside-escape-1-30x45-2.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/robincerutti-20070114_14h47_rc-inside-escape-2-30-45.jpg",
+          "url": "photos/02-projects/080-inside escape/robincerutti-20070114_14h47_rc-inside-escape-2-30-45.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/robincerutti-20110910_13h30_rc-inside-escape-4-30x45.jpg",
+          "url": "photos/02-projects/080-inside escape/robincerutti-20110910_13h30_rc-inside-escape-4-30x45.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/robincerutti-20110915_14h19_rc-nyc-7824-Modifier.jpg",
+          "url": "photos/02-projects/080-inside escape/robincerutti-20110915_14h19_rc-nyc-7824-Modifier.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/070-inside escape/robincerutti-chromaticparis-mirror-sophie.jpg",
+          "url": "photos/02-projects/080-inside escape/robincerutti-chromaticparis-mirror-sophie.jpg",
           "caption": ""
         }
       ]
+    },
+    {
+      "id": "projects-PLACES",
+      "label": "PLACES",
+      "type": "photos",
+      "group": "PROJECTS",
+      "description": "",
+      "photos": []
     },
     {
       "id": "commissioned-mural-abenakis",
@@ -1229,5 +1283,5 @@
       "photos": []
     }
   ],
-  "generated": "2026-03-28T20:28:49.481Z"
+  "generated": "2026-03-28T21:31:16.208Z"
 }
