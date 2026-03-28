@@ -280,6 +280,18 @@ body.light .view-toggle:hover, body.light .view-toggle.active, body.light .arrow
   font-size: 10px; color: rgba(255,255,255,0.3);
   font-family: var(--mono); letter-spacing: .06em; white-space: nowrap;
 }
+#mobile-fs-caption {
+  position: absolute; bottom: 48px; left: 0; right: 0; text-align: center;
+  font-size: 10px; color: rgba(255,255,255,0.55);
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: 0 24px; pointer-events: none;
+}
+#mobile-fs-caption:empty { display: none; }
+.grid-thumb-caption {
+  font-size: 10px; color: var(--text-dim);
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: 6px 0 12px; line-height: 1.4;
+}
 
 /* ══════════════════════════════
    MOBILE LAYOUT
@@ -326,6 +338,7 @@ body.light .view-toggle:hover, body.light .view-toggle.active, body.light .arrow
   <button id="mobile-fs-close" onclick="closeMobileFS()">✕</button>
   <div class="fs-slot" id="mobile-fs-slot-a"><img id="mobile-fs-img-a" alt=""></div>
   <div class="fs-slot" id="mobile-fs-slot-b"><img id="mobile-fs-img-b" alt=""></div>
+  <div id="mobile-fs-caption"></div>
   <div id="mobile-fs-counter"></div>
 </div>
 
@@ -470,6 +483,7 @@ function openMobileFS(idx) {
   fsImg('b').style.transform = '';
   fsSlot('b').style.transform = `translateX(${window.innerWidth}px)`;
   document.getElementById('mobile-fs-counter').textContent = `${idx + 1} / ${photos.length}`;
+  document.getElementById('mobile-fs-caption').textContent = photos[idx].caption || '';
   document.getElementById('mobile-fs').classList.add('open');
 }
 
@@ -485,6 +499,7 @@ function navigateMobileFS(dir) {
   resetZoom(fsActive, false);
   fsImg(fsActive).src = photos[curPhotoIdx].url;
   document.getElementById('mobile-fs-counter').textContent = `${curPhotoIdx + 1} / ${photos.length}`;
+  document.getElementById('mobile-fs-caption').textContent = photos[curPhotoIdx].caption || '';
 }
 
 // ── Fullscreen touch handling ──
@@ -604,6 +619,7 @@ fsEl.addEventListener('touchend', e => {
     const photos = curSection ? curSection.photos || [] : [];
     curPhotoIdx = (curPhotoIdx + dir + photos.length) % photos.length;
     document.getElementById('mobile-fs-counter').textContent = `${curPhotoIdx + 1} / ${photos.length}`;
+    document.getElementById('mobile-fs-caption').textContent = photos[curPhotoIdx].caption || '';
     fsActive = nxt;
     fsSlot(cur).style.transition = 'none';
     fsSlot(cur).style.transform = `translateX(${dir * W}px)`;
@@ -724,7 +740,8 @@ function showMobileFeed() {
   photos.forEach((p, i) => {
     const div = document.createElement('div');
     div.className = 'grid-thumb';
-    div.innerHTML = `<img src="${esc(p.url)}" alt="${esc(p.caption)}" loading="lazy">`;
+    const cap = p.caption ? `<div class="grid-thumb-caption">${esc(p.caption)}</div>` : '';
+    div.innerHTML = `<img src="${esc(p.url)}" alt="${esc(p.caption)}" loading="lazy">${cap}`;
     div.onclick = () => openMobileFS(i);
     wrap.appendChild(div);
   });
