@@ -706,8 +706,81 @@
       "label": "mirror",
       "type": "photos",
       "group": "PROJECTS",
-      "description": "",
-      "photos": []
+      "description": "Mirror is inspired by natural effects that make can’t change our vision of reality. Mirror is a serie focused on the critical angle between water and air. This effect added to a referential trick do the illusion of a membrane and a distorting mirror that set the scene in which the subject interact. The goal is to make people dream with situations that look surreal but are in fact totally real. Mirror serie has so far been exhibited in Montreal, Paris, Brussels and Fort Lauderdale.",
+      "photos": [
+        {
+          "url": "photos/02-projects/01-mirror/1-sans+titre-6145-Modifier-Modif-2850855401-O.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/19012019-051A6228-rc-mirror-la-fleur-40x60-240dpi-v1.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/20230814robincerutti_IMG_7441.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/20230814robincerutti_IMG_7543.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/mirror-1a-15x22@300dpi.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/mirror-celia-8258.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/mirror-gaele-v2_1.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/mirror-stripes-2-16x24 copie.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/mirror-thekid-base-agrandissement-16x24-600dpi.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/rc-dr--2897.jpg",
+          "caption": "rc-dr"
+        },
+        {
+          "url": "photos/02-projects/01-mirror/rc-mirror-aw-3681-40x60-240dpi-pre-base-v5.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/rc-mirror-aw-3700-40x60in-300dpi-filigramme-vitrine.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/robincerutti-chromaticparis-mirror-gaele.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/robincerutti-chromaticparis-mirror-sophie.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/robincerutti-mirror-aw-mirror-3751-40x60_300dpi_final_1_1.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/robincerutti-mirror-les marches.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/sans titre-1659-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/01-mirror/sans titre-1874-Modifier-Modifier.jpg",
+          "caption": ""
+        }
+      ]
     },
     {
       "id": "projects-introspection",
@@ -758,5 +831,5 @@
       "photos": []
     }
   ],
-  "generated": "2026-03-28T19:01:58.313Z"
+  "generated": "2026-03-28T19:08:39.718Z"
 }
