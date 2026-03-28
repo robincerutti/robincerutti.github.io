@@ -20,6 +20,10 @@
           "caption": "jane nyc 2006"
         },
         {
+          "url": "photos/01-portraits/01-juliette-2023-montreal--.jpg",
+          "caption": "juliette-2023-montreal"
+        },
+        {
           "url": "photos/01-portraits/020-colette france - 2007--7888_1920_f26987.jpg",
           "caption": "colette france - 2007"
         },
@@ -69,10 +73,6 @@
         },
         {
           "url": "photos/01-portraits/0efd6899-e2e4-488e-87ad-760c0ada68ca_rw_1920.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/01-portraits/1.jpg",
           "caption": ""
         },
         {
@@ -1228,5 +1228,5 @@
       "photos": []
     }
   ],
-  "generated": "2026-03-28T23:08:52.019Z"
+  "generated": "2026-03-28T23:13:31.150Z"
 }
