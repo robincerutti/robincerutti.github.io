@@ -901,6 +901,16 @@ function esc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+// ── KEYBOARD ──
+document.addEventListener('keydown', e => {
+  if (isMobile()) return;
+  if (viewMode === 'slide') {
+    if (e.key === 'ArrowLeft')  navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
+    if (e.key === 'Escape')     setViewMode('grid');
+  }
+});
+
 // ── GO ──
 init();
 </script>
