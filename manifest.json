@@ -1152,28 +1152,28 @@
       "description": "The PARALLEL series explores the relationship between the underwater world and the world above it, with a focus on the human element. Using water as a medium, I narrate a story and depict interactions between these two realms, and how they intersect through the presence of a person. I use properties of water such as refraction and reflection to create a sense of otherworldliness and challenge viewer's perception of reality. I capture fleeting moments of beauty and energy within the natural world and the human experience. My goal is to create thought-provoking photographs that question the viewer's understanding of reality and the human connection to nature.",
       "photos": [
         {
-          "url": "photos/02-projects/075-parallels/-parallel-a--robincerutti-20110619_13h11_60.jpg",
-          "caption": "-parallel-a"
+          "url": "photos/02-projects/075-parallels/01-parallel-a--robincerutti-20110619_13h11_60.jpg",
+          "caption": "parallel-a"
         },
         {
-          "url": "photos/02-projects/075-parallels/-parallel-b--robincerutti-20110620_09h28_60.jpg",
-          "caption": "-parallel-b"
+          "url": "photos/02-projects/075-parallels/02-parallel-b--robincerutti-20110620_09h28_60.jpg",
+          "caption": "parallel-b"
         },
         {
-          "url": "photos/02-projects/075-parallels/-parallel-c--robincerutti-20110722_13h40_60.jpg",
-          "caption": "-parallel-c"
+          "url": "photos/02-projects/075-parallels/03-parallel-c--robincerutti-20110722_13h40_60.jpg",
+          "caption": "parallel-c"
         },
         {
-          "url": "photos/02-projects/075-parallels/-parallel-d--robincerutti-20120204_16h10_4.jpg",
-          "caption": "-parallel-d"
+          "url": "photos/02-projects/075-parallels/04-parallel-d--robincerutti-20120204_16h10_4.jpg",
+          "caption": "parallel-d"
         },
         {
-          "url": "photos/02-projects/075-parallels/-parallel-e--robincerutti-20120713_18h18_60.jpg",
-          "caption": "-parallel-e"
+          "url": "photos/02-projects/075-parallels/05-parallel-e--robincerutti-20120713_18h18_60.jpg",
+          "caption": "parallel-e"
         },
         {
-          "url": "photos/02-projects/075-parallels/-parallel-f--robincerutti-20120713_18h37_60.jpg",
-          "caption": "-parallel-f"
+          "url": "photos/02-projects/075-parallels/06-parallel-f--robincerutti-20120713_18h37_60.jpg",
+          "caption": "parallel-f"
         }
       ]
     },
@@ -1283,5 +1283,5 @@
       "photos": []
     }
   ],
-  "generated": "2026-03-28T21:31:16.208Z"
+  "generated": "2026-03-28T21:39:06.864Z"
 }
