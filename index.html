@@ -836,9 +836,7 @@ function navigate(dir) {
 }
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { closeMobileFS(); return; }
-  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); navigate(1); }
-  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   { e.preventDefault(); navigate(-1); }
+  if (e.key === 'Escape') { closeMobileFS(); }
 });
 
 // ════════════════════════════════════════════════════
