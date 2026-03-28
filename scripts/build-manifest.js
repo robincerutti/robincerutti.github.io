@@ -19,13 +19,27 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 
 const PHOTOS_DIR = path.join(__dirname, '..', 'photos');
 const OUTPUT = path.join(__dirname, '..', 'manifest.json');
 const EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif']);
+const MAX_PX = 2000;
 
 function isImage(file) {
   return EXTENSIONS.has(path.extname(file).toLowerCase());
+}
+
+function resizeIfNeeded(filePath) {
+  try {
+    const info = execFileSync('sips', ['-g', 'pixelWidth', '-g', 'pixelHeight', filePath], { encoding: 'utf8' });
+    const w = parseInt(info.match(/pixelWidth: (\d+)/)?.[1] || '0');
+    const h = parseInt(info.match(/pixelHeight: (\d+)/)?.[1] || '0');
+    if (w > MAX_PX || h > MAX_PX) {
+      execFileSync('sips', ['-Z', String(MAX_PX), filePath], { stdio: 'ignore' });
+      console.log(`  ↓ resized: ${path.basename(filePath)} (${w}×${h})`);
+    }
+  } catch (e) { /* skip if sips unavailable */ }
 }
 
 function cleanCaption(filename) {
@@ -33,9 +47,13 @@ function cleanCaption(filename) {
   let name = path.basename(filename, path.extname(filename));
   // Remove leading number prefix like "01-" or "01_"
   name = name.replace(/^\d+[-_]\s*/, '');
-  // Replace dashes and underscores with spaces
-  name = name.replace(/[-_]/g, ' ');
-  return name;
+  // If "--" separator present: everything before it is the caption, rest is ignored
+  if (name.includes('--')) {
+    const caption = name.split('--')[0].trim();
+    return caption;
+  }
+  // No separator: return empty string (no caption displayed)
+  return '';
 }
 
 function formatLabel(folderName) {
@@ -50,6 +68,35 @@ function makeId(folderName) {
   return folderName.replace(/^\d+[-_]\s*/, '');
 }
 
+function readDescription(folderPath) {
+  for (const name of ['_description.txt', '_descriptions.txt']) {
+    const file = path.join(folderPath, name);
+    if (fs.existsSync(file)) return fs.readFileSync(file, 'utf8').trim();
+  }
+  return '';
+}
+
+function sanitizeName(name) {
+  // Decompose accented chars (é → e + combining accent) then strip combining marks
+  return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+function sanitizeFilenames(dir) {
+  if (!fs.existsSync(dir)) return;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const clean = sanitizeName(entry.name);
+    if (clean !== entry.name) {
+      const oldPath = path.join(dir, entry.name);
+      const newPath = path.join(dir, clean);
+      fs.renameSync(oldPath, newPath);
+      console.log(`  ✎ renamed: ${entry.name} → ${clean}`);
+    }
+    if (entry.isDirectory()) {
+      sanitizeFilenames(path.join(dir, entry.isDirectory() ? sanitizeName(entry.name) : entry.name));
+    }
+  }
+}
+
 function scanDirectory() {
   const sections = [];
 
@@ -58,6 +105,8 @@ function scanDirectory() {
     fs.writeFileSync(OUTPUT, JSON.stringify({ sections }, null, 2));
     return;
   }
+
+  sanitizeFilenames(PHOTOS_DIR);
 
   const topEntries = fs.readdirSync(PHOTOS_DIR, { withFileTypes: true })
     .filter(e => e.isDirectory() && !e.name.startsWith('.'))
@@ -72,6 +121,7 @@ function scanDirectory() {
     const topPhotos = fs.readdirSync(topPath)
       .filter(f => isImage(f))
       .sort();
+    topPhotos.forEach(f => resizeIfNeeded(path.join(topPath, f)));
 
     const topId = makeId(topDir.name);
 
@@ -85,6 +135,7 @@ function scanDirectory() {
           label: formatLabel(topDir.name),
           type: 'photos',
           group: groupName,
+          description: readDescription(topPath),
           photos: topPhotos.map(f => ({
             url: `photos/${topDir.name}/${f}`,
             caption: cleanCaption(f)
@@ -97,12 +148,14 @@ function scanDirectory() {
         const subPhotos = fs.readdirSync(subPath)
           .filter(f => isImage(f))
           .sort();
+        subPhotos.forEach(f => resizeIfNeeded(path.join(subPath, f)));
 
         sections.push({
           id: `${topId}-${makeId(subDir.name)}`,
           label: formatLabel(subDir.name),
           type: 'photos',
           group: groupName,
+          description: readDescription(subPath),
           photos: subPhotos.map(f => ({
             url: `photos/${topDir.name}/${subDir.name}/${f}`,
             caption: cleanCaption(f)
@@ -115,6 +168,7 @@ function scanDirectory() {
         label: formatLabel(topDir.name).toUpperCase(),
         type: 'photos',
         group: '',
+        description: readDescription(topPath),
         photos: topPhotos.map(f => ({
           url: `photos/${topDir.name}/${f}`,
           caption: cleanCaption(f)
@@ -123,7 +177,7 @@ function scanDirectory() {
     }
   }
 
-  const manifest = { 
+  const manifest = {
     sections,
     generated: new Date().toISOString()
   };
