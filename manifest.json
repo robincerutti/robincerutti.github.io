@@ -24,6 +24,10 @@
           "caption": "colette france - 2007"
         },
         {
+          "url": "photos/01-portraits/022-juliette montréal 2023 -2.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/01-portraits/030-mathieu france 2014 -ccc96f0a-b3a9-4f0b-9310-9ca85d9c8a30_rw_1920.jpg",
           "caption": ""
         },
@@ -108,14 +112,6 @@
           "caption": ""
         },
         {
-          "url": "photos/01-portraits/1319149_1920_5dcb42.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/01-portraits/1372116_1920_28321e.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/01-portraits/1395540_1920_9f3fd8.jpg",
           "caption": ""
         },
@@ -172,10 +168,6 @@
           "caption": ""
         },
         {
-          "url": "photos/01-portraits/15c414a4-2f34-4238-8c6a-55590c209b71_rw_1920.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/01-portraits/1830049b-e834-466b-9537-47bd78223b1d_rw_3840.jpg",
           "caption": ""
         },
@@ -192,8 +184,8 @@
           "caption": ""
         },
         {
-          "url": "photos/01-portraits/2.jpg",
-          "caption": ""
+          "url": "photos/01-portraits/20-midtown campain 2011--38c8728a-facf-4c95-8130-6c36465804bc_rw_3840.jpg",
+          "caption": "midtown campain 2011"
         },
         {
           "url": "photos/01-portraits/20251029_17_00_44@robincerutti_.jpg",
@@ -244,6 +236,10 @@
           "caption": ""
         },
         {
+          "url": "photos/01-portraits/30-faitee dee 2017 DR--15c414a4-2f34-4238-8c6a-55590c209b71_rw_1920.jpg",
+          "caption": "faitee dee 2017 DR"
+        },
+        {
           "url": "photos/01-portraits/300-cocoon 2009-7457.jpg",
           "caption": ""
         },
@@ -268,15 +264,7 @@
           "caption": ""
         },
         {
-          "url": "photos/01-portraits/38c8728a-facf-4c95-8130-6c36465804bc_rw_3840.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/01-portraits/3bd5e22d-684e-4fdd-bf8d-bfe036be7747_rw_3840.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/01-portraits/3be08254-eaaa-421c-a5ba-6b2873cb7510_rw_3840.jpg",
           "caption": ""
         },
         {
@@ -520,10 +508,6 @@
           "caption": ""
         },
         {
-          "url": "photos/01-portraits/977078c7-3d0b-4892-afb0-8ad1b52d5502_rw_3840.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/01-portraits/9815a234-aad5-4178-a539-94cc6ef14b7c_rw_1920.jpg",
           "caption": ""
         },
@@ -576,14 +560,6 @@
           "caption": ""
         },
         {
-          "url": "photos/01-portraits/a8b332d0-7dcf-4745-9785-343743079803_rw_3840.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/01-portraits/a923d4cd-e040-4742-901a-763d2dbe1f57_rw_1920.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/01-portraits/aafa22a1-f30a-4bac-af60-8627bf4d955b_rw_1200.jpg",
           "caption": ""
         },
@@ -608,15 +584,7 @@
           "caption": ""
         },
         {
-          "url": "photos/01-portraits/b6840b07-5f41-43f2-ad64-0ffb9e3d06a5_rw_3840.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/01-portraits/b6c6bfbb-4ec9-4ef6-8b2a-5043f953f766_rw_1920.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/01-portraits/b7e6a78b-8ed6-4787-a856-a44b42ed9a58_rw_3840.jpg",
           "caption": ""
         },
         {
@@ -633,10 +601,6 @@
         },
         {
           "url": "photos/01-portraits/bf409ab1-f50c-47cf-8a59-4083c654227b_rw_1920.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/01-portraits/bfcd8468-81c2-4797-9609-09a7688bfc1c_rw_3840.jpg",
           "caption": ""
         },
         {
@@ -677,10 +641,6 @@
         },
         {
           "url": "photos/01-portraits/ca81d4c0-9a40-4dbd-987f-6bac38858866_rw_3840.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/01-portraits/caeb6cf3-584f-485c-ba57-3afe40a4c4fc_rw_1200.jpg",
           "caption": ""
         },
         {
@@ -1268,5 +1228,5 @@
       "photos": []
     }
   ],
-  "generated": "2026-03-28T22:25:30.414Z"
+  "generated": "2026-03-28T22:32:37.092Z"
 }
