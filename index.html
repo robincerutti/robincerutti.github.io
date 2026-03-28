@@ -142,6 +142,13 @@ html, body {
 #view-grid { flex: 1; overflow-y: auto; padding: 52px 16px 32px; display: none; }
 #view-grid.visible { display: block; }
 
+#section-description {
+  font-size: 10px; color: var(--text-dim);
+  margin-bottom: 16px; line-height: 1.6;
+  max-width: 480px;
+}
+#section-description:empty { display: none; }
+
 .grid-wrap {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -346,6 +353,7 @@ body.light .view-toggle:hover, body.light .view-toggle.active, body.light .arrow
     </div>
 
     <div id="view-grid">
+      <div id="section-description"></div>
       <div class="grid-wrap" id="grid-wrap"></div>
     </div>
 
@@ -702,6 +710,7 @@ function showMobileFeed() {
   document.getElementById('view-slide').classList.add('hidden');
   const vg = document.getElementById('view-grid');
   vg.classList.add('visible');
+  document.getElementById('section-description').textContent = curSection.description || '';
   const wrap = document.getElementById('grid-wrap');
   wrap.innerHTML = '';
 
@@ -727,6 +736,7 @@ function showGrid() {
   document.getElementById('view-slide').classList.add('hidden');
   const vg = document.getElementById('view-grid');
   vg.classList.add('visible');
+  document.getElementById('section-description').textContent = curSection.description || '';
   const wrap = document.getElementById('grid-wrap');
   wrap.innerHTML = '';
 

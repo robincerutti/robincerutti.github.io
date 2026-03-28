@@ -5,6 +5,7 @@
       "label": "PORTRAITS",
       "type": "photos",
       "group": "",
+      "description": "Ladies and Gentlemen - from 2005 to now",
       "photos": [
         {
           "url": "photos/01-portraits/00fc1cb9-8646-441d-85b8-6846d467f37f_rw_1920.jpg",
@@ -705,6 +706,7 @@
       "label": "mirror",
       "type": "photos",
       "group": "PROJECTS",
+      "description": "",
       "photos": []
     },
     {
@@ -712,6 +714,7 @@
       "label": "introspection",
       "type": "photos",
       "group": "PROJECTS",
+      "description": "",
       "photos": []
     },
     {
@@ -719,6 +722,7 @@
       "label": "lookup",
       "type": "photos",
       "group": "PROJECTS",
+      "description": "",
       "photos": []
     },
     {
@@ -726,6 +730,7 @@
       "label": "mural abenakis",
       "type": "photos",
       "group": "PROJECTS",
+      "description": "",
       "photos": []
     },
     {
@@ -733,6 +738,7 @@
       "label": "parts of life",
       "type": "photos",
       "group": "PROJECTS",
+      "description": "",
       "photos": []
     },
     {
@@ -740,6 +746,7 @@
       "label": "presence",
       "type": "photos",
       "group": "PROJECTS",
+      "description": "",
       "photos": []
     },
     {
@@ -747,8 +754,9 @@
       "label": "COMMISSIONED",
       "type": "photos",
       "group": "",
+      "description": "",
       "photos": []
     }
   ],
-  "generated": "2026-03-28T18:27:33.170Z"
+  "generated": "2026-03-28T18:46:09.695Z"
 }
