@@ -1138,10 +1138,6 @@
       "description": "New Yorker versus New York Visitors are not touched by the same aspect of the city. While Tourist get amazed by the dense amount of skycrappers and the density of life in the city, New Yorkers are kept in their thought, stress and objectives. Living in NYC for 3 years, Robin, who was also a stressed worker of the city started to look for visual escape within the usual ‘scrap’ that we face when we are living in the city and not looking ‘UP’ anymore. This result in a serie named Inside escape that allows any kind of newyorker to travel.",
       "photos": [
         {
-          "url": "photos/02-projects/080-inside escape/13ff316c-6503-4e46-b588-3675e05745cc_rw_1920.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/02-projects/080-inside escape/20060924_rc-inside-escape-1-30x45.jpg",
           "caption": ""
         },
@@ -1151,10 +1147,6 @@
         },
         {
           "url": "photos/02-projects/080-inside escape/20070217_sans titre-7744.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/080-inside escape/20110910_rc-inside-escape-4-30x45.jpg",
           "caption": ""
         },
         {
@@ -1174,10 +1166,6 @@
           "caption": ""
         },
         {
-          "url": "photos/02-projects/080-inside escape/762535_1920_da6336.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/02-projects/080-inside escape/762646_1920_e795d2.jpg",
           "caption": ""
         },
@@ -1194,23 +1182,11 @@
           "caption": ""
         },
         {
-          "url": "photos/02-projects/080-inside escape/8102_1920_d88164.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/02-projects/080-inside escape/8103_1920_d21d5b.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/080-inside escape/8104_1920_5ed9f9.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/02-projects/080-inside escape/834590_1920_74bfe6.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/080-inside escape/rc-nyc-1211-Modifier.jpg",
           "caption": ""
         },
         {
@@ -1226,23 +1202,11 @@
           "caption": ""
         },
         {
-          "url": "photos/02-projects/080-inside escape/robincerutti-20060924_06h12_rc-inside-escape-1-30x45-2.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/080-inside escape/robincerutti-20070114_14h47_rc-inside-escape-2-30-45.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/02-projects/080-inside escape/robincerutti-20110910_13h30_rc-inside-escape-4-30x45.jpg",
           "caption": ""
         },
         {
           "url": "photos/02-projects/080-inside escape/robincerutti-20110915_14h19_rc-nyc-7824-Modifier.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/080-inside escape/robincerutti-chromaticparis-mirror-sophie.jpg",
           "caption": ""
         }
       ]
@@ -1317,5 +1281,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-03-29T18:40:54.918Z"
+  "generated": "2026-03-29T18:44:51.371Z"
 }
