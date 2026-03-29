@@ -32,8 +32,8 @@
           "caption": "01-juliette-2023-montreal"
         },
         {
-          "url": "photos/01-portraits/030-mathieu france 2014 -ccc96f0a-b3a9-4f0b-9310-9ca85d9c8a30_rw_1920.jpg",
-          "caption": ""
+          "url": "photos/01-portraits/030-mathieu france 2014 --ccc96f0a-b3a9-4f0b-9310-9ca85d9c8a30_rw_1920.jpg",
+          "caption": "mathieu france 2014"
         },
         {
           "url": "photos/01-portraits/03f3b2e7-a5b9-4a70-99c7-6a064b98de26_rw_1920.jpg",
@@ -220,11 +220,15 @@
           "caption": "faitee dee 2017 DR"
         },
         {
+          "url": "photos/01-portraits/30-waterpolo quebec --.jpg",
+          "caption": "waterpolo quebec"
+        },
+        {
           "url": "photos/01-portraits/300-cocoon 2009-7457.jpg",
           "caption": ""
         },
         {
-          "url": "photos/01-portraits/30cf144e-1bd8-4307-8891-e2e6917d6535_rw_1920.jpg",
+          "url": "photos/01-portraits/31072022-051A6100-Modifier_1.jpg",
           "caption": ""
         },
         {
@@ -701,6 +705,10 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/010-mirror/09082022-051A8957-Avec accentuation-Modifier.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/010-mirror/15-mirror-celia-8258--.jpg",
           "caption": "mirror-celia-8258"
         },
@@ -1051,6 +1059,18 @@
       "description": "Natural Digital began during the early COVID period, at a time when the digital world was exploding — in art, in life, in how we related to each other. These photographs, captured underwater using fabric, light, and simple objects, look almost computer-generated. But nothing here is digital. No artificial elements were added; everything was created physically and captured as it happened.",
       "photos": [
         {
+          "url": "photos/02-projects/060-natural digital/09082022-051A8487.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/060-natural digital/09082022-051A8687.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/060-natural digital/09082022-051A8730.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/060-natural digital/09122021-051A6923-Modifier-Modifier.jpg",
           "caption": ""
         },
@@ -1273,5 +1293,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-03-29T20:21:40.798Z"
+  "generated": "2026-03-29T20:53:17.946Z"
 }
