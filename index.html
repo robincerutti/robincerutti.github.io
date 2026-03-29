@@ -728,7 +728,7 @@ function showMobileFeed() {
   document.getElementById('view-slide').classList.add('hidden');
   const vg = document.getElementById('view-grid');
   vg.classList.add('visible');
-  document.getElementById('section-description').textContent = curSection.description || '';
+  document.getElementById('section-description').innerHTML = (curSection.description || '').replace(/\n/g, '<br>');
   const wrap = document.getElementById('grid-wrap');
   wrap.innerHTML = '';
 
@@ -755,7 +755,7 @@ function showGrid() {
   document.getElementById('view-slide').classList.add('hidden');
   const vg = document.getElementById('view-grid');
   vg.classList.add('visible');
-  document.getElementById('section-description').textContent = curSection.description || '';
+  document.getElementById('section-description').innerHTML = (curSection.description || '').replace(/\n/g, '<br>');
   const wrap = document.getElementById('grid-wrap');
   wrap.innerHTML = '';
 
