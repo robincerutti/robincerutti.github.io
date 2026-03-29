@@ -1224,9 +1224,14 @@
       "label": "mural abenakis",
       "type": "photos",
       "group": "COMMISSIONED",
-      "description": "",
-      "photos": []
+      "description": "Mural project for the Abenaki Museum. I was invited by director William Mazzoleni to collaborate on this project aimed at reconnecting Abenaki culture with its ancestral territory. The Abenaki, also known as the People of the Dawn, have a deep connection to nature. Through a series of images, the mural captures this intimate bond, highlighting the beauty and spirituality of the landscape.\n\nProjet de murale pour le Musée des Abénakis. J’ai été appelé par le réalisateur William Mazzoleni pour collaborer à ce projet ayant pour but de reconnecter la culture abénakise à son territoire. Les Abénakis, aussi appelés le peuple du soleil levant, entretiennent un lien profond avec la nature. À travers une série d’images, la murale capture cette connexion intime, mettant en lumière la beauté et la spiritualité du paysage.",
+      "photos": [
+        {
+          "url": "photos/03-commissioned/mural-abenakis/01-murale - musee des abenakis 2023--.jpg",
+          "caption": "murale - musee des abenakis 2023"
+        }
+      ]
     }
   ],
-  "generated": "2026-03-28T23:32:05.821Z"
+  "generated": "2026-03-29T00:02:30.955Z"
 }
