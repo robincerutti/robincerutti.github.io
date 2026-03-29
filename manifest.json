@@ -836,14 +836,38 @@
       "label": "parts of life",
       "type": "photos",
       "group": "PROJECTS",
-      "description": "Parts of Life is a photographic series that captures candid and fleeting moments from around the world, begun in 2006. The focus of the series is on the emotional energy and narratives conveyed by the subjects, rather than the physical setting. The goal is to convey a sense of imbalance and spontaneity, capturing the moments that could never be posed or staged. Through the lens, I aim to give viewers an intimate and personal perspective on the human experience and to encourage introspection and self-reflection. The series is a visual diary of the different stories and emotions that I have encountered during my travels and it invites the viewer to question themselves and their own life experiences.",
+      "description": "“Parts of Life” is a photographic series I began in 2006, built from candid moments encountered in different places around the world. Rather than focusing on location alone, the work is driven by the emotional energy, tension, and quiet narratives carried by the people and situations within each frame. The series embraces imbalance, spontaneity, and the fragile intensity of moments that could never be staged, offering an intimate perspective on the human experience. Over time, it has become a visual diary of the stories and emotions I have crossed paths with, inviting viewers to find echoes of their own lives in these fleeting fragments.",
       "photos": [
+        {
+          "url": "photos/02-projects/030-parts-of-life/10931ffa-d072-49d7-b65c-41a393db403e.jpg",
+          "caption": ""
+        },
         {
           "url": "photos/02-projects/030-parts-of-life/19012019-051A6245.jpg",
           "caption": ""
         },
         {
+          "url": "photos/02-projects/030-parts-of-life/2457f554-ef79-4d95-b072-cd1b806c0846_rw_3840.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/3b1dbebb-75ae-4fd2-a5e2-1f5822e531fc_rw_3840.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/3f028114-bc4b-44d7-902b-5bc19a9148eb_rw_3840.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/030-parts-of-life/419615_1920_2674bf.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/6188a517-5bc4-46b4-9ed3-0964030e54dd_rw_3840.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/61978bd1-b0c1-4c39-9341-2a2e8f2c7d9f_rw_1920.jpg",
           "caption": ""
         },
         {
@@ -855,7 +879,15 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/030-parts-of-life/9303ea43-52c9-4837-909c-da1e3260e25a_rw_3840.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/030-parts-of-life/IMG_4136.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/c7e1b50d-0e7d-4f22-a5cb-bceba084c423_rw_3840.jpg",
           "caption": ""
         },
         {
@@ -1221,5 +1253,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-03-29T03:42:27.806Z"
+  "generated": "2026-03-29T15:36:27.946Z"
 }
