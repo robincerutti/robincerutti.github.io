@@ -1154,14 +1154,6 @@
           "caption": ""
         },
         {
-          "url": "photos/02-projects/080-inside escape/20110911_rc-nyc--7278-Enhanced-SR-2.jpg",
-          "caption": "rc-nyc"
-        },
-        {
-          "url": "photos/02-projects/080-inside escape/739895_1920_5a0856.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/02-projects/080-inside escape/762534_1920_279caf.jpg",
           "caption": ""
         },
@@ -1199,10 +1191,6 @@
         },
         {
           "url": "photos/02-projects/080-inside escape/rc-nyc-1222-Modifier.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/080-inside escape/robincerutti-20110910_13h30_rc-inside-escape-4-30x45.jpg",
           "caption": ""
         },
         {
@@ -1281,5 +1269,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-03-29T18:44:51.371Z"
+  "generated": "2026-03-29T18:48:18.968Z"
 }
