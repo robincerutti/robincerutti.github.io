@@ -6,8 +6,25 @@
     {
       "section": "Social",
       "items": [
-        { "name": "Instagram", "url": "https://www.instagram.com/robincerutti/" },
-        { "name": "Linktree", "url": "https://linktr.ee/robincerutti" }
+        { "name": "Instagram", "url": "https://www.instagram.com/robincerutti" },
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/in/robincerutti/" },
+        { "name": "Twitter", "url": "http://twitter.com/robincerutti" }
+      ]
+    },
+    {
+      "section": "Galleries",
+      "items": [
+        { "name": "SalonArtClub — Montréal", "url": "http://www.salonartclub.com/" },
+        { "name": "ArtMajeur", "url": "https://www.artmajeur.com/robin-cerutti" },
+        { "name": "Galerie Levaillant — France", "url": "https://galerielevaillant.com/" },
+        { "name": "Tricera — Japan", "url": "https://www.tricera.net/artist/photographers/8103483" }
+      ]
+    },
+    {
+      "section": "Shop & Catalog",
+      "items": [
+        { "name": "11x14 Editions — tchuti art", "url": "http://robincerutti.square.site" },
+        { "name": "Art Catalog 2023", "url": "https://indd.adobe.com/view/e042cc93-f2fb-4256-850e-0a2f02d1f6e3" }
       ]
     },
     {
