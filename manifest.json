@@ -8,19 +8,19 @@
       "description": "Ladies and Gentlemen - from 2005 to now",
       "photos": [
         {
-          "url": "photos/01-portraits/00fc1cb9-8646-441d-85b8-6846d467f37f_rw_1920.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/01-portraits/01- Baba _ Paris _ 2015 --Baba2000bf7cbfc-1a89-44d7-8cd1-38179ea2a73d_rw_3840.jpg",
-          "caption": "Baba _ Paris _ 2015"
-        },
-        {
           "url": "photos/01-portraits/01-jane nyc 2006--7892_1920_4aa75d.jpg",
           "caption": "jane nyc 2006"
         },
         {
-          "url": "photos/01-portraits/01-juliette-2023-montreal--.jpg",
+          "url": "photos/01-portraits/01_1- Baba _ Paris _ 2015 --Baba2000bf7cbfc-1a89-44d7-8cd1-38179ea2a73d_rw_3840.jpg",
+          "caption": "1- Baba _ Paris _ 2015"
+        },
+        {
+          "url": "photos/01-portraits/01_2-grimaud--.jpg",
+          "caption": "2-grimaud"
+        },
+        {
+          "url": "photos/01-portraits/02-juliette-2023-montreal--.2.jpg",
           "caption": "juliette-2023-montreal"
         },
         {
@@ -28,8 +28,8 @@
           "caption": "colette france - 2007"
         },
         {
-          "url": "photos/01-portraits/022-juliette montreal 2023 -2.jpg",
-          "caption": ""
+          "url": "photos/01-portraits/02_01-juliette-2023-montreal--.jpg",
+          "caption": "01-juliette-2023-montreal"
         },
         {
           "url": "photos/01-portraits/030-mathieu france 2014 -ccc96f0a-b3a9-4f0b-9310-9ca85d9c8a30_rw_1920.jpg",
@@ -164,6 +164,10 @@
           "caption": "midtown campain 2011"
         },
         {
+          "url": "photos/01-portraits/20-waterpolo quebec 2012--.jpg",
+          "caption": "waterpolo quebec 2012"
+        },
+        {
           "url": "photos/01-portraits/20251029_17_00_44@robincerutti_.jpg",
           "caption": ""
         },
@@ -201,10 +205,6 @@
         },
         {
           "url": "photos/01-portraits/2ba4f814-63c2-45f1-b753-fc5b5da6b02d_rw_3840.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/01-portraits/2bbbdee5-4dc2-4c69-874d-186c6b225892_rw_1920.jpg",
           "caption": ""
         },
         {
@@ -289,10 +289,6 @@
         },
         {
           "url": "photos/01-portraits/49d050bd-fef4-4e7b-8f26-8a914282b4c0_rw_3840.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/01-portraits/4f3be1e3-f269-49b3-824c-30764b63db0a_rw_3840.jpg",
           "caption": ""
         },
         {
@@ -553,14 +549,6 @@
         },
         {
           "url": "photos/01-portraits/c7f5432d-207b-4922-b858-2ac744c4ffa4_rw_3840.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/01-portraits/c939de49-5390-44ee-ac01-326a45cd4ee8_rw_1920.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/01-portraits/ca6b65ee-735f-46e1-b11e-826c9061d390_rw_1920.jpg",
           "caption": ""
         },
         {
@@ -847,6 +835,42 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/030-parts-of-life/20051031unknown_rc-photo--5090.jpg",
+          "caption": "20051031unknown_rc-photo"
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/20070623_sans titre-2368-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/20070929_sans titre-3359.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/20090823_rc-party--9594.jpg",
+          "caption": "rc-party"
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/20100708_rc-montreal--8848-Modifier.jpg",
+          "caption": "rc-montreal"
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/20110614_tc-france-7650-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/20110619_rc-pol-8-11x14.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/20110620_rc-france--2188-Modifier.jpg",
+          "caption": "rc-france"
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/24062018-051A5584-Modifier.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/030-parts-of-life/2457f554-ef79-4d95-b072-cd1b806c0846_rw_3840.jpg",
           "caption": ""
         },
@@ -859,19 +883,11 @@
           "caption": ""
         },
         {
-          "url": "photos/02-projects/030-parts-of-life/419615_1920_2674bf.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/02-projects/030-parts-of-life/6188a517-5bc4-46b4-9ed3-0964030e54dd_rw_3840.jpg",
           "caption": ""
         },
         {
           "url": "photos/02-projects/030-parts-of-life/61978bd1-b0c1-4c39-9341-2a2e8f2c7d9f_rw_1920.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/030-parts-of-life/645bf572-bd22-4957-92bb-3b7789d57160_rw_1920.jpg",
           "caption": ""
         },
         {
@@ -888,6 +904,10 @@
         },
         {
           "url": "photos/02-projects/030-parts-of-life/c7e1b50d-0e7d-4f22-a5cb-bceba084c423_rw_3840.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/cdc53da2-ded2-4af1-a270-62d73d5252d9_rw_1920.jpg",
           "caption": ""
         },
         {
@@ -1253,5 +1273,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-03-29T16:48:47.705Z"
+  "generated": "2026-03-29T17:47:41.042Z"
 }
