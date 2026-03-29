@@ -432,7 +432,8 @@ async function init() {
   }
 
   viewMode = 'grid';
-  selectSection('portraits');
+  const hash = window.location.hash.slice(1);
+  selectSection(hash || 'portraits');
 
   setTimeout(() => document.getElementById('loading').classList.add('done'), 200);
 }
@@ -707,6 +708,7 @@ function selectSection(id) {
   curSection = s;
   curPhotoIdx = 0;
   if (s.group) expandedGroup = s.group;
+  history.replaceState(null, '', '#' + id);
   renderNav();
   updateMobileShell();
   renderMain();
