@@ -168,6 +168,10 @@
           "caption": "waterpolo quebec 2012"
         },
         {
+          "url": "photos/01-portraits/20061125_sans titre-7939.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/01-portraits/20251029_17_00_44@robincerutti_.jpg",
           "caption": ""
         },
@@ -867,6 +871,10 @@
           "caption": "rc-france"
         },
         {
+          "url": "photos/02-projects/030-parts-of-life/20190318_18032019-051A5890.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/030-parts-of-life/24062018-051A5584-Modifier.jpg",
           "caption": ""
         },
@@ -1134,6 +1142,30 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/080-inside escape/20060924_rc-inside-escape-1-30x45.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/080-inside escape/20070114_rc-inside-escape-2-30-45.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/080-inside escape/20070217_sans titre-7744.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/080-inside escape/20110910_rc-inside-escape-4-30x45.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/080-inside escape/20110910_rc-inside-escape-5-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/080-inside escape/20110911_rc-nyc--7278-Enhanced-SR-2.jpg",
+          "caption": "rc-nyc"
+        },
+        {
           "url": "photos/02-projects/080-inside escape/739895_1920_5a0856.jpg",
           "caption": ""
         },
@@ -1223,6 +1255,22 @@
       "description": "",
       "photos": [
         {
+          "url": "photos/02-projects/090-PLACES/20060526unknown_rc-places-3-24x36_1.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/090-PLACES/20060528unknown_rc-places-1-hudson-16x24.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/090-PLACES/20081001_rc-places-2-24x36.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/090-PLACES/20091231Picasa_rc-places-6-24x36.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/090-PLACES/3be08254-eaaa-421c-a5ba-6b2873cb7510_rw_3840.jpg",
           "caption": ""
         },
@@ -1269,5 +1317,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-03-29T18:25:44.458Z"
+  "generated": "2026-03-29T18:40:54.918Z"
 }
