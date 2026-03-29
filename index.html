@@ -507,10 +507,20 @@ function navigateMobileFS(dir) {
 const fsEl = document.getElementById('mobile-fs');
 
 fsEl.addEventListener('touchstart', e => {
-  // Double-tap to reset zoom
+  // Double-tap to zoom in / reset zoom
   const now = Date.now();
-  if (e.touches.length === 1 && now - fsLastTap < 280 && fsScale > 1) {
-    resetZoom(fsActive, true);
+  if (e.touches.length === 1 && now - fsLastTap < 280) {
+    if (fsScale > 1) {
+      resetZoom(fsActive, true);
+    } else {
+      const tapX = e.touches[0].clientX;
+      const tapY = e.touches[0].clientY;
+      fsScale = 2.5;
+      fsPanX = (window.innerWidth / 2 - tapX) * (fsScale - 1);
+      fsPanY = (window.innerHeight / 2 - tapY) * (fsScale - 1);
+      fsImg(fsActive).style.transition = 'transform 0.25s ease';
+      applyTransform(fsActive);
+    }
     fsLastTap = 0;
     return;
   }
