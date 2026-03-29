@@ -36,7 +36,13 @@ function resizeIfNeeded(filePath) {
     const w = parseInt(info.match(/pixelWidth: (\d+)/)?.[1] || '0');
     const h = parseInt(info.match(/pixelHeight: (\d+)/)?.[1] || '0');
     if (w > MAX_PX || h > MAX_PX) {
+      const tmpPath = filePath + '.__orig__';
+      fs.copyFileSync(filePath, tmpPath);
       execFileSync('sips', ['-Z', String(MAX_PX), filePath], { stdio: 'ignore' });
+      try {
+        execFileSync('exiftool', ['-overwrite_original', '-TagsFromFile', tmpPath, '-all:all', filePath], { stdio: 'ignore' });
+      } catch (e) { /* exiftool not available, metadata not restored */ }
+      fs.unlinkSync(tmpPath);
       console.log(`  ↓ resized: ${path.basename(filePath)} (${w}×${h})`);
     }
   } catch (e) { /* skip if sips unavailable */ }

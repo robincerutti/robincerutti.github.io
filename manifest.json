@@ -682,8 +682,16 @@
       "label": "mirror",
       "type": "photos",
       "group": "PROJECTS",
-      "description": "Mirror is inspired by natural effects that make can’t change our vision of reality. Mirror is a serie focused on the critical angle between water and air. This effect added to a referential trick do the illusion of a membrane and a distorting mirror that set the scene in which the subject interact. The goal is to make people dream with situations that look surreal but are in fact totally real. Mirror serie has so far been exhibited in Montreal, Paris, Brussels and Fort Lauderdale.",
+      "description": "Mirror is inspired by natural phenomena that irrevocably alter our perception of reality. The series focuses on the critical angle between water and air. This optical effect, combined with a referential trick, creates the illusion of a membrane and a distorting mirror — setting a stage in which the subject interacts. The goal is to invite the viewer into situations that appear surreal but are in fact entirely real. The Mirror series has been exhibited in Montreal, Paris, Brussels, and Fort Lauderdale.",
       "photos": [
+        {
+          "url": "photos/02-projects/010-mirror/-mirror - tornado 2024 --.jpg",
+          "caption": "-mirror - tornado 2024"
+        },
+        {
+          "url": "photos/02-projects/010-mirror/-mirror-stripes-2--16x24 copie.jpg",
+          "caption": "-mirror-stripes-2"
+        },
         {
           "url": "photos/02-projects/010-mirror/01-2012 - mirror - genevieve --.jpg",
           "caption": "2012 - mirror - genevieve"
@@ -693,35 +701,35 @@
           "caption": "mirror - max - 2016"
         },
         {
+          "url": "photos/02-projects/010-mirror/050-rc-mirror-magda, la fleur - 2019.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/010-mirror/10082022-051A0710-base-2-30x45-300dpi-verstion-09-2022.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/010-mirror/19012019-051A6228-rc-mirror-la-fleur-40x60-240dpi-v1.jpg",
+          "url": "photos/02-projects/010-mirror/15-mirror-celia-8258--.jpg",
+          "caption": "mirror-celia-8258"
+        },
+        {
+          "url": "photos/02-projects/010-mirror/35-mirror-gaele, \"showtime\" - 2012--.jpg",
+          "caption": "mirror-gaele, \"showtime\" - 2012"
+        },
+        {
+          "url": "photos/02-projects/010-mirror/60-mirror-juliette-7441 3023.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/010-mirror/20230814robincerutti_IMG_7441.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/010-mirror/20230814robincerutti_IMG_7543.jpg",
-          "caption": ""
+          "url": "photos/02-projects/010-mirror/60-mirror-juliette-7543--.jpg",
+          "caption": "mirror-juliette-7543"
         },
         {
           "url": "photos/02-projects/010-mirror/mirror-1a-15x22@300dpi.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/010-mirror/mirror-celia-8258.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/010-mirror/mirror-gaele-v2_1.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/010-mirror/mirror-stripes-2-16x24 copie.jpg",
+          "url": "photos/02-projects/010-mirror/mirror-les marches 2016 .jpg",
           "caption": ""
         },
         {
@@ -729,12 +737,8 @@
           "caption": ""
         },
         {
-          "url": "photos/02-projects/010-mirror/rc-mirror-aw-3700-40x60in-300dpi-filigramme-vitrine.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/010-mirror/robincerutti - mirror - tornado.jpg",
-          "caption": ""
+          "url": "photos/02-projects/010-mirror/rc-mirror-aw-3700 2017--40x60in-300dpi-filigramme-vitrine.jpg",
+          "caption": "rc-mirror-aw-3700 2017"
         },
         {
           "url": "photos/02-projects/010-mirror/robincerutti - mirror --1.jpg",
@@ -754,10 +758,6 @@
         },
         {
           "url": "photos/02-projects/010-mirror/robincerutti-mirror-aw-mirror-3751-40x60_300dpi_final_1_1.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/010-mirror/robincerutti-mirror-les marches.jpg",
           "caption": ""
         },
         {
@@ -1221,5 +1221,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-03-29T02:36:58.988Z"
+  "generated": "2026-03-29T03:36:08.028Z"
 }
