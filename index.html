@@ -519,7 +519,7 @@ fsEl.addEventListener('touchstart', e => {
       fsPanX = (window.innerWidth / 2 - tapX) * (fsScale - 1);
       fsPanY = (window.innerHeight / 2 - tapY) * (fsScale - 1);
       fsImg(fsActive).style.transition = 'transform 0.25s ease';
-      applyTransform(fsActive);
+      applyZoom(fsActive);
     }
     fsLastTap = 0;
     return;
