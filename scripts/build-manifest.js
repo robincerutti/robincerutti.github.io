@@ -25,6 +25,7 @@ const PHOTOS_DIR = path.join(__dirname, '..', 'photos');
 const OUTPUT = path.join(__dirname, '..', 'manifest.json');
 const EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif']);
 const MAX_PX = 2000;
+const EXIFTOOL = '/opt/homebrew/bin/exiftool';
 
 function isImage(file) {
   return EXTENSIONS.has(path.extname(file).toLowerCase());
@@ -40,7 +41,7 @@ function resizeIfNeeded(filePath) {
       fs.copyFileSync(filePath, tmpPath);
       execFileSync('sips', ['-Z', String(MAX_PX), filePath], { stdio: 'ignore' });
       try {
-        execFileSync('exiftool', ['-overwrite_original', '-TagsFromFile', tmpPath, '-all:all', filePath], { stdio: 'ignore' });
+        execFileSync(EXIFTOOL, ['-overwrite_original', '-TagsFromFile', tmpPath, '-all:all', filePath], { stdio: 'ignore' });
       } catch (e) { /* exiftool not available, metadata not restored */ }
       fs.unlinkSync(tmpPath);
       console.log(`  ↓ resized: ${path.basename(filePath)} (${w}×${h})`);
