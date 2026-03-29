@@ -839,6 +839,10 @@
       "description": "Parts of Life is a photographic series that captures candid and fleeting moments from around the world, begun in 2006. The focus of the series is on the emotional energy and narratives conveyed by the subjects, rather than the physical setting. The goal is to convey a sense of imbalance and spontaneity, capturing the moments that could never be posed or staged. Through the lens, I aim to give viewers an intimate and personal perspective on the human experience and to encourage introspection and self-reflection. The series is a visual diary of the different stories and emotions that I have encountered during my travels and it invites the viewer to question themselves and their own life experiences.",
       "photos": [
         {
+          "url": "photos/02-projects/030-parts-of-life/19012019-051A6245.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/030-parts-of-life/419615_1920_2674bf.jpg",
           "caption": ""
         },
@@ -855,6 +859,10 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/030-parts-of-life/rc-dr-2014--7531.jpg",
+          "caption": "rc-dr-2014"
+        },
+        {
           "url": "photos/02-projects/030-parts-of-life/robincerutti - partsoflife - sandbanks.jpg",
           "caption": ""
         }
@@ -866,7 +874,16 @@
       "type": "photos",
       "group": "PROJECTS",
       "description": "",
-      "photos": []
+      "photos": [
+        {
+          "url": "photos/02-projects/035-partsoflight/06082022-051A6806-Edit-Edit-Edit.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/035-partsoflight/POL-GRANDE-40x60-300dpi.jpg",
+          "caption": ""
+        }
+      ]
     },
     {
       "id": "projects-introspection",
@@ -912,6 +929,14 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/040-introspection/95b7114d-86fa-4aa3-b3cc-6bf635541900_rw_1920.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/040-introspection/ffb34825-3247-49d8-978b-2b0781ed8982_rw_1920.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/040-introspection/final_1_20230812-RC-17-IMG_2703-Edit-Edit-Edit-2.jpg",
           "caption": ""
         },
@@ -953,6 +978,10 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/050-lookup/robincerutti-lookup-madgalena-6386.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/050-lookup/source-4-03012019-051A6590-lookup-.jpg",
           "caption": ""
         }
@@ -966,6 +995,10 @@
       "description": "Natural Digital began during the early COVID period, at a time when the digital world was exploding — in art, in life, in how we related to each other. These photographs, captured underwater using fabric, light, and simple objects, look almost computer-generated. But nothing here is digital. No artificial elements were added; everything was created physically and captured as it happened.",
       "photos": [
         {
+          "url": "photos/02-projects/060-natural digital/09122021-051A6923-Modifier-Modifier.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/060-natural digital/20102021-051A5944-Modifier-Avec accentuation.jpg",
           "caption": ""
         },
@@ -975,6 +1008,14 @@
         },
         {
           "url": "photos/02-projects/060-natural digital/25092021-051A5741-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/060-natural digital/27082021-051A4791-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/060-natural digital/robincerutti-20211211_16h44_.jpg",
           "caption": ""
         }
       ]
@@ -1180,5 +1221,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-03-29T02:24:25.848Z"
+  "generated": "2026-03-29T02:36:58.988Z"
 }
