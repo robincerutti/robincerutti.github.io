@@ -12,7 +12,9 @@
     },
     {
       "section": "Press",
-      "items": []
+      "items": [
+        { "name": "Press Review", "url": "https://indd.adobe.com/view/513b51ac-a2df-4511-b531-4f92da448968" }
+      ]
     }
   ],
   "extraSections": [
