@@ -63,6 +63,7 @@ html, body {
 .nav-sep { height: 1px; background: rgba(255,255,255,0.06); margin: 14px 0; transition: background .5s ease; }
 
 #sidebar-bottom { margin-top: auto; padding-top: 20px; }
+#copyright { font-size: 8px; font-family: var(--mono); letter-spacing: .03em; color: var(--text); opacity: 1; padding: 4px 0 10px; white-space: nowrap; line-height: 1.4; }
 .theme-toggle {
   background: none; border: none; color: var(--text-dim);
   cursor: pointer; font-size: 10px; padding: 4px 0; display: block;
@@ -349,6 +350,7 @@ body.light .view-toggle:hover, body.light .view-toggle.active, body.light .arrow
     <div id="nav-links"></div>
     <div id="sidebar-bottom">
       <div class="nav-sep"></div>
+      <div id="copyright"></div>
       <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" title="Toggle light/dark">dark</button>
     </div>
   </nav>
@@ -421,6 +423,7 @@ async function init() {
   ];
 
   document.getElementById('site-name').innerHTML = DATA.name.replace(/\n/g, '<br>');
+  document.getElementById('copyright').innerHTML = `<span style="font-family:sans-serif;">©</span> Robin Cerutti ${new Date().getFullYear()}`;
   renderNav();
 
   if (localStorage.getItem('rc-theme') !== 'dark') {
