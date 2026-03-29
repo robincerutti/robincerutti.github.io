@@ -99,6 +99,7 @@ function sanitizeFilenames(dir) {
 
 function scanDirectory() {
   const sections = [];
+  const groups = {};
 
   if (!fs.existsSync(PHOTOS_DIR)) {
     console.log('No photos/ directory found. Creating empty manifest.');
@@ -128,6 +129,8 @@ function scanDirectory() {
     if (subDirs.length > 0) {
       // This is a parent menu (like "projects")
       const groupName = formatLabel(topDir.name).toUpperCase();
+      const groupDesc = readDescription(topPath);
+      if (groupDesc) groups[groupName] = groupDesc;
 
       if (topPhotos.length > 0) {
         sections.push({
@@ -179,6 +182,7 @@ function scanDirectory() {
 
   const manifest = {
     sections,
+    groups,
     generated: new Date().toISOString()
   };
 

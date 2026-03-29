@@ -656,6 +656,21 @@ function renderNav() {
         head.onclick = () => {
           expandedGroup = isOpen ? null : s.group;
           if (isOpen && curSection && curSection.group === s.group) curSection = null;
+          if (!isOpen) {
+            if (!curSection || curSection.group !== s.group) {
+              curSection = null;
+              const groupDesc = (MANIFEST.groups || {})[s.group];
+              if (groupDesc) {
+                document.getElementById('view-text').classList.remove('visible');
+                document.getElementById('view-slide').classList.add('hidden');
+                document.getElementById('topbar').classList.add('hidden');
+                document.getElementById('nav-arrows').classList.add('hidden');
+                document.getElementById('view-grid').classList.add('visible');
+                document.getElementById('section-description').innerHTML = groupDesc.replace(/\n/g, '<br>');
+                document.getElementById('grid-wrap').innerHTML = '';
+              }
+            }
+          }
           renderNav();
           renderMain();
         };
