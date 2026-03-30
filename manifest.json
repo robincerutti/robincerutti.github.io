@@ -717,7 +717,43 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/010-mirror/16122018-051A4947-mirror-annie-base-17-12-2018-Modifier-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/16122018-051A4975-Modifier-Modifier-Modifier.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/010-mirror/20190318_18032019-051A5890.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/20230813-RC-18-IMG_7356.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/20230814-RC-19-IMG_7524-Enhanced-SR-2-Edit__72x48in.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/20240707_110151__IMG_4666.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/20240707_111654__IMG_4873_1.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/20240707_111912__IMG_4918.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/20240707_111929__IMG_4923.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/20240707_112419__IMG_4984-Enhanced-NR_1.jpg",
           "caption": ""
         },
         {
@@ -769,8 +805,44 @@
           "caption": "rc-mirror-aw-3700 2017"
         },
         {
+          "url": "photos/02-projects/010-mirror/rc-parallel--5559-Modifier.jpg",
+          "caption": "rc-parallel"
+        },
+        {
+          "url": "photos/02-projects/010-mirror/rc-parallel-gaele--4749-Modifier.jpg",
+          "caption": "rc-parallel-gaele"
+        },
+        {
           "url": "photos/02-projects/010-mirror/robincerutti - mirror --1.jpg",
           "caption": "robincerutti - mirror"
+        },
+        {
+          "url": "photos/02-projects/010-mirror/robincerutti-20230814_17h13_20230814-RC-19-IMG_7914-Enhanced-SR-Edit-Edit_1.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/sans titre-1743-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/sans titre-3881-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/source-10-16012019-051A0030-Modifier-Modifier-Modifier-1.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/source-10-16012019-051A0030-Modifier-Modifier-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/source-10-16012019-051A0030-Modifier-Modifier-Modifier_1.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/source-31-16122018-051A498-final.jpg",
+          "caption": ""
         }
       ]
     },
@@ -1179,6 +1251,14 @@
       ]
     },
     {
+      "id": "projects-icons",
+      "label": "icons",
+      "type": "photos",
+      "group": "PROJECTS",
+      "description": "",
+      "photos": []
+    },
+    {
       "id": "projects-inside escape",
       "label": "inside escape",
       "type": "photos",
@@ -1317,5 +1397,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-03-30T00:16:47.824Z"
+  "generated": "2026-03-30T01:50:37.158Z"
 }
