@@ -1256,7 +1256,28 @@
       "type": "photos",
       "group": "PROJECTS",
       "description": "",
-      "photos": []
+      "photos": [
+        {
+          "url": "photos/02-projects/080-icons/24082022-051A1211.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/080-icons/24082022-051A1216.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/080-icons/24082022-051A1219.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/080-icons/25082022-051A1280.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/080-icons/25082022-051A1288_1.jpg",
+          "caption": ""
+        }
+      ]
     },
     {
       "id": "projects-inside escape",
@@ -1397,5 +1418,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-03-30T01:50:37.158Z"
+  "generated": "2026-03-30T01:53:06.742Z"
 }
