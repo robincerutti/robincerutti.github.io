@@ -1126,35 +1126,6 @@
       ]
     },
     {
-      "id": "projects-wet exploration ( since 2010 )",
-      "label": "wet exploration ( since 2010 )",
-      "type": "photos",
-      "group": "PROJECTS",
-      "description": "",
-      "photos": [
-        {
-          "url": "photos/02-projects/070-wet exploration ( since 2010 )/20100711_rc-tremblant--9535.jpg",
-          "caption": "rc-tremblant"
-        },
-        {
-          "url": "photos/02-projects/070-wet exploration ( since 2010 )/20110615_rc-france-8481.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/070-wet exploration ( since 2010 )/20121210_sans titre-8420.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/070-wet exploration ( since 2010 )/20140717_rc-france-annecy--8423.jpg",
-          "caption": "rc-france-annecy"
-        },
-        {
-          "url": "photos/02-projects/070-wet exploration ( since 2010 )/20140729_rc-france-sud-2806.jpg",
-          "caption": ""
-        }
-      ]
-    },
-    {
       "id": "projects-parallels",
       "label": "parallels",
       "type": "photos",
@@ -1326,5 +1297,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-03-30T00:09:45.564Z"
+  "generated": "2026-03-30T00:13:16.600Z"
 }
