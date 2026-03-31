@@ -64,6 +64,10 @@
           "caption": ""
         },
         {
+          "url": "photos/01-portraits/08072018-051A4472-Modifier-Modifier.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/01-portraits/08690270-ed2c-4bc6-ba26-09803e4e8977_rw_1920.jpg",
           "caption": ""
         },
@@ -797,6 +801,10 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/010-mirror/rc-mirror-3808-base-Modifier-Modifier.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/010-mirror/rc-mirror-aw-3681-40x60-240dpi-pre-base-v5.jpg",
           "caption": ""
         },
@@ -826,6 +834,10 @@
         },
         {
           "url": "photos/02-projects/010-mirror/sans titre-3881-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/sans titre-6030-Modifier-Modifier-3.jpg",
           "caption": ""
         },
         {
@@ -1024,7 +1036,27 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/035-partsoflight/20160217_11_25_08@robincerutti_.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/035-partsoflight/23062018-051A4730-Modifier-Modifier.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/035-partsoflight/POL-GRANDE-40x60-300dpi.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/035-partsoflight/rc-parts-of-light-caleton(max-30x45).jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/035-partsoflight/rc-partsoflight-carry-le-rouet(max-30x45).jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/035-partsoflight/robincerutti-20120807_12h18_9691.jpg",
           "caption": ""
         }
       ]
@@ -1114,6 +1146,10 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/050-lookup/rc-dr-7433-Modifier-Modifier.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/050-lookup/robincerutti-lookup-madgalena-6386.jpg",
           "caption": ""
         },
@@ -1164,6 +1200,14 @@
         },
         {
           "url": "photos/02-projects/060-natural digital/robincerutti-20211211_16h44_.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/060-natural digital/robincerutti-20230410_16h14_.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/060-natural digital/robincerutti-20230410_16h24_.jpg",
           "caption": ""
         }
       ]
@@ -1414,5 +1458,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-03-31T00:16:32.098Z"
+  "generated": "2026-03-31T00:34:46.187Z"
 }
