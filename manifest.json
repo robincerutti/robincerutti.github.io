@@ -923,19 +923,39 @@
       "description": "“Parts of Life” is a photographic series I began in 2006, built from candid moments encountered in different places around the world. Rather than focusing on location alone, the work is driven by the emotional energy, tension, and quiet narratives carried by the people and situations within each frame. The series embraces imbalance, spontaneity, and the fragile intensity of moments that could never be staged, offering an intimate perspective on the human experience. Over time, it has become a visual diary of the stories and emotions I have crossed paths with, inviting viewers to find echoes of their own lives in these fleeting fragments.",
       "photos": [
         {
-          "url": "photos/02-projects/030-parts-of-life/10931ffa-d072-49d7-b65c-41a393db403e.jpg",
+          "url": "photos/02-projects/030-parts-of-life/01_05-Austria--.jpg",
+          "caption": "05-Austria"
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/01_06- Ramatuelle 2011--.jpg",
+          "caption": "06- Ramatuelle 2011"
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/01_08-Williamsburg 2007.jpg",
           "caption": ""
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/01_1-Annecy 2018--.jpg",
+          "caption": "1-Annecy 2018"
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/10-aw rio san juan 2017.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/10_02-madrid--.jpg",
+          "caption": "02-madrid"
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/10_03-Greenwich Village 2007--.jpg",
+          "caption": "03-Greenwich Village 2007"
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/15-Toronto--.jpg",
+          "caption": "Toronto"
         },
         {
           "url": "photos/02-projects/030-parts-of-life/19012019-051A6245.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/030-parts-of-life/20051031unknown_rc-photo--5090.jpg",
-          "caption": "20051031unknown_rc-photo"
-        },
-        {
-          "url": "photos/02-projects/030-parts-of-life/20070623_sans titre-2368-Modifier.jpg",
           "caption": ""
         },
         {
@@ -943,19 +963,7 @@
           "caption": ""
         },
         {
-          "url": "photos/02-projects/030-parts-of-life/20090823_rc-party--9594.jpg",
-          "caption": "rc-party"
-        },
-        {
-          "url": "photos/02-projects/030-parts-of-life/20100708_rc-montreal--8848-Modifier.jpg",
-          "caption": "rc-montreal"
-        },
-        {
           "url": "photos/02-projects/030-parts-of-life/20110614_tc-france-7650-Modifier.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/030-parts-of-life/20110619_rc-pol-8-11x14.jpg",
           "caption": ""
         },
         {
@@ -963,35 +971,23 @@
           "caption": "rc-france"
         },
         {
-          "url": "photos/02-projects/030-parts-of-life/20190318_18032019-051A5890.jpg",
-          "caption": ""
+          "url": "photos/02-projects/030-parts-of-life/22-pantone 2016--..jpg",
+          "caption": "pantone 2016"
         },
         {
           "url": "photos/02-projects/030-parts-of-life/24062018-051A5584-Modifier.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/030-parts-of-life/2457f554-ef79-4d95-b072-cd1b806c0846_rw_3840.jpg",
-          "caption": ""
+          "url": "photos/02-projects/030-parts-of-life/25-annecy 2009--.jpg",
+          "caption": "annecy 2009"
         },
         {
-          "url": "photos/02-projects/030-parts-of-life/3b1dbebb-75ae-4fd2-a5e2-1f5822e531fc_rw_3840.jpg",
-          "caption": ""
+          "url": "photos/02-projects/030-parts-of-life/26-esplanade 2010--.jpg",
+          "caption": "esplanade 2010"
         },
         {
           "url": "photos/02-projects/030-parts-of-life/3f028114-bc4b-44d7-902b-5bc19a9148eb_rw_3840.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/030-parts-of-life/6188a517-5bc4-46b4-9ed3-0964030e54dd_rw_3840.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/030-parts-of-life/61978bd1-b0c1-4c39-9341-2a2e8f2c7d9f_rw_1920.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/030-parts-of-life/7899_1920_5b068e.jpg",
           "caption": ""
         },
         {
@@ -1454,5 +1450,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-03-31T22:39:42.137Z"
+  "generated": "2026-04-01T14:59:22.872Z"
 }
