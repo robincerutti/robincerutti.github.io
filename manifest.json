@@ -931,16 +931,16 @@
           "caption": "05-Austria"
         },
         {
-          "url": "photos/02-projects/030-parts-of-life/01_06- Ramatuelle 2011--.jpg",
-          "caption": "06- Ramatuelle 2011"
+          "url": "photos/02-projects/030-parts-of-life/01_06-Grimaud 2011--0620_rc-france--2188-Modifier.jpg",
+          "caption": "06-Grimaud 2011"
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/01_07- Ramatuelle 2011--.jpg",
+          "caption": "07- Ramatuelle 2011"
         },
         {
           "url": "photos/02-projects/030-parts-of-life/01_08-Williamsburg 2007.jpg",
           "caption": ""
-        },
-        {
-          "url": "photos/02-projects/030-parts-of-life/01_09-Grimaud 2011--0620_rc-france--2188-Modifier.jpg",
-          "caption": "09-Grimaud 2011"
         },
         {
           "url": "photos/02-projects/030-parts-of-life/10-aw rio san juan 2017.jpg",
@@ -1450,5 +1450,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-04-01T15:02:41.745Z"
+  "generated": "2026-04-01T15:06:29.035Z"
 }

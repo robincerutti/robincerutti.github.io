@@ -712,6 +712,8 @@ function selectSection(id) {
   if (!s) return;
   curSection = s;
   curPhotoIdx = 0;
+  viewMode = 'grid';
+  fsScale = 1; fsPanX = 0; fsPanY = 0;
   if (s.group) expandedGroup = s.group;
   history.replaceState(null, '', '#' + id);
   renderNav();
