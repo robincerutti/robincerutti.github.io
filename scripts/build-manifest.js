@@ -53,7 +53,7 @@ function cleanCaption(filename) {
   // Remove extension
   let name = path.basename(filename, path.extname(filename));
   // Remove leading number prefix like "01-" or "01_"
-  name = name.replace(/^\d+[-_]\s*/, '');
+  name = name.replace(/^(?:\d+[-_]\s*)+/, '');
   // If "--" separator present: everything before it is the caption, rest is ignored
   if (name.includes('--')) {
     const caption = name.split('--')[0].trim();
