@@ -890,15 +890,11 @@
           "caption": "rc-presence-laurence-6437-base-dvpt"
         },
         {
-          "url": "photos/02-projects/020-presence/sans titre-0251-Modifier.jpg",
-          "caption": ""
+          "url": "photos/02-projects/020-presence/s-presence - elise -6332-- .jpg",
+          "caption": "s-presence - elise -6332"
         },
         {
           "url": "photos/02-projects/020-presence/sans titre-0969-Modifier-Modifier.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/020-presence/sans titre-0969-Modifier-Modifier_1.jpg",
           "caption": ""
         },
         {
@@ -922,16 +918,12 @@
           "caption": ""
         },
         {
-          "url": "photos/02-projects/020-presence/sans titre-6332-Modifier.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/020-presence/sans titre-6332-Modifier_1.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/02-projects/020-presence/sans titre-9696.jpg",
           "caption": ""
+        },
+        {
+          "url": "photos/02-projects/020-presence/z-presence-0251--Modifier.jpg",
+          "caption": "z-presence-0251"
         }
       ]
     },
@@ -1474,5 +1466,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-04-02T15:08:35.249Z"
+  "generated": "2026-04-02T15:13:08.842Z"
 }
