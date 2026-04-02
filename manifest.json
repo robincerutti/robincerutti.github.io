@@ -797,6 +797,14 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/010-mirror/mirror-mathilde-1.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/rc-dr--3136-Modifier.jpg",
+          "caption": "rc-dr"
+        },
+        {
           "url": "photos/02-projects/010-mirror/rc-mirror-3808-base-Modifier-Modifier.jpg",
           "caption": ""
         },
@@ -830,6 +838,14 @@
         },
         {
           "url": "photos/02-projects/010-mirror/sans titre-3881-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/sans titre-3881-Modifier_1.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/010-mirror/sans titre-4064-Modifier.jpg",
           "caption": ""
         },
         {
@@ -882,7 +898,15 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/020-presence/sans titre-0969-Modifier-Modifier_1.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/020-presence/sans titre-1135.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/020-presence/sans titre-1208-Modifier-2.jpg",
           "caption": ""
         },
         {
@@ -899,6 +923,10 @@
         },
         {
           "url": "photos/02-projects/020-presence/sans titre-6332-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/020-presence/sans titre-6332-Modifier_1.jpg",
           "caption": ""
         },
         {
@@ -1001,6 +1029,14 @@
         {
           "url": "photos/02-projects/030-parts-of-life/rc-dr-2014--7531.jpg",
           "caption": "rc-dr-2014"
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/rc-france--2518.jpg",
+          "caption": "rc-france"
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/rc-pol-alicante-7096-Modifier-2850863106-O.jpg",
+          "caption": ""
         }
       ]
     },
@@ -1034,6 +1070,10 @@
         {
           "url": "photos/02-projects/035-partsoflight/07-carry-le-rouet--(max-30x45).jpg",
           "caption": "carry-le-rouet"
+        },
+        {
+          "url": "photos/02-projects/035-partsoflight/rc-dr--5347.jpg",
+          "caption": "rc-dr"
         }
       ]
     },
@@ -1120,6 +1160,10 @@
         {
           "url": "photos/02-projects/050-lookup/rc-dr-7433-Modifier-Modifier.jpg",
           "caption": ""
+        },
+        {
+          "url": "photos/02-projects/050-lookup/rc-parallel-gaele--4643-Modifier-2.jpg",
+          "caption": "rc-parallel-gaele"
         },
         {
           "url": "photos/02-projects/050-lookup/robincerutti-lookup-madgalena-6386.jpg",
@@ -1430,5 +1474,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-04-02T04:13:33.906Z"
+  "generated": "2026-04-02T15:07:06.602Z"
 }
