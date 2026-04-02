@@ -915,6 +915,10 @@
       "description": "“Parts of Life” is a photographic series I began in 2006, built from candid moments encountered in different places around the world. Rather than focusing on location alone, the work is driven by the emotional energy, tension, and quiet narratives carried by the people and situations within each frame. The series embraces imbalance, spontaneity, and the fragile intensity of moments that could never be staged, offering an intimate perspective on the human experience. Over time, it has become a visual diary of the stories and emotions I have crossed paths with, inviting viewers to find echoes of their own lives in these fleeting fragments.",
       "photos": [
         {
+          "url": "photos/02-projects/030-parts-of-life/-st tropez 2014--9303ea43-52c9-4837-909c-da1e3260e25a_rw_3840.jpg",
+          "caption": "-st tropez 2014"
+        },
+        {
           "url": "photos/02-projects/030-parts-of-life/01_01-Annecy 2018--.jpg",
           "caption": "Annecy 2018"
         },
@@ -935,6 +939,10 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/030-parts-of-life/02- sparkling 2011--20110614_tc-france-7650-Modifier.jpg",
+          "caption": "sparkling 2011"
+        },
+        {
           "url": "photos/02-projects/030-parts-of-life/10-aw rio san juan 2017.jpg",
           "caption": ""
         },
@@ -947,20 +955,24 @@
           "caption": "Greenwich Village 2007"
         },
         {
+          "url": "photos/02-projects/030-parts-of-life/15- rsj 2019--19012019-051A6245.jpg",
+          "caption": "rsj 2019"
+        },
+        {
           "url": "photos/02-projects/030-parts-of-life/15-Toronto--.jpg",
           "caption": "Toronto"
         },
         {
-          "url": "photos/02-projects/030-parts-of-life/19012019-051A6245.jpg",
-          "caption": ""
+          "url": "photos/02-projects/030-parts-of-life/20- sandbanks 2016--robincerutti - partsoflife - sandbanks.jpg",
+          "caption": "sandbanks 2016"
         },
         {
-          "url": "photos/02-projects/030-parts-of-life/20070929_sans titre-3359.jpg",
-          "caption": ""
+          "url": "photos/02-projects/030-parts-of-life/20-annecy 2014--c7e1b50d-0e7d-4f22-a5cb-bceba084c423_rw_3840.jpg",
+          "caption": "annecy 2014"
         },
         {
-          "url": "photos/02-projects/030-parts-of-life/20110614_tc-france-7650-Modifier.jpg",
-          "caption": ""
+          "url": "photos/02-projects/030-parts-of-life/20070929-morcenx 2007--_sans titre-3359.jpg",
+          "caption": "morcenx 2007"
         },
         {
           "url": "photos/02-projects/030-parts-of-life/22-pantone 2016--..jpg",
@@ -979,32 +991,16 @@
           "caption": "esplanade 2010"
         },
         {
+          "url": "photos/02-projects/030-parts-of-life/35-nyc 2012--cdc53da2-ded2-4af1-a270-62d73d5252d9_rw_1920.jpg",
+          "caption": "nyc 2012"
+        },
+        {
           "url": "photos/02-projects/030-parts-of-life/3f028114-bc4b-44d7-902b-5bc19a9148eb_rw_3840.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/030-parts-of-life/9303ea43-52c9-4837-909c-da1e3260e25a_rw_3840.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/030-parts-of-life/IMG_4136.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/030-parts-of-life/c7e1b50d-0e7d-4f22-a5cb-bceba084c423_rw_3840.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/02-projects/030-parts-of-life/cdc53da2-ded2-4af1-a270-62d73d5252d9_rw_1920.jpg",
           "caption": ""
         },
         {
           "url": "photos/02-projects/030-parts-of-life/rc-dr-2014--7531.jpg",
           "caption": "rc-dr-2014"
-        },
-        {
-          "url": "photos/02-projects/030-parts-of-life/robincerutti - partsoflife - sandbanks.jpg",
-          "caption": ""
         }
       ]
     },
@@ -1434,5 +1430,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-04-02T03:54:57.870Z"
+  "generated": "2026-04-02T04:10:10.799Z"
 }
