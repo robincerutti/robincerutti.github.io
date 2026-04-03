@@ -1,6 +1,96 @@
 {
   "sections": [
     {
+      "id": "_hidden-marseille",
+      "label": "marseille",
+      "type": "photos",
+      "group": " HIDDEN",
+      "description": "",
+      "photos": [
+        {
+          "url": "photos/_hidden/marseille/01-endoume 2011--f640ed0d-0df7-405e-a3bb-ca892007bafb_rw_1920.jpg",
+          "caption": "endoume 2011"
+        },
+        {
+          "url": "photos/_hidden/marseille/20110617_rc-france-0008.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20110617_rc-france-0010-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20110617_rc-france-9786.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20110617_rc-france-9978.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20140811_rc-france--3236.jpg",
+          "caption": "rc-france"
+        },
+        {
+          "url": "photos/_hidden/marseille/20140811_rc-france--3341.jpg",
+          "caption": "rc-france"
+        },
+        {
+          "url": "photos/_hidden/marseille/20180625_25062018-051A6027.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20180625_25062018-051A6108.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20180625_25062018-051A6325.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20180626_26062018-051A6437.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20180626_26062018-051A7319.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20180628_28062018-051A8026-Modifier.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20220910robin cerutti_051A3204.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20220910robin cerutti_051A3224.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20220910robin cerutti_051A3241.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20220910robin cerutti_051A3389.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20220910robin cerutti_051A3480.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20220910robin cerutti_051A3635.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/_hidden/marseille/20221004robin cerutti_051A5444.jpg",
+          "caption": ""
+        }
+      ],
+      "hidden": true
+    },
+    {
       "id": "portraits",
       "label": "PORTRAITS",
       "type": "photos",
@@ -1248,6 +1338,10 @@
           "caption": "toronto 2013"
         },
         {
+          "url": "photos/02-projects/070-wet exploration/04-wet exploration - toronto -2803--Modifier.jpeg.jpg",
+          "caption": "wet exploration - toronto -2803"
+        },
+        {
           "url": "photos/02-projects/070-wet exploration/05-alicante 2012--20121210_sans titre-8420.jpg",
           "caption": "alicante 2012"
         },
@@ -1474,5 +1568,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-04-03T14:59:41.368Z"
+  "generated": "2026-04-03T15:57:27.132Z"
 }

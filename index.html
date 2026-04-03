@@ -658,6 +658,7 @@ function renderNav() {
   const seenGroups = new Set();
 
   allSections.forEach(s => {
+    if (s.hidden) return;
     if (!s.group) {
       const a = document.createElement('a');
       a.className = 'nav-item';

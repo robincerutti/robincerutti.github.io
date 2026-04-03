@@ -120,6 +120,8 @@ function scanDirectory() {
     .filter(e => e.isDirectory() && !e.name.startsWith('.'))
     .sort((a, b) => a.name.localeCompare(b.name));
 
+  // Folders starting with _ are hidden from nav but still accessible via URL hash
+
   for (const topDir of topEntries) {
     const topPath = path.join(PHOTOS_DIR, topDir.name);
     const subDirs = fs.readdirSync(topPath, { withFileTypes: true })
@@ -132,6 +134,7 @@ function scanDirectory() {
     topPhotos.forEach(f => resizeIfNeeded(path.join(topPath, f)));
 
     const topId = makeId(topDir.name);
+    const isHidden = topDir.name.startsWith('_');
 
     if (subDirs.length > 0) {
       // This is a parent menu (like "projects")
@@ -140,7 +143,7 @@ function scanDirectory() {
       if (groupDesc) groups[groupName] = groupDesc;
 
       if (topPhotos.length > 0) {
-        sections.push({
+        const sec = {
           id: topId,
           label: formatLabel(topDir.name),
           type: 'photos',
@@ -150,7 +153,9 @@ function scanDirectory() {
             url: `photos/${topDir.name}/${f}`,
             caption: cleanCaption(f)
           }))
-        });
+        };
+        if (isHidden) sec.hidden = true;
+        sections.push(sec);
       }
 
       for (const subDir of subDirs) {
@@ -160,7 +165,7 @@ function scanDirectory() {
           .sort();
         subPhotos.forEach(f => resizeIfNeeded(path.join(subPath, f)));
 
-        sections.push({
+        const sec = {
           id: `${topId}-${makeId(subDir.name)}`,
           label: formatLabel(subDir.name),
           type: 'photos',
@@ -170,10 +175,12 @@ function scanDirectory() {
             url: `photos/${topDir.name}/${subDir.name}/${f}`,
             caption: cleanCaption(f)
           }))
-        });
+        };
+        if (isHidden) sec.hidden = true;
+        sections.push(sec);
       }
     } else {
-      sections.push({
+      const sec = {
         id: topId,
         label: formatLabel(topDir.name).toUpperCase(),
         type: 'photos',
@@ -183,7 +190,9 @@ function scanDirectory() {
           url: `photos/${topDir.name}/${f}`,
           caption: cleanCaption(f)
         }))
-      });
+      };
+      if (isHidden) sec.hidden = true;
+      sections.push(sec);
     }
   }
 
