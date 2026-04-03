@@ -120,8 +120,6 @@ function scanDirectory() {
     .filter(e => e.isDirectory() && !e.name.startsWith('.'))
     .sort((a, b) => a.name.localeCompare(b.name));
 
-  // Folders starting with _ are hidden from nav but still accessible via URL hash
-
   for (const topDir of topEntries) {
     const topPath = path.join(PHOTOS_DIR, topDir.name);
     const subDirs = fs.readdirSync(topPath, { withFileTypes: true })
@@ -134,7 +132,7 @@ function scanDirectory() {
     topPhotos.forEach(f => resizeIfNeeded(path.join(topPath, f)));
 
     const topId = makeId(topDir.name);
-    const isHidden = topDir.name.startsWith('_');
+    const isHidden = topDir.name === 'hidden';
 
     if (subDirs.length > 0) {
       // This is a parent menu (like "projects")
