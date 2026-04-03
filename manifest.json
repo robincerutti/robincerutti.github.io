@@ -670,6 +670,10 @@
         {
           "url": "photos/01-portraits/fe9bc242-a00f-4743-bc9e-eeb3249f180e_rw_3840.jpg",
           "caption": ""
+        },
+        {
+          "url": "photos/01-portraits/rc-toronto--1091.jpg",
+          "caption": "rc-toronto"
         }
       ]
     },
@@ -1412,6 +1416,10 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/090-PLACES/20071011-chamonix 2007--_sans titre-5274.jpg",
+          "caption": "chamonix 2007"
+        },
+        {
           "url": "photos/02-projects/090-PLACES/20081001_rc-places-2-24x36.jpg",
           "caption": ""
         },
@@ -1466,5 +1474,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-04-02T15:13:08.842Z"
+  "generated": "2026-04-03T14:59:41.368Z"
 }
