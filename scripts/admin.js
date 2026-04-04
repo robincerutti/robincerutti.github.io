@@ -47,34 +47,36 @@ function applyOrder(absFolder, orderedNames) {
   return getPhotos(absFolder);
 }
 
-// Extrait le titre éditable : partie entre le premier - et --
-// Ex: 01_portrait-jane--id.jpg → "portrait-jane"
-//     01_20110617_img.jpg      → "" (pas de tiret ni de --)
+// Extrait le titre éditable : ce qui est entre le premier - et --
+// Ex: 01_colette france-colette--2007.jpg → "colette"
+//     01_portrait-jane--id.jpg            → "jane"
+//     01_img.jpg (pas de - ni --)         → ""
 function extractTitle(name) {
   const ext = path.extname(name);
   const base = name.slice(0, -ext.length).replace(/^(\d{1,3}[-_])+/, '');
   const dashIdx = base.indexOf('-');
   if (dashIdx === -1) return '';
-  const part = base.slice(dashIdx + 1); // après le premier -
+  const part = base.slice(dashIdx + 1);
   return part.includes('--') ? part.split('--')[0] : part;
 }
 
-// Reconstruit le nom avec un nouveau titre
+// Reconstruit le nom avec un nouveau titre entre - et --
+// Si pas de - dans le nom, ajoute -titre-- à la fin du nom de base
 function rebuildName(name, newTitle) {
   const ext = path.extname(name);
   const base = name.slice(0, -ext.length);
   const prefixMatch = base.match(/^(\d{1,3}[-_])+/);
   const prefix = prefixMatch ? prefixMatch[0] : '';
-  const rest = base.slice(prefix.length); // ex: "portrait-jane--id"
+  const rest = base.slice(prefix.length);
   const dashIdx = rest.indexOf('-');
   if (dashIdx === -1) {
-    // Pas de tiret : on ajoute -titre si newTitle non vide
-    return prefix + (newTitle ? '-' + newTitle : rest) + ext;
+    // Pas de tiret : ajoute -titre-- après le nom de base
+    return prefix + rest + '-' + newTitle + '--' + ext;
   }
-  const beforeDash = rest.slice(0, dashIdx); // ex: "portrait"
-  const afterTitle = rest.slice(dashIdx + 1); // ex: "jane--id"
-  const suffix = afterTitle.includes('--') ? '--' + afterTitle.split('--').slice(1).join('--') : '';
-  return prefix + beforeDash + '-' + newTitle + suffix + ext;
+  const beforeDash = rest.slice(0, dashIdx);
+  const afterTitle = rest.slice(dashIdx + 1);
+  const meta = afterTitle.includes('--') ? afterTitle.split('--').slice(1).join('--') : '';
+  return prefix + beforeDash + '-' + newTitle + '--' + meta + ext;
 }
 
 function moveToTrash(absFolder, name) {
@@ -183,13 +185,13 @@ function photoUrl(name) {
 }
 
 function extractTitle(name) {
-  var ext = name.lastIndexOf('.');
-  var base = ext !== -1 ? name.slice(0, ext) : name;
+  var dotIdx = name.lastIndexOf('.');
+  var base = dotIdx !== -1 ? name.slice(0, dotIdx) : name;
   base = base.replace(/^(\\d{1,3}[-_])+/, '');
   var dashIdx = base.indexOf('-');
   if (dashIdx === -1) return '';
   var part = base.slice(dashIdx + 1);
-  return part.includes('--') ? part.split('--')[0] : part;
+  return part.indexOf('--') !== -1 ? part.split('--')[0] : part;
 }
 
 function msg(txt, col) {
