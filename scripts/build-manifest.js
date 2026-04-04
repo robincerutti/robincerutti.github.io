@@ -54,12 +54,15 @@ function cleanCaption(filename) {
   let name = path.basename(filename, path.extname(filename));
   // Remove leading number prefix like "01-" or "01_"
   name = name.replace(/^(?:\d+[-_]\s*)+/, '');
-  // If "--" separator present: everything before it is the caption, rest is ignored
+  // Caption = portion between first "-" and "--"
+  // Ex: "colette france-titre-serie-annee--2007" → "titre-serie-annee"
   if (name.includes('--')) {
-    const caption = name.split('--')[0].trim();
-    return caption;
+    const beforeDD = name.split('--')[0];
+    const dashIdx = beforeDD.indexOf('-');
+    if (dashIdx === -1) return beforeDD.trim();
+    return beforeDD.slice(dashIdx + 1).trim();
   }
-  // No separator: return empty string (no caption displayed)
+  // No "--": no caption displayed
   return '';
 }
 
