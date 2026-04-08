@@ -1037,7 +1037,7 @@
       "label": "partsoflight",
       "type": "photos",
       "group": "PROJECTS",
-      "description": "",
+      "description": "Parts of Light is a photographic series that explores the natural properties of light through abstract compositions. The series focuses on the observation of light in nature and its interaction with various elements, such as water. These photographs are taken mostly underwater, where the main element is light and the various effects of diffusion and deconstruction it creates. The series is often highly poetic and evokes emotional responses from the viewer. The goal is to capture the essence of light and its ability to transform the world around us, creating a visual journey that is both mesmerizing and thought-provoking.",
       "photos": [
         {
           "url": "photos/02-projects/035-partsoflight/01-GRANDE 2018--POL-GRANDE-40x60-300dpi.jpg",
@@ -1560,5 +1560,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-04-06T20:34:14.738Z"
+  "generated": "2026-04-08T16:10:29.131Z"
 }
