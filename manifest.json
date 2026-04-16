@@ -108,10 +108,6 @@
           "caption": ""
         },
         {
-          "url": "photos/01-portraits/115_8f09ea3f-f230-489a-b347-deb403787681_rw_1920.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/01-portraits/116_903f5b62-6cb7-4bff-a08d-09513064995a_rw_3840.jpg",
           "caption": ""
         },
@@ -269,10 +265,6 @@
         },
         {
           "url": "photos/01-portraits/151_d5b9ab44-eb7d-4e51-8475-44d478a7b50e_rw_3840.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/01-portraits/152_d5c286e6-ffec-45c7-a55f-f210bf8cbbc2_rw_3840.jpg",
           "caption": ""
         },
         {
@@ -1467,6 +1459,15 @@
       ]
     },
     {
+      "id": "hidden-fragments",
+      "label": "fragments",
+      "type": "photos",
+      "group": "HIDDEN",
+      "description": "A space for works I share before fully knowing what they are becoming. Some emerge from instinct, some from lived experience, some from experimentation, and some simply from the need to create before the meaning is clear. Over time, certain pieces connect to larger bodies of work, while others remain open. I keep them here as part of an ongoing process.",
+      "photos": [],
+      "hidden": true
+    },
+    {
       "id": "hidden-marseille",
       "label": "marseille",
       "type": "photos",
@@ -1560,5 +1561,5 @@
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-04-08T16:10:29.131Z"
+  "generated": "2026-04-16T17:46:34.115Z"
 }
