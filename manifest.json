@@ -1552,10 +1552,48 @@
         }
       ],
       "hidden": true
+    },
+    {
+      "id": "hidden-Patrice Michaud",
+      "label": "Patrice Michaud",
+      "type": "photos",
+      "group": "HIDDEN",
+      "description": "Patrice Michaud \n\nhe artistic direction and graphic design for Patrice Michaud's album Grand voyage désorganisé (2021) were created by Éloïse Deschamps.\nPrimary Creative Team\nThe visual universe of this project is the result of a collaboration between several creators:\nArt Direction and Graphic Design: Éloïse Deschamps\nPhotography: Robin Cerutti\nStyling: Mélanie Brisson\nMakeup and Hair: Arianne Tremblay\nVisual Concepts and Influences\nThe aesthetics of the album and subsequent tour revolve around spatial and nostalgic themes:\nSpace Inspiration: The concept is deeply tied to the 1977 launch of the Voyager I and II probes, viewed as humanity's \"message in a bottle\" to the universe.\nRelationship with Time: The visuals evoke a quest for openness toward others and an exploration of one's \"inner country,\" blending happy nostalgia with a journey into the unknown.\nScenic Evolution: For the televised special Dernière escale d’un grand voyage désorganisé (2025), art director Marcella Grimaux pushed the aesthetic toward a colorful universe influenced by the 1970s through the 1990s, incorporating funk and rock vibes.",
+      "photos": [
+        {
+          "url": "photos/hidden/Patrice Michaud/20062021-051A2874 (1)_ELO_CMYK_FINAL_2.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/hidden/Patrice Michaud/20062021-051A2874_COVER_RGB_FINAL copy.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/hidden/Patrice Michaud/20062021-051A3048-Vousetesici_FINAL+SATURE.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/hidden/Patrice Michaud/20062021-051A3229-v5_CMYK_FINAL.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/hidden/Patrice Michaud/20062021-051A3854_CMYK_FINAL.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/hidden/Patrice Michaud/GVD_SINGLE_vousetesici_1000x1000-620x620.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/hidden/Patrice Michaud/Pochette_Grand_voyage_desorganise_Patrice_Michaud_avec_texte-min-620x620.jpg",
+          "caption": ""
+        }
+      ],
+      "hidden": true
     }
   ],
   "groups": {
     "COMMISSIONED": "TEXT FOR COMMISSIONED A ECRIRE"
   },
-  "generated": "2026-04-22T14:20:25.194Z"
+  "generated": "2026-04-22T14:42:34.422Z"
 }
