@@ -425,12 +425,14 @@ function isMobile() { return window.innerWidth <= 640; }
 // ════════════════════════════════════════════════════
 async function init() {
   try {
-    const [dataRes, manifestRes] = await Promise.all([
+    const [dataRes, manifestRes, infoRes] = await Promise.all([
       fetch('data.json'),
-      fetch('manifest.json')
+      fetch('manifest.json'),
+      fetch('info.txt')
     ]);
     DATA = await dataRes.json();
     MANIFEST = await manifestRes.json();
+    if (infoRes.ok) DATA.infoText = (await infoRes.text()).replace(/\n/g, '<br>');
   } catch (e) {
     console.error('Failed to load data:', e);
     document.getElementById('loading').textContent = 'erreur de chargement';
