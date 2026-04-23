@@ -163,6 +163,20 @@ html, body {
   gap: 3px;
 }
 
+#grid-wrap.rich { display: block; }
+.rich-text-block {
+  font-size: 10px; color: var(--text-active);
+  letter-spacing: .06em; line-height: 1.7;
+  max-width: 480px; text-align: justify;
+  margin: 20px 0 12px 0;
+}
+.rich-gallery-label {
+  font-size: 9px; color: var(--text-dim);
+  letter-spacing: .12em; text-transform: uppercase;
+  margin: 20px 0 6px 0;
+}
+#grid-wrap.rich .grid-wrap { margin-bottom: 4px; }
+
 .grid-thumb {
   aspect-ratio: 1; overflow: hidden; cursor: pointer;
   position: relative; background: rgba(255,255,255,0.04);
@@ -399,6 +413,7 @@ let DATA = null;
 let MANIFEST = null;
 let allSections = [];
 let curSection = null;
+let curPhotos = [];
 let curPhotoIdx = 0;
 let viewMode = 'slide';
 let expandedGroup = null;
@@ -479,7 +494,7 @@ function resetZoom(slot, animate) {
 
 function openMobileFS(idx) {
   curPhotoIdx = idx;
-  const photos = curSection ? curSection.photos || [] : [];
+  const photos = curPhotos;
   const p = photos[idx];
   if (!p) return;
   fsActive = 'a';
@@ -636,7 +651,7 @@ fsEl.addEventListener('touchend', e => {
   fsSlot(nxt).style.transform = 'translateX(0)';
 
   setTimeout(() => {
-    const photos = curSection ? curSection.photos || [] : [];
+    const photos = curPhotos;
     curPhotoIdx = (curPhotoIdx + dir + photos.length) % photos.length;
     document.getElementById('mobile-fs-counter').textContent = `${curPhotoIdx + 1} / ${photos.length}`;
     document.getElementById('mobile-fs-caption').textContent = photos[curPhotoIdx].caption || '';
@@ -713,6 +728,7 @@ function selectSection(id) {
   if (!s) return;
   curSection = s;
   curPhotoIdx = 0;
+  curPhotos = s.photos || (s.blocks ? (s.blocks.find(b => b.type === 'gallery') || {photos:[]}).photos : []);
   viewMode = 'grid';
   fsScale = 1; fsPanX = 0; fsPanY = 0;
   if (s.group) expandedGroup = s.group;
@@ -743,11 +759,11 @@ function renderMain() {
   if (s.type === 'photos') {
     document.getElementById('view-text').classList.remove('visible');
     if (isMobile()) {
-      showMobileFeed();
+      s.blocks ? showRichSection() : showMobileFeed();
     } else {
       document.getElementById('topbar').classList.remove('hidden');
       document.getElementById('nav-arrows').classList.remove('hidden');
-      if (viewMode === 'grid') showGrid();
+      if (viewMode === 'grid') { s.blocks ? showRichSection() : showGrid(); }
       else showSlide();
     }
   } else {
@@ -757,6 +773,45 @@ function renderMain() {
     document.getElementById('topbar').classList.add('hidden');
     renderTextPage(s);
   }
+}
+
+// ════════════════════════════════════════════════════
+//  RICH SECTION (blocks: text + galleries)
+// ════════════════════════════════════════════════════
+function showRichSection() {
+  document.getElementById('view-slide').classList.add('hidden');
+  const vg = document.getElementById('view-grid');
+  vg.classList.add('visible');
+  document.getElementById('section-description').innerHTML = '';
+  const wrap = document.getElementById('grid-wrap');
+  wrap.innerHTML = '';
+  wrap.classList.add('rich');
+
+  (curSection.blocks || []).forEach(block => {
+    if (block.type === 'text') {
+      const div = document.createElement('div');
+      div.className = 'rich-text-block';
+      div.innerHTML = esc(block.content).replace(/\n/g, '<br>');
+      wrap.appendChild(div);
+    } else if (block.type === 'gallery') {
+      const grid = document.createElement('div');
+      grid.className = 'grid-wrap';
+      block.photos.forEach((p, i) => {
+        const div = document.createElement('div');
+        div.className = 'grid-thumb';
+        const cap = p.caption ? `<div class="grid-thumb-caption">${esc(p.caption)}</div>` : '';
+        div.innerHTML = `<img src="${esc(p.url)}" alt="${esc(p.caption)}" loading="lazy">${cap}`;
+        div.onclick = () => {
+          curPhotos = block.photos;
+          curPhotoIdx = i;
+          if (isMobile()) openMobileFS(i);
+          else setViewMode('slide');
+        };
+        grid.appendChild(div);
+      });
+      wrap.appendChild(grid);
+    }
+  });
 }
 
 // ════════════════════════════════════════════════════
@@ -770,7 +825,8 @@ function showMobileFeed() {
   const wrap = document.getElementById('grid-wrap');
   wrap.innerHTML = '';
 
-  const photos = curSection.photos || [];
+  curPhotos = curSection.photos || [];
+  const photos = curPhotos;
   if (photos.length === 0) {
     wrap.innerHTML = '<div style="padding:40px;font-size:10px;color:var(--text-dim);letter-spacing:.08em;text-transform:uppercase">aucune image</div>';
     return;
@@ -796,6 +852,7 @@ function showGrid() {
   document.getElementById('section-description').innerHTML = (curSection.description || '').replace(/\n/g, '<br>');
   const wrap = document.getElementById('grid-wrap');
   wrap.innerHTML = '';
+  wrap.classList.remove('rich');
 
   const photos = curSection.photos || [];
   if (photos.length === 0) {
@@ -821,7 +878,7 @@ function showSlide() {
   const vs = document.getElementById('view-slide');
   vs.classList.remove('hidden');
 
-  const photos = curSection ? curSection.photos || [] : [];
+  const photos = curPhotos;
   const p = photos[curPhotoIdx];
 
   const img = document.getElementById('slide-img');
@@ -848,22 +905,20 @@ function showSlide() {
 }
 
 function updateCounter() {
-  const photos = curSection ? curSection.photos || [] : [];
-  document.getElementById('counter').textContent = `${curPhotoIdx + 1} / ${photos.length || 1}`;
+  document.getElementById('counter').textContent = `${curPhotoIdx + 1} / ${curPhotos.length || 1}`;
 }
 
 function setViewMode(mode) {
   viewMode = mode;
   if (!curSection || curSection.type !== 'photos') return;
-  if (mode === 'grid') showGrid();
+  if (mode === 'grid') { curSection.blocks ? showRichSection() : showGrid(); }
   else showSlide();
 }
 
 function navigate(dir) {
   if (!curSection) return;
-  const photos = curSection.photos || [];
-  if (photos.length === 0) return;
-  curPhotoIdx = (curPhotoIdx + dir + photos.length) % photos.length;
+  if (curPhotos.length === 0) return;
+  curPhotoIdx = (curPhotoIdx + dir + curPhotos.length) % curPhotos.length;
   if (viewMode === 'slide') showSlide();
   else {
     document.querySelectorAll('.grid-thumb').forEach((el, i) => {

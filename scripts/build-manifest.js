@@ -86,6 +86,48 @@ function readDescription(folderPath) {
   return '';
 }
 
+function readAllDescriptions(folderPath) {
+  const descs = {};
+  for (const f of fs.readdirSync(folderPath)) {
+    const m = f.match(/^_descriptions?(\d+)\.txt$/i);
+    if (m) descs[parseInt(m[1])] = fs.readFileSync(path.join(folderPath, f), 'utf8').trim();
+  }
+  return descs;
+}
+
+function buildSectionContent(sectionPath, urlBase) {
+  const descs = readAllDescriptions(sectionPath);
+  const extraGalleries = fs.readdirSync(sectionPath, { withFileTypes: true })
+    .filter(e => e.isDirectory() && !e.name.startsWith('.') && !e.name.startsWith('_'))
+    .sort((a, b) => a.name.localeCompare(b.name));
+  const rootPhotos = fs.readdirSync(sectionPath).filter(f => isImage(f)).sort();
+  rootPhotos.forEach(f => resizeIfNeeded(path.join(sectionPath, f)));
+
+  const isRich = Object.keys(descs).length > 1 || extraGalleries.length > 0;
+  if (!isRich) {
+    return {
+      description: descs[1] || '',
+      photos: rootPhotos.map(f => ({ url: `${urlBase}/${f}`, caption: cleanCaption(f) }))
+    };
+  }
+
+  const blocks = [];
+  if (descs[1]) blocks.push({ type: 'text', content: descs[1] });
+  if (rootPhotos.length > 0) {
+    blocks.push({ type: 'gallery', label: '', photos: rootPhotos.map(f => ({ url: `${urlBase}/${f}`, caption: cleanCaption(f) })) });
+  }
+  extraGalleries.forEach((gDir, i) => {
+    if (descs[i + 2]) blocks.push({ type: 'text', content: descs[i + 2] });
+    const gPath = path.join(sectionPath, gDir.name);
+    const gPhotos = fs.readdirSync(gPath).filter(f => isImage(f)).sort();
+    gPhotos.forEach(f => resizeIfNeeded(path.join(gPath, f)));
+    if (gPhotos.length > 0) {
+      blocks.push({ type: 'gallery', label: formatLabel(gDir.name), photos: gPhotos.map(f => ({ url: `${urlBase}/${gDir.name}/${f}`, caption: cleanCaption(f) })) });
+    }
+  });
+  return { blocks };
+}
+
 function sanitizeName(name) {
   // Decompose accented chars (é → e + combining accent) then strip combining marks
   return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -161,36 +203,25 @@ function scanDirectory() {
 
       for (const subDir of subDirs) {
         const subPath = path.join(topPath, subDir.name);
-        const subPhotos = fs.readdirSync(subPath)
-          .filter(f => isImage(f))
-          .sort();
-        subPhotos.forEach(f => resizeIfNeeded(path.join(subPath, f)));
-
+        const content = buildSectionContent(subPath, `photos/${topDir.name}/${subDir.name}`);
         const sec = {
           id: `${topId}-${makeId(subDir.name)}`,
           label: formatLabel(subDir.name),
           type: 'photos',
           group: groupName,
-          description: readDescription(subPath),
-          photos: subPhotos.map(f => ({
-            url: `photos/${topDir.name}/${subDir.name}/${f}`,
-            caption: cleanCaption(f)
-          }))
+          ...content
         };
         if (isHidden) sec.hidden = true;
         sections.push(sec);
       }
     } else {
+      const content = buildSectionContent(topPath, `photos/${topDir.name}`);
       const sec = {
         id: topId,
         label: formatLabel(topDir.name).toUpperCase(),
         type: 'photos',
         group: '',
-        description: readDescription(topPath),
-        photos: topPhotos.map(f => ({
-          url: `photos/${topDir.name}/${f}`,
-          caption: cleanCaption(f)
-        }))
+        ...content
       };
       if (isHidden) sec.hidden = true;
       sections.push(sec);
@@ -205,7 +236,10 @@ function scanDirectory() {
 
   fs.writeFileSync(OUTPUT, JSON.stringify(manifest, null, 2));
   
-  const totalPhotos = sections.reduce((sum, s) => sum + s.photos.length, 0);
+  const totalPhotos = sections.reduce((sum, s) => {
+    if (s.blocks) return sum + s.blocks.filter(b => b.type === 'gallery').reduce((a, b) => a + b.photos.length, 0);
+    return sum + (s.photos || []).length;
+  }, 0);
   console.log(`✓ manifest.json generated`);
   console.log(`  ${sections.length} sections, ${totalPhotos} photos`);
 }
