@@ -79,7 +79,7 @@ function makeId(folderName) {
 }
 
 function readDescription(folderPath) {
-  for (const name of ['_description.txt', '_descriptions.txt']) {
+  for (const name of ['_descriptions1.txt', '_description1.txt', '_description.txt', '_descriptions.txt']) {
     const file = path.join(folderPath, name);
     if (fs.existsSync(file)) return fs.readFileSync(file, 'utf8').trim();
   }
