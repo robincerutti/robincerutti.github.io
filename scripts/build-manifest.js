@@ -95,6 +95,35 @@ function readAllDescriptions(folderPath) {
   return descs;
 }
 
+function toEmbedUrl(url) {
+  let m = url.match(/youtube\.com\/watch\?.*v=([a-zA-Z0-9_-]+)/);
+  if (m) return `https://www.youtube.com/embed/${m[1]}`;
+  m = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+  if (m) return `https://www.youtube.com/embed/${m[1]}`;
+  m = url.match(/vimeo\.com\/(\d+)/);
+  if (m) return `https://player.vimeo.com/video/${m[1]}`;
+  return url;
+}
+
+function parseDescriptionBlocks(text) {
+  const blocks = [];
+  let textAcc = [];
+  for (const line of text.split('\n')) {
+    const m = line.match(/^\[video:\s*(https?:\/\/[^\]]+)\]\s*$/i);
+    if (m) {
+      const t = textAcc.join('\n').trim();
+      if (t) blocks.push({ type: 'text', content: t });
+      textAcc = [];
+      blocks.push({ type: 'video', url: toEmbedUrl(m[1].trim()) });
+    } else {
+      textAcc.push(line);
+    }
+  }
+  const t = textAcc.join('\n').trim();
+  if (t) blocks.push({ type: 'text', content: t });
+  return blocks;
+}
+
 function buildSectionContent(sectionPath, urlBase) {
   const descs = readAllDescriptions(sectionPath);
   const extraGalleries = fs.readdirSync(sectionPath, { withFileTypes: true })
@@ -103,7 +132,8 @@ function buildSectionContent(sectionPath, urlBase) {
   const rootPhotos = fs.readdirSync(sectionPath).filter(f => isImage(f)).sort();
   rootPhotos.forEach(f => resizeIfNeeded(path.join(sectionPath, f)));
 
-  const isRich = Object.keys(descs).length > 1 || extraGalleries.length > 0;
+  const hasVideo = Object.values(descs).some(d => /\[video:/i.test(d));
+  const isRich = Object.keys(descs).length > 1 || extraGalleries.length > 0 || hasVideo;
   if (!isRich) {
     return {
       description: descs[1] || '',
@@ -112,12 +142,12 @@ function buildSectionContent(sectionPath, urlBase) {
   }
 
   const blocks = [];
-  if (descs[1]) blocks.push({ type: 'text', content: descs[1] });
+  if (descs[1]) parseDescriptionBlocks(descs[1]).forEach(b => blocks.push(b));
   if (rootPhotos.length > 0) {
     blocks.push({ type: 'gallery', label: '', photos: rootPhotos.map(f => ({ url: `${urlBase}/${f}`, caption: cleanCaption(f) })) });
   }
   extraGalleries.forEach((gDir, i) => {
-    if (descs[i + 2]) blocks.push({ type: 'text', content: descs[i + 2] });
+    if (descs[i + 2]) parseDescriptionBlocks(descs[i + 2]).forEach(b => blocks.push(b));
     const gPath = path.join(sectionPath, gDir.name);
     const gPhotos = fs.readdirSync(gPath).filter(f => isImage(f)).sort();
     gPhotos.forEach(f => resizeIfNeeded(path.join(gPath, f)));

@@ -176,6 +176,36 @@ html, body {
   margin: 20px 0 6px 0;
 }
 #grid-wrap.rich .grid-wrap { margin-bottom: 4px; }
+.rich-video-block {
+  position: relative; width: 100%; padding-bottom: 56.25%;
+  height: 0; margin: 20px 0; cursor: pointer;
+  background: #000;
+}
+.rich-video-block iframe,
+.rich-video-block img {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%; border: none; display: block;
+  object-fit: cover;
+}
+.rich-video-block img { opacity: .7; transition: opacity .2s; }
+.rich-video-block:hover img { opacity: .9; }
+.video-play-btn {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.video-play-btn::after {
+  content: ''; display: block;
+  width: 0; height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 15px solid rgba(255,255,255,0.8);
+  margin-left: 3px;
+}
 
 .grid-thumb {
   aspect-ratio: 1; overflow: hidden; cursor: pointer;
@@ -741,14 +771,7 @@ function selectSection(id) {
 }
 
 function goHome() {
-  curSection = null;
-  expandedGroup = null;
-  renderNav();
-  updateMobileShell();
-  document.getElementById('view-grid').classList.remove('visible');
-  document.getElementById('view-slide').classList.add('hidden');
-  document.getElementById('view-text').classList.remove('visible');
-  document.getElementById('topbar').classList.add('hidden');
+  selectSection('portraits');
 }
 
 // ════════════════════════════════════════════════════
@@ -812,6 +835,20 @@ function showRichSection() {
         grid.appendChild(div);
       });
       wrap.appendChild(grid);
+    } else if (block.type === 'video') {
+      const vwrap = document.createElement('div');
+      vwrap.className = 'rich-video-block';
+      const ytId = block.url.match(/youtube\.com\/embed\/([a-zA-Z0-9_-]+)/)?.[1];
+      if (ytId) {
+        vwrap.innerHTML = `<img src="https://img.youtube.com/vi/${ytId}/maxresdefault.jpg" alt=""><div class="video-play-btn"></div>`;
+        vwrap.onclick = () => {
+          vwrap.innerHTML = `<iframe src="${esc(block.url)}?autoplay=1&modestbranding=1&rel=0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+          vwrap.onclick = null; vwrap.style.cursor = 'default';
+        };
+      } else {
+        vwrap.innerHTML = `<iframe src="${esc(block.url)}" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+      }
+      wrap.appendChild(vwrap);
     }
   });
 }

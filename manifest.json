@@ -863,7 +863,7 @@
         },
         {
           "type": "text",
-          "content": "Txt 2 \nBlablablabla"
+          "content": "Art Pieces Around shows."
         },
         {
           "type": "gallery",
@@ -1466,6 +1466,22 @@
       ]
     },
     {
+      "id": "commissioned-ink in my veins",
+      "label": "ink in my veins",
+      "type": "photos",
+      "group": "COMMISSIONED",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Music Video, ink in my veins for Gabriel Kane Day Lewis ( 2017 )"
+        },
+        {
+          "type": "video",
+          "url": "https://www.youtube.com/embed/ws2jkiIgwnw"
+        }
+      ]
+    },
+    {
       "id": "commissioned-mural-abenakis",
       "label": "mural abenakis",
       "type": "photos",
@@ -1636,5 +1652,5 @@
     }
   ],
   "groups": {},
-  "generated": "2026-04-24T16:43:03.179Z"
+  "generated": "2026-04-24T18:08:17.309Z"
 }
