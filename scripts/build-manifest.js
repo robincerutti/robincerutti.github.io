@@ -91,7 +91,7 @@ function readAllDescriptions(folderPath) {
   const descs = {};
   for (const f of fs.readdirSync(folderPath)) {
     const m = f.match(/^_descriptions?(\d+)\.txt$/i);
-    if (m) descs[parseInt(m[1])] = fs.readFileSync(path.join(folderPath, f), 'utf8').trim();
+    if (m) descs[parseInt(m[1])] = fs.readFileSync(path.join(folderPath, f), 'utf8').trimEnd();
   }
   return descs;
 }
@@ -120,7 +120,7 @@ function parseDescriptionBlocks(text) {
       textAcc.push(line);
     }
   }
-  const t = textAcc.join('\n').trim();
+  const t = textAcc.join('\n').trimEnd();
   if (t) blocks.push({ type: 'text', content: t });
   return blocks;
 }

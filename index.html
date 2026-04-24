@@ -169,6 +169,7 @@ html, body {
   letter-spacing: .06em; line-height: 1.7;
   max-width: 480px; text-align: justify;
   margin: 20px 0 12px 0;
+  white-space: pre-wrap;
 }
 .rich-gallery-label {
   font-size: 9px; color: var(--text-dim);
@@ -816,7 +817,7 @@ function showRichSection() {
     if (block.type === 'text') {
       const div = document.createElement('div');
       div.className = 'rich-text-block';
-      div.innerHTML = esc(block.content).replace(/\n/g, '<br>');
+      div.innerHTML = esc(block.content);
       wrap.appendChild(div);
     } else if (block.type === 'gallery') {
       const grid = document.createElement('div');

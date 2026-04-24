@@ -905,7 +905,7 @@
       "blocks": [
         {
           "type": "text",
-          "content": "In Presence,the research explore identity by projecting images of the subjects faces on their own bodies. These photographic anamorphoses fine tuned during the shoot, and not in postproduction, make the spectator question his or her vision. Prior to shooting, I visualize the image he wants to achieve by superimposing the different layers of images doing an art installation that will make up the final result. The goal is to divert the spectator’s gaze, which alternates between the projected face and the canvas-body , between surprises and equivocal evidence. Through playful, ambiguous and dreamlike compositions, and despite the nudity of the models, the series seeks to reveal the strength of the authenticity of the posing subject; an intimate body, incarnated and desexualized."
+          "content": "\nIn Presence,the research explore identity by projecting images of the subjects faces on their own bodies. These photographic anamorphoses fine tuned during the shoot, and not in postproduction, make the spectator question his or her vision. Prior to shooting, I visualize the image he wants to achieve by superimposing the different layers of images doing an art installation that will make up the final result. The goal is to divert the spectator’s gaze, which alternates between the projected face and the canvas-body , between surprises and equivocal evidence. Through playful, ambiguous and dreamlike compositions, and despite the nudity of the models, the series seeks to reveal the strength of the authenticity of the posing subject; an intimate body, incarnated and desexualized."
         },
         {
           "type": "gallery",
@@ -971,7 +971,7 @@
         },
         {
           "type": "text",
-          "content": ".\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPresence at different exhibits :"
+          "content": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPresence at different exhibits :"
         },
         {
           "type": "gallery",
@@ -1032,6 +1032,18 @@
             {
               "url": "photos/02-projects/020-presence/010-presence2/14___tmp__IMG_8853-salon art club - montreal - 2022--.jpg",
               "caption": "salon art club - montreal - 2022"
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/20240706_065817__IMG_4421.jpg",
+              "caption": ""
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/20240706_070214__IMG_4472.jpg",
+              "caption": ""
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/20240706_070808__IMG_4502.jpg",
+              "caption": ""
             }
           ]
         }
@@ -1650,7 +1662,7 @@
       "label": "mural abenakis",
       "type": "photos",
       "group": "COMMISSIONED",
-      "description": "Mural project for the Abenaki Museum. I was invited by director William Mazzoleni to collaborate on this project aimed at reconnecting Abenaki culture with its ancestral territory. The Abenaki, also known as the People of the Dawn, have a deep connection to nature. Through a series of images, the mural captures this intimate bond, highlighting the beauty and spirituality of the landscape.\n\nProjet de murale pour le Musée des Abénakis. J’ai été appelé par le réalisateur William Mazzoleni pour collaborer à ce projet ayant pour but de reconnecter la culture abénakise à son territoire. Les Abénakis, aussi appelés le peuple du soleil levant, entretiennent un lien profond avec la nature. À travers une série d’images, la murale capture cette connexion intime, mettant en lumière la beauté et la spiritualité du paysage.",
+      "description": "\nMural project for the Abenaki Museum. I was invited by director William Mazzoleni to collaborate on this project aimed at reconnecting Abenaki culture with its ancestral territory. The Abenaki, also known as the People of the Dawn, have a deep connection to nature. Through a series of images, the mural captures this intimate bond, highlighting the beauty and spirituality of the landscape.\n\nProjet de murale pour le Musée des Abénakis. J’ai été appelé par le réalisateur William Mazzoleni pour collaborer à ce projet ayant pour but de reconnecter la culture abénakise à son territoire. Les Abénakis, aussi appelés le peuple du soleil levant, entretiennent un lien profond avec la nature. À travers une série d’images, la murale capture cette connexion intime, mettant en lumière la beauté et la spiritualité du paysage.",
       "photos": [
         {
           "url": "photos/03-commissioned/010-mural-abenakis/01_murale_a_final_1_1_20230926-1--.jpg",
@@ -1881,5 +1893,5 @@
     }
   ],
   "groups": {},
-  "generated": "2026-04-24T22:57:33.240Z"
+  "generated": "2026-04-24T23:05:27.231Z"
 }
