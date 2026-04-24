@@ -1466,6 +1466,95 @@
       ]
     },
     {
+      "id": "projects-SPLASH",
+      "label": "SPLASH",
+      "type": "photos",
+      "group": "PROJECTS",
+      "description": "",
+      "photos": [
+        {
+          "url": "photos/02-projects/100-SPLASH/01_1396718_1920_3a727e.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/02_1069704_1920_6ddd4b.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/03_1069721_1920_15a8b6.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/04_1069700_1920_c7e7c2.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/05_1396717_1920_d493d0.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/06_1069736_1920_a722ce.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/07_832561_1920_ae22c4.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/08_1069730_1920_b0c983.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/09_1069728_1920_756fe0.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/10_1069697_1920_29d939.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/11_1069708_1920_ce5e55.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/12_832567_1920_a862f9.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/13_1069695_1920_394265.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/14_1069702_1920_d040e3.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/15_1069706_1920_4f4130.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/16_1069709_1920_9b6004.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/17_1070028_1920_b63e7c.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/18_1396716_1920_0aa3bc.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/19_832555_1920_632264.jpg",
+          "caption": ""
+        },
+        {
+          "url": "photos/02-projects/100-SPLASH/20_832562_1920_c4b84d.jpg",
+          "caption": ""
+        }
+      ]
+    },
+    {
       "id": "commissioned-ink in my veins",
       "label": "ink in my veins",
       "type": "photos",
@@ -1473,7 +1562,7 @@
       "blocks": [
         {
           "type": "text",
-          "content": "Music Video, ink in my veins for Gabriel Kane Day Lewis ( 2017 )"
+          "content": "Music Video, ink in my veins for Gabriel Kane Day Lewis (2017)"
         },
         {
           "type": "video",
@@ -1652,5 +1741,5 @@
     }
   ],
   "groups": {},
-  "generated": "2026-04-24T18:08:17.309Z"
+  "generated": "2026-04-24T18:29:12.598Z"
 }
