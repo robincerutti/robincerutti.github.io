@@ -866,11 +866,11 @@
           "label": "artpieces",
           "photos": [
             {
-              "url": "photos/02-projects/010-mirror/01-artpieces/01_WhatsApp Image 2024-03-11 at 11.35.01_1.jpeg",
+              "url": "photos/02-projects/010-mirror/01-artpieces/01_robincerutti-20180329_10h57_sans titre-5871.jpg",
               "caption": ""
             },
             {
-              "url": "photos/02-projects/010-mirror/01-artpieces/02_WhatsApp Image 2026-02-07 at 08.36.14.jpeg",
+              "url": "photos/02-projects/010-mirror/01-artpieces/02_WhatsApp Image 2024-03-11 at 11.35.01_1.jpeg",
               "caption": ""
             },
             {
@@ -878,7 +878,7 @@
               "caption": ""
             },
             {
-              "url": "photos/02-projects/010-mirror/01-artpieces/04_robincerutti-20180329_10h57_sans titre-5871.jpg",
+              "url": "photos/02-projects/010-mirror/01-artpieces/04_WhatsApp Image 2026-02-07 at 08.36.14.jpeg",
               "caption": ""
             }
           ]
@@ -1539,22 +1539,6 @@
       ]
     },
     {
-      "id": "commissioned-ink in my veins",
-      "label": "ink in my veins",
-      "type": "photos",
-      "group": "COMMISSIONED",
-      "blocks": [
-        {
-          "type": "text",
-          "content": "Music Video, ink in my veins for Gabriel Kane Day Lewis (2017)"
-        },
-        {
-          "type": "video",
-          "url": "https://www.youtube.com/embed/ws2jkiIgwnw"
-        }
-      ]
-    },
-    {
       "id": "commissioned-mural-abenakis",
       "label": "mural abenakis",
       "type": "photos",
@@ -1562,27 +1546,27 @@
       "description": "Mural project for the Abenaki Museum. I was invited by director William Mazzoleni to collaborate on this project aimed at reconnecting Abenaki culture with its ancestral territory. The Abenaki, also known as the People of the Dawn, have a deep connection to nature. Through a series of images, the mural captures this intimate bond, highlighting the beauty and spirituality of the landscape.\n\nProjet de murale pour le Musée des Abénakis. J’ai été appelé par le réalisateur William Mazzoleni pour collaborer à ce projet ayant pour but de reconnecter la culture abénakise à son territoire. Les Abénakis, aussi appelés le peuple du soleil levant, entretiennent un lien profond avec la nature. À travers une série d’images, la murale capture cette connexion intime, mettant en lumière la beauté et la spiritualité du paysage.",
       "photos": [
         {
-          "url": "photos/03-commissioned/mural-abenakis/01_murale_a_final_1_1_20230926-1--.jpg",
+          "url": "photos/03-commissioned/010-mural-abenakis/01_murale_a_final_1_1_20230926-1--.jpg",
           "caption": "1"
         },
         {
-          "url": "photos/03-commissioned/mural-abenakis/02_Murale_b_final_1_20230926-2--.jpg",
+          "url": "photos/03-commissioned/010-mural-abenakis/02_Murale_b_final_1_20230926-2--.jpg",
           "caption": "2"
         },
         {
-          "url": "photos/03-commissioned/mural-abenakis/03_murale_C_FINAL_1_2_20230926-3--.jpg",
+          "url": "photos/03-commissioned/010-mural-abenakis/03_murale_C_FINAL_1_2_20230926-3--.jpg",
           "caption": "3"
         },
         {
-          "url": "photos/03-commissioned/mural-abenakis/04_murale_d_20230926-4--.jpg",
+          "url": "photos/03-commissioned/010-mural-abenakis/04_murale_d_20230926-4--.jpg",
           "caption": "4"
         },
         {
-          "url": "photos/03-commissioned/mural-abenakis/05_murale_E1_Final_1_20230926-5--.jpg",
+          "url": "photos/03-commissioned/010-mural-abenakis/05_murale_E1_Final_1_20230926-5--.jpg",
           "caption": "5"
         },
         {
-          "url": "photos/03-commissioned/mural-abenakis/06_murale -murale - musee des abenakis 2023--.jpg",
+          "url": "photos/03-commissioned/010-mural-abenakis/06_murale -murale - musee des abenakis 2023--.jpg",
           "caption": "murale - musee des abenakis 2023"
         }
       ]
@@ -1595,32 +1579,48 @@
       "description": "Grand voyage désorganisé — Patrice Michaud (2021)\nArt direction and graphic design: Éloïse Deschamps\nPhotography: Robin Cerutti\nStyling: Mélanie Brisson\nMakeup and hair: Arianne Tremblay\n\nThe visual universe of Grand voyage désorganisé was developed as a collaborative project built around themes of space exploration and nostalgia.\n\nInspired by the 1977 launch of the Voyager I and II probes — often described as humanity’s “message in a bottle” sent into the universe — the imagery explores a dialogue between distance, time, and intimacy.\n\nThe project reflects a tension between nostalgic memory and the desire for discovery, understood as an inner journey rather than a purely external one.\n\nFor the televised special Dernière escale d’un grand voyage désorganisé (2025), the visual language was extended into a more saturated aesthetic, drawing from 1970s to 1990s pop culture, with influences from funk and rock imagery.",
       "photos": [
         {
-          "url": "photos/03-commissioned/Patrice Michaud/01_Pochette_Grand_voyage_desorganise_Patrice_Michaud_avec_texte-min-620x620.jpg",
+          "url": "photos/03-commissioned/050-Patrice Michaud/01_Pochette_Grand_voyage_desorganise_Patrice_Michaud_avec_texte-min-620x620.jpg",
           "caption": ""
         },
         {
-          "url": "photos/03-commissioned/Patrice Michaud/02_20062021-051A2874_COVER_RGB_FINAL copy.jpg",
+          "url": "photos/03-commissioned/050-Patrice Michaud/02_20062021-051A2874_COVER_RGB_FINAL copy.jpg",
           "caption": ""
         },
         {
-          "url": "photos/03-commissioned/Patrice Michaud/03_20062021-051A2874 (1)_ELO_CMYK_FINAL_2.jpg",
+          "url": "photos/03-commissioned/050-Patrice Michaud/03_20062021-051A2874 (1)_ELO_CMYK_FINAL_2.jpg",
           "caption": ""
         },
         {
-          "url": "photos/03-commissioned/Patrice Michaud/04_GVD_SINGLE_vousetesici_1000x1000-620x620.jpg",
+          "url": "photos/03-commissioned/050-Patrice Michaud/04_GVD_SINGLE_vousetesici_1000x1000-620x620.jpg",
           "caption": ""
         },
         {
-          "url": "photos/03-commissioned/Patrice Michaud/05_20062021-051A3048-Vousetesici_FINAL+SATURE.jpg",
+          "url": "photos/03-commissioned/050-Patrice Michaud/05_20062021-051A3048-Vousetesici_FINAL+SATURE.jpg",
           "caption": ""
         },
         {
-          "url": "photos/03-commissioned/Patrice Michaud/06_20062021-051A3854_CMYK_FINAL.jpg",
+          "url": "photos/03-commissioned/050-Patrice Michaud/06_20062021-051A3854_CMYK_FINAL.jpg",
           "caption": ""
         },
         {
-          "url": "photos/03-commissioned/Patrice Michaud/07_20062021-051A3229-v5_CMYK_FINAL.jpg",
+          "url": "photos/03-commissioned/050-Patrice Michaud/07_20062021-051A3229-v5_CMYK_FINAL.jpg",
           "caption": ""
+        }
+      ]
+    },
+    {
+      "id": "commissioned-ink in my veins",
+      "label": "ink in my veins",
+      "type": "photos",
+      "group": "COMMISSIONED",
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Music Video, ink in my veins for Gabriel Kane Day Lewis (2017)"
+        },
+        {
+          "type": "video",
+          "url": "https://www.youtube.com/embed/ws2jkiIgwnw"
         }
       ]
     },
@@ -1725,5 +1725,5 @@
     }
   ],
   "groups": {},
-  "generated": "2026-04-24T18:40:11.236Z"
+  "generated": "2026-04-24T18:48:36.987Z"
 }
