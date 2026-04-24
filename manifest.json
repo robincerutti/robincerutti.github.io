@@ -1572,6 +1572,63 @@
       ]
     },
     {
+      "id": "commissioned-enk in stereo",
+      "label": "enk in stereo",
+      "type": "photos",
+      "group": "COMMISSIONED",
+      "description": "",
+      "photos": [
+        {
+          "url": "photos/03-commissioned/030-enk in stereo/025060330006_7.gif",
+          "caption": ""
+        },
+        {
+          "url": "photos/03-commissioned/030-enk in stereo/025060330028_29.gif",
+          "caption": ""
+        },
+        {
+          "url": "photos/03-commissioned/030-enk in stereo/025060340019_20.gif",
+          "caption": ""
+        },
+        {
+          "url": "photos/03-commissioned/030-enk in stereo/Helene_rubicub_petit.gif",
+          "caption": ""
+        },
+        {
+          "url": "photos/03-commissioned/030-enk in stereo/M1.gif",
+          "caption": ""
+        },
+        {
+          "url": "photos/03-commissioned/030-enk in stereo/ben_ice1.gif",
+          "caption": ""
+        },
+        {
+          "url": "photos/03-commissioned/030-enk in stereo/ben_ice2.gif",
+          "caption": ""
+        },
+        {
+          "url": "photos/03-commissioned/030-enk in stereo/ben_main_2.gif",
+          "caption": ""
+        },
+        {
+          "url": "photos/03-commissioned/030-enk in stereo/enk_gif_nico.gif",
+          "caption": ""
+        },
+        {
+          "url": "photos/03-commissioned/030-enk in stereo/gif_rob1.gif",
+          "caption": ""
+        },
+        {
+          "url": "photos/03-commissioned/030-enk in stereo/rob1_2.gif",
+          "caption": ""
+        },
+        {
+          "url": "photos/03-commissioned/030-enk in stereo/z_025060320031.gif",
+          "caption": ""
+        }
+      ]
+    },
+    {
       "id": "commissioned-Patrice Michaud",
       "label": "Patrice Michaud",
       "type": "photos",
@@ -1725,5 +1782,5 @@
     }
   ],
   "groups": {},
-  "generated": "2026-04-24T18:48:36.987Z"
+  "generated": "2026-04-24T20:13:36.751Z"
 }

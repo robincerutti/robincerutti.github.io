@@ -32,6 +32,7 @@ function isImage(file) {
 }
 
 function resizeIfNeeded(filePath) {
+  if (path.extname(filePath).toLowerCase() === '.gif') return;
   try {
     const info = execFileSync('sips', ['-g', 'pixelWidth', '-g', 'pixelHeight', filePath], { encoding: 'utf8' });
     const w = parseInt(info.match(/pixelWidth: (\d+)/)?.[1] || '0');
