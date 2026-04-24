@@ -971,7 +971,7 @@
         },
         {
           "type": "text",
-          "content": "_\n_\n_\nVoici la suite\n\n\n\n\n\n\n\n\n\nPresence at different exhibits :"
+          "content": ".\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPresence at different exhibits :"
         },
         {
           "type": "gallery",
@@ -1881,5 +1881,5 @@
     }
   ],
   "groups": {},
-  "generated": "2026-04-24T22:55:52.036Z"
+  "generated": "2026-04-24T22:57:33.240Z"
 }
