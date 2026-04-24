@@ -972,6 +972,68 @@
         {
           "type": "text",
           "content": "Presence at different exhibits."
+        },
+        {
+          "type": "gallery",
+          "label": "presence2",
+          "photos": [
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/01___tmp__IMG_5350 (1)-galerie mx - 2018--.jpg",
+              "caption": "galerie mx - 2018"
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/02___tmp__IMG_4821 (1)-mtl 2017--.jpg",
+              "caption": "mtl 2017"
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/03_IMG_9871-cube art fair 2018--.jpg",
+              "caption": "cube art fair 2018"
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/04___tmp__1-4-IMG_6114-paris - marciano 2018--.jpg",
+              "caption": "4-IMG_6114-paris - marciano 2018"
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/05___tmp__1157-belgium cube art faire 2018--.jpg",
+              "caption": "belgium cube art faire 2018"
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/06_sans titre-cube art fair 2018--.jpg",
+              "caption": "cube art fair 2018"
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/07___tmp__IMG_0147 (1)-belgium cube art faire 2018--.jpg",
+              "caption": "belgium cube art faire 2018"
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/08___tmp__IMG_7100-paris - marciano 2018--.jpg",
+              "caption": "paris - marciano 2018"
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/09___tmp__IMG_6090-paris - marciano 2018--.jpg",
+              "caption": "paris - marciano 2018"
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/10___tmp__IMG_6096-paris - marciano 2018--.jpg",
+              "caption": "paris - marciano 2018"
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/11___tmp__IMG_6091-paris - marciano 2018--.jpg",
+              "caption": "paris - marciano 2018"
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/12___tmp__IMG_6248-belgium cube art faire 2018--.jpg",
+              "caption": "belgium cube art faire 2018"
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/13___tmp__2-IMG_6030-belgium cube art faire 2018--.jpg",
+              "caption": "IMG_6030-belgium cube art faire 2018"
+            },
+            {
+              "url": "photos/02-projects/020-presence/010-presence2/14___tmp__IMG_8853-salon art club - montreal - 2022--.jpg",
+              "caption": "salon art club - montreal - 2022"
+            }
+          ]
         }
       ]
     },
@@ -1819,5 +1881,5 @@
     }
   ],
   "groups": {},
-  "generated": "2026-04-24T22:40:54.088Z"
+  "generated": "2026-04-24T22:47:06.131Z"
 }
