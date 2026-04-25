@@ -1137,6 +1137,14 @@
           "caption": ""
         },
         {
+          "url": "photos/02-projects/030-parts-of-life/20090823_rc-party--9822-2.jpg",
+          "caption": "party"
+        },
+        {
+          "url": "photos/02-projects/030-parts-of-life/20190316_16032019-051A5179.jpg",
+          "caption": ""
+        },
+        {
           "url": "photos/02-projects/030-parts-of-life/20_esplanade 2010--.jpg",
           "caption": "esplanade 2010"
         },
@@ -1260,36 +1268,40 @@
       "description": "Started in 2012, Lookup is a serie where i do use the diffraction effect of the water membrane in order to create both surreal and abstract scenery. Those simple scenes of people standing in front of me end up being deconstructed. It pushes ourselves in an imaginary and dreamy reading of a moment, of a reality. Lookup serie started to be released in the end of 2020.",
       "photos": [
         {
-          "url": "photos/02-projects/050-lookup/01_lookup-16012019-051A0535.jpg",
-          "caption": ""
+          "url": "photos/02-projects/050-lookup/01_lookup-lookup besh--.jpg",
+          "caption": "lookup besh"
         },
         {
-          "url": "photos/02-projects/050-lookup/02_lookup-18032019-051A5429-Modifier-Modifier.jpg",
-          "caption": ""
+          "url": "photos/02-projects/050-lookup/02_lookup-lookup-elliot--.jpg",
+          "caption": "lookup-elliot"
         },
         {
-          "url": "photos/02-projects/050-lookup/03_lookup-18032019-051A5857-Modifier_1.jpg",
-          "caption": ""
+          "url": "photos/02-projects/050-lookup/03_lookup-lookup-lea 5857--.jpg",
+          "caption": "lookup-lea 5857"
         },
         {
-          "url": "photos/02-projects/050-lookup/04_rc-parallel-gaele--4643-Modifier-2.jpg",
-          "caption": "parallel-gaele"
+          "url": "photos/02-projects/050-lookup/04_rc-lookup magali--4643-Modifier-2.jpg",
+          "caption": "lookup magali"
         },
         {
-          "url": "photos/02-projects/050-lookup/05_16032019-051A4360-Modifier-Modifier.jpg",
-          "caption": ""
+          "url": "photos/02-projects/050-lookup/05_16032019-lookup lea 4360--.jpg",
+          "caption": "lookup lea 4360"
         },
         {
           "url": "photos/02-projects/050-lookup/06_robincerutti-lookup-madgalena-6386.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/050-lookup/07_rc-dr-7433-Modifier-Modifier.jpg",
-          "caption": ""
+          "url": "photos/02-projects/050-lookup/07_20150525_rc-lookup-doldrums-2015--.jpg",
+          "caption": "lookup-doldrums-2015"
         },
         {
-          "url": "photos/02-projects/050-lookup/08_source-4-03012019-051A6590-lookup-.jpg",
-          "caption": ""
+          "url": "photos/02-projects/050-lookup/08_rc-lookup carnavarengue--.jpg",
+          "caption": "lookup carnavarengue"
+        },
+        {
+          "url": "photos/02-projects/050-lookup/09_source-lookup-bahia-6590--.jpg",
+          "caption": "lookup-bahia-6590"
         }
       ]
     },
@@ -1577,6 +1589,10 @@
         {
           "url": "photos/02-projects/090-PLACES/07_20091231Picasa_rc-manigod--.jpg",
           "caption": "manigod"
+        },
+        {
+          "url": "photos/02-projects/090-PLACES/20100219_rc-montreal--8311-Modifier.jpg",
+          "caption": "montreal"
         }
       ]
     },
@@ -1620,12 +1636,12 @@
           "caption": ""
         },
         {
-          "url": "photos/02-projects/100-SPLASH/09_1069728_1920_756fe0.jpg",
+          "url": "photos/02-projects/100-SPLASH/09_1069697_1920_29d939.jpg",
           "caption": ""
         },
         {
-          "url": "photos/02-projects/100-SPLASH/10_1069697_1920_29d939.jpg",
-          "caption": ""
+          "url": "photos/02-projects/100-SPLASH/10_20100326_rc-montreal--0036.jpg",
+          "caption": "montreal"
         },
         {
           "url": "photos/02-projects/100-SPLASH/11_1069708_1920_ce5e55.jpg",
@@ -1942,6 +1958,14 @@
       ]
     },
     {
+      "id": "commissioned-Waterpolo Quebec",
+      "label": "Waterpolo Quebec",
+      "type": "photos",
+      "group": "COMMISSIONED",
+      "description": "",
+      "photos": []
+    },
+    {
       "id": "hidden-fragments",
       "label": "fragments",
       "type": "photos",
@@ -2042,5 +2066,5 @@
     }
   ],
   "groups": {},
-  "generated": "2026-04-25T17:36:15.123Z"
+  "generated": "2026-04-25T21:39:45.257Z"
 }
