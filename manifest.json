@@ -1844,7 +1844,7 @@
       "label": "enk in stereo",
       "type": "photos",
       "group": "COMMISSIONED",
-      "description": "",
+      "description": "<p><strong>Enk Studio — Stereo Portraits</strong></p>\n\n<p>\nPortrait series shot on location in Enk Studio’s office using a 4-lens stereoscopic analogue camera system (Nishika-type).\n</p>\n\n<p>\nStudio lighting was used in a controlled setup. The resulting multi-view captures were edited into looping GIFs that cycle through the full parallax range and back, creating subtle spatial motion through shifting perspectives.\n</p>",
       "photos": [
         {
           "url": "photos/03-commissioned/030-enk in stereo/01_025060330006_7.gif",
@@ -2042,5 +2042,5 @@
     }
   ],
   "groups": {},
-  "generated": "2026-04-25T16:25:00.941Z"
+  "generated": "2026-04-25T17:36:15.123Z"
 }
