@@ -266,7 +266,19 @@ function scanDirectory() {
   };
 
   fs.writeFileSync(OUTPUT, JSON.stringify(manifest, null, 2));
-  
+
+  // Generate sitemap.xml
+  const baseUrl = 'https://robincerutti.com';
+  const today = new Date().toISOString().split('T')[0];
+  const sitemapUrls = [
+    `  <url>\n    <loc>${baseUrl}/</loc>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n    <lastmod>${today}</lastmod>\n  </url>`
+  ];
+  sections.filter(s => !s.hidden && s.type === 'photos').forEach(s => {
+    sitemapUrls.push(`  <url>\n    <loc>${baseUrl}/#${encodeURIComponent(s.id)}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n    <lastmod>${today}</lastmod>\n  </url>`);
+  });
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls.join('\n')}\n</urlset>\n`;
+  fs.writeFileSync(path.join(__dirname, '..', 'sitemap.xml'), sitemap);
+
   const totalPhotos = sections.reduce((sum, s) => {
     if (s.blocks) return sum + s.blocks.filter(b => b.type === 'gallery').reduce((a, b) => a + b.photos.length, 0);
     return sum + (s.photos || []).length;
