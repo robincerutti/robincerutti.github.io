@@ -1695,7 +1695,7 @@
       "label": "esports",
       "type": "photos",
       "group": "COMMISSIONED",
-      "description": "",
+      "description": "\n<strong>Esports & Gaming</strong>\n \nFrom tournament floors to broadcast studios, I have been documenting the esports world since 2019 — covering panels, media days, player headshots for broadcast, and live events for major gaming publishers across Canada, France, and Brazil.\n \nAs an artist and portraitist, finding a compelling moment within fast-paced competition became a challenge I genuinely loved. Working with Ubisoft, ENK, Blast, and ESL on Rainbow Six — both in studio sessions and on the public stage.\n \n<em>Available for tournaments, player portraits, press events, and brand campaigns.</em>",
       "photos": [
         {
           "url": "photos/03-commissioned/020-esports/01_20250521robin cerutti-_6Z5A6166.jpg",
@@ -2042,5 +2042,5 @@
     }
   ],
   "groups": {},
-  "generated": "2026-04-25T15:04:16.103Z"
+  "generated": "2026-04-25T16:25:00.941Z"
 }
