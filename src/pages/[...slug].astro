@@ -1,0 +1,1162 @@
+---
+import { readFileSync } from 'fs';
+
+// ── helpers (build-time) ──────────────────────────────────────────
+function sectionToSlug(s) {
+  if (s.hidden) return null;
+  if (!s.group) return s.id.toLowerCase().replace(/\s+/g, '-');
+  const g = s.group.toLowerCase();
+  const sub = s.id.slice(g.length + 1);
+  return g + '/' + sub.toLowerCase().replace(/\s+/g, '-');
+}
+
+function getFirstPhoto(s) {
+  if (s.photos && s.photos.length > 0) return s.photos[0].url;
+  if (s.blocks) {
+    for (const b of s.blocks) {
+      if (b.type === 'gallery' && b.photos.length > 0) return b.photos[0].url;
+    }
+  }
+  return null;
+}
+
+// ── static paths ──────────────────────────────────────────────────
+export function getStaticPaths() {
+  function _slug(s) {
+    if (s.hidden) return null;
+    if (!s.group) return s.id.toLowerCase().replace(/\s+/g, '-');
+    const g = s.group.toLowerCase();
+    const sub = s.id.slice(g.length + 1);
+    return g + '/' + sub.toLowerCase().replace(/\s+/g, '-');
+  }
+
+  const root = process.cwd();
+  const manifest = JSON.parse(readFileSync(root + '/public/manifest.json', 'utf-8'));
+  const data    = JSON.parse(readFileSync(root + '/public/data.json',    'utf-8'));
+
+  const paths = [];
+  for (const s of manifest.sections) {
+    if (s.hidden) continue;
+    const slug = _slug(s);
+    if (slug) paths.push({ params: { slug }, props: { section: s, manifest, data } });
+  }
+  for (const s of data.extraSections || []) {
+    paths.push({ params: { slug: s.id }, props: { section: s, manifest, data } });
+  }
+  return paths;
+}
+
+// ── page props ────────────────────────────────────────────────────
+const { section, manifest, data } = Astro.props;
+
+const firstPhoto = getFirstPhoto(section);
+const ogImage    = firstPhoto
+  ? 'https://robincerutti.com/' + firstPhoto
+  : 'https://robincerutti.github.io/photos/02-projects/010-mirror/01_-mirror%20-%20tornado%202024%20--.jpg';
+const pageTitle  = section.label !== 'INFO' && section.label !== 'CONTACT' && section.label !== 'LINKS'
+  ? `Robin Cerutti — ${section.label}`
+  : `Robin Cerutti — Photographer & Visual Artist`;
+const pageDesc   = (section.description || '').replace(/\[video:[^\]]+\]/gi, '').trim()
+  || `Robin Cerutti — ${section.label}. Photographer & Visual Artist. Totally real surrealism.`;
+
+// All photos flat list (for structured data)
+const allPhotos = section.photos || (section.blocks
+  ? section.blocks.filter(b => b.type === 'gallery').flatMap(b => b.photos)
+  : []);
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{pageTitle}</title>
+<meta name="description" content={pageDesc}>
+<meta name="keywords" content="Robin Cerutti, photographer, visual artist, fine art photography, surrealism, Montreal, Canada, France">
+<link rel="canonical" href={`https://robincerutti.com/${sectionToSlug(section)}/`}>
+<meta property="og:title" content={pageTitle}>
+<meta property="og:description" content={pageDesc}>
+<meta property="og:image" content={ogImage}>
+<meta property="og:url" content={`https://robincerutti.com/${sectionToSlug(section)}/`}>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={pageTitle}>
+<meta name="twitter:description" content={pageDesc}>
+<meta name="twitter:image" content={ogImage}>
+<meta name="twitter:site" content="@robincerutti">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+{allPhotos.length > 0 && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": `Robin Cerutti — ${section.label}`,
+    "description": pageDesc,
+    "url": `https://robincerutti.com/${sectionToSlug(section)}/`,
+    "author": {
+      "@type": "Person",
+      "name": "Robin Cerutti",
+      "url": "https://robincerutti.com"
+    },
+    "image": allPhotos.slice(0, 10).map(p => ({
+      "@type": "ImageObject",
+      "url": `https://robincerutti.com/${p.url}`,
+      "name": p.caption || section.label
+    }))
+  })} />
+)}
+<style is:global>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0e0e0e;
+  --sidebar-w: 160px;
+  --text: rgba(255,255,255,0.75);
+  --text-dim: rgba(255,255,255,0.3);
+  --text-active: rgba(255,255,255,0.95);
+  --accent: rgba(255,255,255,0.12);
+  --mono: 'Space Mono', monospace;
+  --fs: 11px;
+}
+
+html, body {
+  height: 100%; background: var(--bg); color: var(--text);
+  font-family: var(--mono); font-size: var(--fs);
+  transition: background .5s ease, color .5s ease;
+}
+
+/* ══ LAYOUT ══ */
+#shell { display: flex; height: 100vh; overflow: hidden; }
+
+/* ── SIDEBAR ── */
+#sidebar {
+  width: var(--sidebar-w); flex-shrink: 0;
+  padding: 28px 20px 24px;
+  display: flex; flex-direction: column; gap: 0;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  overflow-y: auto; z-index: 10;
+  transition: border-color .5s ease;
+}
+
+#site-name {
+  font-size: 11px; font-weight: 400; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--text-active);
+  margin-bottom: 28px; line-height: 1.4; cursor: pointer;
+}
+
+.nav-item {
+  display: block; padding: 5px 0; font-size: 10px;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--text-dim); cursor: pointer; text-decoration: none;
+  transition: color .15s; user-select: none;
+}
+.nav-item:hover { color: var(--text); }
+.nav-item.active { color: var(--text-active); }
+.nav-item.group-open { color: var(--text); }
+.nav-item.sub { padding-left: 10px; font-size: 9.5px; color: var(--text-dim); }
+.nav-item.sub:hover { color: var(--text); }
+.nav-item.sub.active { color: var(--text-active); }
+
+.nav-sep { height: 1px; background: rgba(255,255,255,0.06); margin: 14px 0; transition: background .5s ease; }
+
+#sidebar-bottom { margin-top: auto; padding-top: 20px; }
+#copyright { font-size: 8px; font-family: var(--mono); letter-spacing: .03em; color: var(--text); opacity: 1; padding: 4px 0 10px; white-space: nowrap; line-height: 1.4; }
+.theme-toggle {
+  background: none; border: none; color: var(--text-dim);
+  cursor: pointer; font-size: 10px; padding: 4px 0; display: block;
+  transition: color .3s; font-family: var(--mono);
+  letter-spacing: .06em; text-transform: uppercase; opacity: 0.4;
+}
+.theme-toggle:hover { opacity: 0.8; }
+
+/* ── MAIN AREA ── */
+#main { flex: 1; overflow: hidden; position: relative; display: flex; flex-direction: column; }
+
+/* ── TOP BAR ── */
+#topbar {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 5;
+  display: flex; align-items: center; gap: 16px;
+  padding: 28px 20px 14px;
+  font-size: 10px; color: var(--text-dim); letter-spacing: .05em;
+}
+#topbar.hidden { display: none; }
+
+.view-toggle {
+  background: none; border: none; color: var(--text-dim);
+  cursor: pointer; font-size: 13px; padding: 2px 4px; line-height: 1;
+  transition: color .15s;
+}
+.view-toggle:hover, .view-toggle.active { color: var(--text-active); }
+
+#nav-arrows { display: flex; align-items: center; gap: 10px; }
+.arrow-btn {
+  background: none; border: none; color: var(--text-dim);
+  cursor: pointer; font-size: 14px; padding: 0 4px; line-height: 1;
+  transition: color .15s;
+}
+.arrow-btn:hover { color: var(--text-active); }
+#counter { min-width: 50px; }
+#key-hint { opacity: .4; font-style: italic; }
+
+/* ══ SLIDESHOW VIEW ══ */
+#view-slide {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 60px 32px 32px; overflow: hidden;
+}
+#view-slide.hidden { display: none; }
+
+#slide-img-wrap {
+  position: relative; max-width: 100%; max-height: 100%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+#slide-img {
+  max-width: 100%; max-height: calc(100vh - 100px);
+  object-fit: contain; display: block; user-select: none;
+  opacity: 0; transition: opacity .3s ease;
+}
+#slide-img.loaded { opacity: 1; }
+
+#slide-caption {
+  position: absolute; bottom: -22px; left: 0;
+  font-size: 9.5px; color: var(--text-dim);
+  letter-spacing: .04em; font-style: italic;
+}
+
+.slide-placeholder {
+  width: 640px; max-width: 100%; aspect-ratio: 3/2;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-dim); font-size: 10px; letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* ══ GRID VIEW ══ */
+#view-grid { flex: 1; overflow-y: auto; padding: 52px 16px 32px; display: none; }
+#view-grid.visible { display: block; }
+
+#section-description {
+  font-size: 10px; color: var(--text-active);
+  letter-spacing: .06em;
+  margin-top: 1.6em; margin-bottom: 16px; line-height: 1.6;
+  max-width: 480px;
+  text-align: justify;
+}
+#section-description:empty { display: none; }
+
+.grid-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 3px;
+}
+
+#grid-wrap.rich { display: block; }
+.rich-text-block {
+  font-size: 10px; color: var(--text-active);
+  letter-spacing: .06em; line-height: 1.7;
+  max-width: 480px; text-align: justify;
+  margin: 20px 0 12px 0;
+  white-space: pre-wrap;
+}
+.rich-gallery-label {
+  font-size: 9px; color: var(--text-dim);
+  letter-spacing: .12em; text-transform: uppercase;
+  margin: 20px 0 6px 0;
+}
+#grid-wrap.rich .grid-wrap { margin-bottom: 4px; }
+.rich-video-block {
+  position: relative; width: 100%; padding-bottom: 56.25%;
+  height: 0; margin: 20px 0; cursor: pointer;
+  background: #000;
+}
+.rich-video-block iframe,
+.rich-video-block img {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%; border: none; display: block;
+  object-fit: cover;
+}
+.rich-video-block img { opacity: .7; transition: opacity .2s; }
+.rich-video-block:hover img { opacity: .9; }
+.video-play-btn {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.video-play-btn::after {
+  content: ''; display: block;
+  width: 0; height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 15px solid rgba(255,255,255,0.8);
+  margin-left: 3px;
+}
+
+.grid-thumb {
+  aspect-ratio: 1; overflow: hidden; cursor: pointer;
+  position: relative; background: rgba(255,255,255,0.04);
+}
+.grid-thumb img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block; transition: opacity .2s;
+}
+.grid-thumb:hover img { opacity: .75; }
+.grid-thumb.active-thumb::after {
+  content: ''; position: absolute; inset: 0;
+  outline: 2px solid rgba(255,255,255,0.5); outline-offset: -2px;
+}
+
+/* ══ TEXT PAGES ══ */
+#view-text { flex: 1; overflow-y: auto; padding: 48px 56px; display: none; max-width: 600px; }
+#view-text.visible { display: block; }
+
+.text-section { margin-bottom: 40px; }
+.text-section h2 {
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text-dim); margin-bottom: 16px;
+  padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.text-section p, .text-section a {
+  font-size: 11px; color: var(--text); line-height: 1.9;
+  text-decoration: none; display: block;
+}
+.text-section a:hover { color: var(--text-active); }
+.text-section a.ext::after { content: ' →'; color: var(--text-dim); }
+
+.cf-field { margin-bottom: 20px; }
+.cf-field label { display: block; font-size: 9.5px; color: var(--text-dim); letter-spacing: .08em; margin-bottom: 7px; text-transform: uppercase; }
+.cf-field input, .cf-field textarea {
+  width: 100%; background: transparent;
+  border: none; border-bottom: 1px solid rgba(255,255,255,0.15);
+  color: var(--text-active); font-family: var(--mono); font-size: 11px;
+  padding: 8px 0; outline: none; transition: border-color .2s;
+}
+.cf-field input:focus, .cf-field textarea:focus { border-color: rgba(255,255,255,0.5); }
+.cf-field textarea { height: 100px; resize: none; }
+.cf-submit {
+  margin-top: 8px; padding: 9px 24px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  color: var(--text); font-family: var(--mono); font-size: 10px;
+  letter-spacing: .08em; cursor: pointer; transition: background .2s;
+}
+.cf-submit:hover { background: rgba(255,255,255,0.14); }
+
+/* ══ LIGHT MODE ══ */
+body.light {
+  --bg: #f8f8f6;
+  --text: rgba(0,0,0,0.7);
+  --text-dim: rgba(0,0,0,0.3);
+  --text-active: rgba(0,0,0,0.9);
+  --accent: rgba(0,0,0,0.07);
+}
+body.light #sidebar { border-right-color: rgba(0,0,0,0.08); }
+body.light .nav-sep { background: rgba(0,0,0,0.07); }
+body.light .grid-thumb { background: rgba(0,0,0,0.04); }
+body.light .slide-placeholder { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
+body.light .cf-field input, body.light .cf-field textarea { border-bottom-color: rgba(0,0,0,0.15); color: rgba(0,0,0,0.9); }
+body.light .cf-field input:focus, body.light .cf-field textarea:focus { border-bottom-color: rgba(0,0,0,0.5); }
+body.light .cf-submit { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.15); color: rgba(0,0,0,0.8); }
+body.light .cf-submit:hover { background: rgba(0,0,0,0.1); }
+body.light .text-section h2 { border-bottom-color: rgba(0,0,0,0.07); }
+body.light .view-toggle, body.light .arrow-btn { color: rgba(0,0,0,0.3); }
+body.light .view-toggle:hover, body.light .view-toggle.active, body.light .arrow-btn:hover { color: rgba(0,0,0,0.9); }
+
+/* ══ LOADING ══ */
+#loading {
+  position: fixed; inset: 0; display: flex;
+  align-items: center; justify-content: center;
+  background: var(--bg); z-index: 100;
+  font-size: 10px; letter-spacing: .1em; color: var(--text-dim);
+  text-transform: uppercase;
+  transition: opacity .4s ease;
+}
+#loading.done { opacity: 0; pointer-events: none; }
+
+#mobile-back { display: none; }
+
+/* ══ MOBILE FULLSCREEN OVERLAY ══ */
+#mobile-fs {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: #000; overflow: hidden;
+  touch-action: none;
+}
+#mobile-fs.open { display: block; }
+
+.fs-slot {
+  position: absolute; top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.fs-slot img {
+  max-width: 100%; max-height: 100vh;
+  object-fit: contain; user-select: none;
+  transform-origin: center center;
+}
+
+#mobile-fs-close {
+  position: absolute; top: 0; right: 0;
+  background: none; border: none;
+  color: rgba(255,255,255,0.55); font-size: 18px;
+  cursor: pointer; padding: 20px; z-index: 201;
+  font-family: var(--mono); line-height: 1;
+}
+
+#mobile-fs-counter {
+  position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+  font-size: 10px; color: rgba(255,255,255,0.3);
+  font-family: var(--mono); letter-spacing: .06em; white-space: nowrap;
+}
+#mobile-fs-caption {
+  position: absolute; bottom: 48px; left: 0; right: 0; text-align: center;
+  font-size: 10px; color: rgba(255,255,255,0.95);
+  letter-spacing: .06em;
+  padding: 0 24px; pointer-events: none;
+}
+#mobile-fs-caption:empty { display: none; }
+.grid-thumb-caption {
+  font-size: 10px; color: var(--text-active);
+  letter-spacing: .06em;
+  padding: 6px 0 12px; line-height: 1.4;
+}
+
+/* ══ MOBILE LAYOUT ══ */
+@media (max-width: 640px) {
+  html, body { height: auto; overflow-y: auto; }
+  #shell { flex-direction: column; height: auto; min-height: 100vh; overflow: visible; }
+  #sidebar {
+    width: 100%; border-right: none; overflow: visible;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 20px 20px 16px;
+  }
+  body.light #sidebar { border-bottom-color: rgba(0,0,0,0.07); }
+  #site-name { margin-bottom: 16px; }
+  .nav-item { font-size: 10px; padding: 4px 0; }
+  .nav-item.sub { padding-left: 12px; }
+  #main { overflow: visible; position: static; height: auto; flex: 1; }
+  #topbar { display: none !important; }
+  #mobile-back { display: none !important; }
+  #view-slide { display: none !important; }
+  #view-grid { flex: none; overflow: visible; padding: 0 0 60px; }
+  .grid-wrap { grid-template-columns: 1fr; gap: 3px; }
+  .grid-thumb { aspect-ratio: unset; }
+  .grid-thumb img { height: auto; object-fit: fill; }
+  #view-text { flex: none; overflow: visible; padding: 24px 20px 40px; max-width: 100%; }
+}
+
+/* ══ SEO SNAPSHOT — visible before JS, hidden after ══ */
+#seo-snapshot { display: none; }
+</style>
+</head>
+<body>
+
+<div id="loading">chargement…</div>
+
+<!-- Mobile fullscreen overlay -->
+<div id="mobile-fs">
+  <button id="mobile-fs-close" onclick="closeMobileFS()">✕</button>
+  <div class="fs-slot" id="mobile-fs-slot-a"><img id="mobile-fs-img-a" alt=""></div>
+  <div class="fs-slot" id="mobile-fs-slot-b"><img id="mobile-fs-img-b" alt=""></div>
+  <div id="mobile-fs-caption"></div>
+  <div id="mobile-fs-counter"></div>
+</div>
+
+<div id="shell">
+  <nav id="sidebar">
+    <div id="site-name" onclick="goHome()"></div>
+    <div id="nav-links"></div>
+    <div id="sidebar-bottom">
+      <div class="nav-sep"></div>
+      <div id="copyright"></div>
+      <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" title="Toggle light/dark">dark</button>
+    </div>
+  </nav>
+
+  <div id="main">
+    <div id="mobile-back" onclick="goHome()">← menu</div>
+
+    <div id="topbar" class="hidden">
+      <button class="view-toggle" id="btn-grid" onclick="setViewMode('grid')" title="Grid view">⊞</button>
+      <button class="view-toggle active" id="btn-slide" onclick="setViewMode('slide')" title="Slideshow">▭</button>
+      <div id="nav-arrows" class="hidden">
+        <button class="arrow-btn" onclick="navigate(-1)">‹</button>
+        <span id="counter">1 / 1</span>
+        <button class="arrow-btn" onclick="navigate(1)">›</button>
+        <span id="key-hint">— flèches pour naviguer —</span>
+      </div>
+    </div>
+
+    <div id="view-grid">
+      <div id="section-description"></div>
+      <div class="grid-wrap" id="grid-wrap"></div>
+    </div>
+
+    <div id="view-slide" class="hidden">
+      <div id="slide-img-wrap">
+        <div class="slide-placeholder" id="slide-placeholder">sélectionne une section</div>
+        <img id="slide-img" alt="" style="display:none">
+        <div id="slide-caption"></div>
+      </div>
+    </div>
+
+    <div id="view-text"></div>
+  </div>
+</div>
+
+<!-- SEO snapshot: pre-rendered HTML for search crawlers -->
+<div id="seo-snapshot" aria-hidden="true">
+  <h1>{section.label}</h1>
+  {section.description && <p>{section.description.replace(/\[video:[^\]]+\]/gi, '').trim()}</p>}
+  {allPhotos.map(p => (
+    <img src={`/${p.url}`} alt={p.caption || section.label} loading="lazy" width="800" />
+  ))}
+  {section.blocks && section.blocks.filter(b => b.type === 'text').map(b => (
+    <p>{b.content}</p>
+  ))}
+</div>
+
+<script is:inline>
+// ════════════════════════════════════════════════════
+//  STATE
+// ════════════════════════════════════════════════════
+let DATA = null;
+let MANIFEST = null;
+let allSections = [];
+let curSection = null;
+let curPhotos = [];
+let curPhotoIdx = 0;
+let viewMode = 'slide';
+let expandedGroup = null;
+
+function isMobile() { return window.innerWidth <= 640; }
+
+// ════════════════════════════════════════════════════
+//  URL ↔ SECTION
+// ════════════════════════════════════════════════════
+function sectionToUrl(s) {
+  if (!s.group) return '/' + s.id.toLowerCase().replace(/\s+/g, '-') + '/';
+  const g = s.group.toLowerCase();
+  const sub = s.id.slice(g.length + 1);
+  return '/' + g + '/' + sub.toLowerCase().replace(/\s+/g, '-') + '/';
+}
+
+function urlToSectionId(path) {
+  for (const s of allSections) {
+    if (sectionToUrl(s) === path) return s.id;
+  }
+  return null;
+}
+
+// ════════════════════════════════════════════════════
+//  LOAD DATA
+// ════════════════════════════════════════════════════
+async function init() {
+  try {
+    const [dataRes, manifestRes, infoRes] = await Promise.all([
+      fetch('/data.json'),
+      fetch('/manifest.json'),
+      fetch('/info.txt')
+    ]);
+    DATA = await dataRes.json();
+    MANIFEST = await manifestRes.json();
+    if (infoRes.ok) DATA.infoText = (await infoRes.text()).replace(/\n/g, '<br>');
+    // Prefix relative photo URLs with "/" (manifest uses relative paths, v2 needs absolute)
+    for (const s of MANIFEST.sections || []) {
+      if (s.photos) s.photos.forEach(p => { if (!p.url.startsWith('/') && !p.url.startsWith('http')) p.url = '/' + p.url; });
+      if (s.blocks) s.blocks.forEach(b => {
+        if (b.type === 'gallery') b.photos.forEach(p => { if (!p.url.startsWith('/') && !p.url.startsWith('http')) p.url = '/' + p.url; });
+      });
+    }
+  } catch (e) {
+    console.error('Failed to load data:', e);
+    document.getElementById('loading').textContent = 'erreur de chargement';
+    return;
+  }
+
+  allSections = [
+    ...(MANIFEST.sections || []),
+    ...(DATA.extraSections || [])
+  ];
+
+  document.getElementById('site-name').innerHTML = DATA.name.replace(/\n/g, '<br>');
+  document.getElementById('copyright').innerHTML = `<span style="font-family:sans-serif;">©</span> Robin Cerutti ${new Date().getFullYear()}`;
+  renderNav();
+
+  if (localStorage.getItem('rc-theme') !== 'dark') {
+    document.body.classList.add('light');
+    document.getElementById('theme-btn').textContent = 'light';
+  }
+
+  viewMode = 'grid';
+  const sectionId = urlToSectionId(window.location.pathname) || 'portraits';
+  selectSection(sectionId);
+
+  setTimeout(() => document.getElementById('loading').classList.add('done'), 200);
+}
+
+// ════════════════════════════════════════════════════
+//  MOBILE SHELL STATE
+// ════════════════════════════════════════════════════
+function updateMobileShell() {}
+
+// ════════════════════════════════════════════════════
+//  MOBILE FULLSCREEN
+// ════════════════════════════════════════════════════
+let fsActive = 'a';
+let fsStartX = 0, fsStartY = 0, fsDragging = false, fsLocked = false, fsPendingDir = 0;
+let fsScale = 1, fsPanX = 0, fsPanY = 0, fsPanStartX = 0, fsPanStartY = 0;
+let fsZooming = false, fsInitDist = 0, fsInitScale = 1, fsInitPinchX = 0, fsInitPinchY = 0, fsInitPanX = 0, fsInitPanY = 0;
+let fsLastTap = 0;
+
+function fsSlot(s) { return document.getElementById(`mobile-fs-slot-${s}`); }
+function fsImg(s)  { return document.getElementById(`mobile-fs-img-${s}`); }
+function fsOther() { return fsActive === 'a' ? 'b' : 'a'; }
+
+function fsDist(t) {
+  const dx = t[0].clientX - t[1].clientX, dy = t[0].clientY - t[1].clientY;
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+function applyZoom(slot) {
+  fsImg(slot).style.transform = `translate(${fsPanX}px, ${fsPanY}px) scale(${fsScale})`;
+}
+
+function resetZoom(slot, animate) {
+  const img = fsImg(slot);
+  img.style.transition = animate ? 'transform .25s ease' : 'none';
+  img.style.transform = '';
+  fsScale = 1; fsPanX = 0; fsPanY = 0;
+}
+
+function openMobileFS(idx) {
+  curPhotoIdx = idx;
+  const photos = curPhotos;
+  const p = photos[idx];
+  if (!p) return;
+  fsActive = 'a';
+  fsScale = 1; fsPanX = 0; fsPanY = 0;
+  fsImg('a').src = p.url;
+  fsImg('a').style.transition = 'none';
+  fsImg('a').style.transform = '';
+  fsSlot('a').style.transition = 'none';
+  fsSlot('a').style.transform = 'translateX(0)';
+  fsImg('b').src = '';
+  fsImg('b').style.transform = '';
+  fsSlot('b').style.transform = `translateX(${window.innerWidth}px)`;
+  document.getElementById('mobile-fs-counter').textContent = `${idx + 1} / ${photos.length}`;
+  document.getElementById('mobile-fs-caption').textContent = photos[idx].caption || '';
+  document.getElementById('mobile-fs').classList.add('open');
+}
+
+function closeMobileFS() {
+  document.getElementById('mobile-fs').classList.remove('open');
+  resetZoom(fsActive, false);
+}
+
+function navigateMobileFS(dir) {
+  const photos = curPhotos;
+  if (!photos.length) return;
+  curPhotoIdx = (curPhotoIdx + dir + photos.length) % photos.length;
+  resetZoom(fsActive, false);
+  fsImg(fsActive).src = photos[curPhotoIdx].url;
+  document.getElementById('mobile-fs-counter').textContent = `${curPhotoIdx + 1} / ${photos.length}`;
+  document.getElementById('mobile-fs-caption').textContent = photos[curPhotoIdx].caption || '';
+}
+
+// ── Fullscreen touch handling ──
+const fsEl = document.getElementById('mobile-fs');
+
+fsEl.addEventListener('touchstart', e => {
+  const now = Date.now();
+  if (e.touches.length === 1 && now - fsLastTap < 280) {
+    if (fsScale > 1) {
+      resetZoom(fsActive, true);
+    } else {
+      const tapX = e.touches[0].clientX;
+      const tapY = e.touches[0].clientY;
+      fsScale = 2.5;
+      fsPanX = (window.innerWidth / 2 - tapX) * (fsScale - 1);
+      fsPanY = (window.innerHeight / 2 - tapY) * (fsScale - 1);
+      fsImg(fsActive).style.transition = 'transform 0.25s ease';
+      applyZoom(fsActive);
+    }
+    fsLastTap = 0;
+    return;
+  }
+  if (e.touches.length === 1) fsLastTap = now;
+
+  if (e.touches.length === 2) {
+    fsDragging = false;
+    fsZooming = true;
+    fsInitDist = fsDist(e.touches);
+    fsInitScale = fsScale;
+    fsInitPanX = fsPanX; fsInitPanY = fsPanY;
+    fsInitPinchX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+    fsInitPinchY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+    fsImg(fsActive).style.transition = 'none';
+    return;
+  }
+
+  if (fsLocked || fsZooming) return;
+  fsStartX = e.touches[0].clientX;
+  fsStartY = e.touches[0].clientY;
+  fsPanStartX = fsPanX; fsPanStartY = fsPanY;
+  fsDragging = false; fsPendingDir = 0;
+  if (fsScale === 1) fsSlot(fsActive).style.transition = 'none';
+}, { passive: true });
+
+fsEl.addEventListener('touchmove', e => {
+  if (e.touches.length === 2 && fsZooming) {
+    const ratio = fsDist(e.touches) / fsInitDist;
+    fsScale = Math.max(1, Math.min(4, fsInitScale * ratio));
+    const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+    const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+    fsPanX = fsInitPanX + (midX - fsInitPinchX);
+    fsPanY = fsInitPanY + (midY - fsInitPinchY);
+    applyZoom(fsActive);
+    return;
+  }
+
+  if (fsLocked || fsZooming || e.touches.length !== 1) return;
+  const dx = e.touches[0].clientX - fsStartX;
+  const dy = e.touches[0].clientY - fsStartY;
+
+  if (fsScale > 1) {
+    fsPanX = fsPanStartX + dx;
+    fsPanY = fsPanStartY + dy;
+    applyZoom(fsActive);
+    return;
+  }
+
+  if (!fsDragging && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
+    fsDragging = true;
+    fsPendingDir = dx < 0 ? 1 : -1;
+    const photos = curPhotos;
+    const nextIdx = (curPhotoIdx + fsPendingDir + photos.length) % photos.length;
+    const other = fsOther();
+    fsImg(other).style.transition = 'none';
+    fsImg(other).src = photos[nextIdx].url;
+    fsSlot(other).style.transition = 'none';
+    fsSlot(other).style.transform = `translateX(${fsPendingDir * window.innerWidth}px)`;
+  }
+  if (fsDragging) {
+    const W = window.innerWidth;
+    fsSlot(fsActive).style.transform = `translateX(${dx}px)`;
+    fsSlot(fsOther()).style.transform = `translateX(${fsPendingDir * W + dx}px)`;
+  }
+}, { passive: true });
+
+fsEl.addEventListener('touchend', e => {
+  if (fsZooming && e.touches.length < 2) {
+    fsZooming = false;
+    if (fsScale < 1.05) resetZoom(fsActive, true);
+    return;
+  }
+
+  if (fsLocked || fsZooming) return;
+  if (fsScale > 1) return;
+
+  const dx = e.changedTouches[0].clientX - fsStartX;
+  const W = window.innerWidth;
+  const cur = fsActive, nxt = fsOther();
+
+  if (!fsDragging || Math.abs(dx) < 60) {
+    fsSlot(cur).style.transition = 'transform .2s ease';
+    fsSlot(cur).style.transform = 'translateX(0)';
+    if (fsPendingDir !== 0) {
+      fsSlot(nxt).style.transition = 'transform .2s ease';
+      fsSlot(nxt).style.transform = `translateX(${fsPendingDir * W}px)`;
+    }
+    return;
+  }
+
+  fsLocked = true;
+  const dir = fsPendingDir;
+  fsSlot(cur).style.transition = 'transform .22s ease';
+  fsSlot(cur).style.transform = `translateX(${-dir * W}px)`;
+  fsSlot(nxt).style.transition = 'transform .22s ease';
+  fsSlot(nxt).style.transform = 'translateX(0)';
+
+  setTimeout(() => {
+    const photos = curPhotos;
+    curPhotoIdx = (curPhotoIdx + dir + photos.length) % photos.length;
+    document.getElementById('mobile-fs-counter').textContent = `${curPhotoIdx + 1} / ${photos.length}`;
+    document.getElementById('mobile-fs-caption').textContent = photos[curPhotoIdx].caption || '';
+    fsActive = nxt;
+    fsSlot(cur).style.transition = 'none';
+    fsSlot(cur).style.transform = `translateX(${dir * W}px)`;
+    fsImg(cur).style.transform = '';
+    fsScale = 1; fsPanX = 0; fsPanY = 0;
+    fsLocked = false; fsPendingDir = 0;
+  }, 220);
+}, { passive: true });
+
+// ════════════════════════════════════════════════════
+//  NAVIGATION
+// ════════════════════════════════════════════════════
+function renderNav() {
+  const el = document.getElementById('nav-links');
+  el.innerHTML = '';
+  const seenGroups = new Set();
+
+  allSections.forEach(s => {
+    if (s.hidden) return;
+    if (!s.group) {
+      const a = document.createElement('a');
+      a.className = 'nav-item';
+      a.textContent = s.label;
+      a.href = sectionToUrl(s);
+      if (curSection && curSection.id === s.id) a.classList.add('active');
+      a.onclick = e => { e.preventDefault(); navigateTo(s.id); };
+      el.appendChild(a);
+    } else {
+      if (!seenGroups.has(s.group)) {
+        seenGroups.add(s.group);
+        const isOpen = expandedGroup === s.group;
+        const head = document.createElement('a');
+        head.className = 'nav-item' + (isOpen ? ' group-open' : '');
+        head.textContent = s.group;
+        head.onclick = () => {
+          expandedGroup = isOpen ? null : s.group;
+          if (isOpen && curSection && curSection.group === s.group) curSection = null;
+          if (!isOpen) {
+            if (!curSection || curSection.group !== s.group) {
+              curSection = null;
+              const groupDesc = (MANIFEST.groups || {})[s.group];
+              if (groupDesc) {
+                document.getElementById('view-text').classList.remove('visible');
+                document.getElementById('view-slide').classList.add('hidden');
+                document.getElementById('topbar').classList.add('hidden');
+                document.getElementById('nav-arrows').classList.add('hidden');
+                document.getElementById('view-grid').classList.add('visible');
+                document.getElementById('section-description').innerHTML = groupDesc.replace(/\n/g, '<br>');
+                document.getElementById('grid-wrap').innerHTML = '';
+              }
+            }
+          }
+          renderNav();
+          renderMain();
+        };
+        el.appendChild(head);
+      }
+      if (expandedGroup === s.group) {
+        const a = document.createElement('a');
+        a.className = 'nav-item sub';
+        a.textContent = s.label;
+        a.href = sectionToUrl(s);
+        if (curSection && curSection.id === s.id) a.classList.add('active');
+        a.onclick = e => { e.preventDefault(); navigateTo(s.id); };
+        el.appendChild(a);
+      }
+    }
+  });
+}
+
+function navigateTo(id) {
+  const s = allSections.find(x => x.id === id);
+  if (s) history.pushState(null, '', sectionToUrl(s));
+  selectSection(id);
+}
+
+function selectSection(id) {
+  const s = allSections.find(x => x.id === id);
+  if (!s) return;
+  curSection = s;
+  curPhotoIdx = 0;
+  curPhotos = s.photos || (s.blocks ? (s.blocks.find(b => b.type === 'gallery') || {photos:[]}).photos : []);
+  viewMode = 'grid';
+  fsScale = 1; fsPanX = 0; fsPanY = 0;
+  if (s.group) expandedGroup = s.group;
+  renderNav();
+  updateMobileShell();
+  renderMain();
+}
+
+function goHome() {
+  navigateTo('portraits');
+}
+
+window.addEventListener('popstate', () => {
+  const id = urlToSectionId(window.location.pathname) || 'portraits';
+  selectSection(id);
+});
+
+// ════════════════════════════════════════════════════
+//  RENDER MAIN
+// ════════════════════════════════════════════════════
+function renderMain() {
+  if (!curSection) return;
+  const s = curSection;
+
+  if (s.type === 'photos') {
+    document.getElementById('view-text').classList.remove('visible');
+    if (isMobile()) {
+      s.blocks ? showRichSection() : showMobileFeed();
+    } else {
+      document.getElementById('topbar').classList.remove('hidden');
+      document.getElementById('nav-arrows').classList.remove('hidden');
+      if (viewMode === 'grid') { s.blocks ? showRichSection() : showGrid(); }
+      else showSlide();
+    }
+  } else {
+    document.getElementById('view-grid').classList.remove('visible');
+    document.getElementById('view-slide').classList.add('hidden');
+    document.getElementById('nav-arrows').classList.add('hidden');
+    document.getElementById('topbar').classList.add('hidden');
+    renderTextPage(s);
+  }
+}
+
+// ════════════════════════════════════════════════════
+//  RICH SECTION
+// ════════════════════════════════════════════════════
+function showRichSection() {
+  document.getElementById('view-slide').classList.add('hidden');
+  const vg = document.getElementById('view-grid');
+  vg.classList.add('visible');
+  document.getElementById('section-description').innerHTML = '';
+  const wrap = document.getElementById('grid-wrap');
+  wrap.innerHTML = '';
+  wrap.classList.add('rich');
+
+  (curSection.blocks || []).forEach(block => {
+    if (block.type === 'text') {
+      const div = document.createElement('div');
+      div.className = 'rich-text-block';
+      div.innerHTML = esc(block.content);
+      wrap.appendChild(div);
+    } else if (block.type === 'gallery') {
+      const grid = document.createElement('div');
+      grid.className = 'grid-wrap';
+      block.photos.forEach((p, i) => {
+        const div = document.createElement('div');
+        div.className = 'grid-thumb';
+        const cap = p.caption ? `<div class="grid-thumb-caption">${esc(p.caption)}</div>` : '';
+        div.innerHTML = `<img src="${esc(p.url)}" alt="${esc(p.caption)}" loading="lazy">${cap}`;
+        div.onclick = () => {
+          curPhotos = block.photos;
+          curPhotoIdx = i;
+          if (isMobile()) openMobileFS(i);
+          else setViewMode('slide');
+        };
+        grid.appendChild(div);
+      });
+      wrap.appendChild(grid);
+    } else if (block.type === 'video') {
+      const vwrap = document.createElement('div');
+      vwrap.className = 'rich-video-block';
+      const ytId = block.url.match(/youtube\.com\/embed\/([a-zA-Z0-9_-]+)/)?.[1];
+      if (ytId) {
+        vwrap.innerHTML = `<img src="https://img.youtube.com/vi/${ytId}/maxresdefault.jpg" alt=""><div class="video-play-btn"></div>`;
+        vwrap.onclick = () => {
+          vwrap.innerHTML = `<iframe src="${esc(block.url)}?autoplay=1&modestbranding=1&rel=0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+          vwrap.onclick = null; vwrap.style.cursor = 'default';
+        };
+      } else {
+        vwrap.innerHTML = `<iframe src="${esc(block.url)}" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+      }
+      wrap.appendChild(vwrap);
+    }
+  });
+}
+
+// ════════════════════════════════════════════════════
+//  MOBILE FEED
+// ════════════════════════════════════════════════════
+function showMobileFeed() {
+  document.getElementById('view-slide').classList.add('hidden');
+  const vg = document.getElementById('view-grid');
+  vg.classList.add('visible');
+  document.getElementById('section-description').innerHTML = (curSection.description || '').replace(/\n/g, '<br>');
+  const wrap = document.getElementById('grid-wrap');
+  wrap.innerHTML = '';
+  wrap.classList.remove('rich');
+
+  curPhotos = curSection.photos || [];
+  const photos = curPhotos;
+  if (photos.length === 0) {
+    wrap.innerHTML = '<div style="padding:40px;font-size:10px;color:var(--text-dim);letter-spacing:.08em;text-transform:uppercase">aucune image</div>';
+    return;
+  }
+
+  photos.forEach((p, i) => {
+    const div = document.createElement('div');
+    div.className = 'grid-thumb';
+    const cap = p.caption ? `<div class="grid-thumb-caption">${esc(p.caption)}</div>` : '';
+    div.innerHTML = `<img src="${esc(p.url)}" alt="${esc(p.caption)}" loading="lazy">${cap}`;
+    div.onclick = () => openMobileFS(i);
+    wrap.appendChild(div);
+  });
+}
+
+// ════════════════════════════════════════════════════
+//  DESKTOP GRID / SLIDE
+// ════════════════════════════════════════════════════
+function showGrid() {
+  document.getElementById('view-slide').classList.add('hidden');
+  const vg = document.getElementById('view-grid');
+  vg.classList.add('visible');
+  document.getElementById('section-description').innerHTML = (curSection.description || '').replace(/\n/g, '<br>');
+  const wrap = document.getElementById('grid-wrap');
+  wrap.innerHTML = '';
+  wrap.classList.remove('rich');
+
+  const photos = curSection.photos || [];
+  if (photos.length === 0) {
+    wrap.innerHTML = '<div style="padding:40px;font-size:10px;color:var(--text-dim);letter-spacing:.08em;text-transform:uppercase">aucune image dans cette section</div>';
+    return;
+  }
+
+  photos.forEach((p, i) => {
+    const div = document.createElement('div');
+    div.className = 'grid-thumb' + (i === curPhotoIdx ? ' active-thumb' : '');
+    div.innerHTML = `<img src="${esc(p.url)}" alt="${esc(p.caption)}" loading="lazy">`;
+    div.onclick = () => { curPhotoIdx = i; setViewMode('slide'); };
+    wrap.appendChild(div);
+  });
+
+  updateCounter();
+  document.getElementById('btn-grid').classList.add('active');
+  document.getElementById('btn-slide').classList.remove('active');
+}
+
+function showSlide() {
+  document.getElementById('view-grid').classList.remove('visible');
+  const vs = document.getElementById('view-slide');
+  vs.classList.remove('hidden');
+
+  const photos = curPhotos;
+  const p = photos[curPhotoIdx];
+
+  const img = document.getElementById('slide-img');
+  const ph = document.getElementById('slide-placeholder');
+  const cap = document.getElementById('slide-caption');
+
+  if (p && p.url) {
+    img.classList.remove('loaded');
+    img.src = p.url;
+    img.style.display = 'block';
+    img.onload = () => img.classList.add('loaded');
+    ph.style.display = 'none';
+    cap.textContent = p.caption || '';
+  } else {
+    img.style.display = 'none';
+    ph.style.display = 'flex';
+    ph.textContent = photos.length === 0 ? 'aucune image' : 'image manquante';
+    cap.textContent = p ? (p.caption || '') : '';
+  }
+
+  updateCounter();
+  document.getElementById('btn-slide').classList.add('active');
+  document.getElementById('btn-grid').classList.remove('active');
+}
+
+function updateCounter() {
+  document.getElementById('counter').textContent = `${curPhotoIdx + 1} / ${curPhotos.length || 1}`;
+}
+
+function setViewMode(mode) {
+  viewMode = mode;
+  if (!curSection || curSection.type !== 'photos') return;
+  if (mode === 'grid') { curSection.blocks ? showRichSection() : showGrid(); }
+  else showSlide();
+}
+
+function navigate(dir) {
+  if (!curSection) return;
+  if (curPhotos.length === 0) return;
+  curPhotoIdx = (curPhotoIdx + dir + curPhotos.length) % curPhotos.length;
+  if (viewMode === 'slide') showSlide();
+  else {
+    document.querySelectorAll('.grid-thumb').forEach((el, i) => {
+      el.classList.toggle('active-thumb', i === curPhotoIdx);
+    });
+    updateCounter();
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeMobileFS(); }
+});
+
+// ════════════════════════════════════════════════════
+//  TEXT PAGES
+// ════════════════════════════════════════════════════
+function renderTextPage(s) {
+  const el = document.getElementById('view-text');
+  el.classList.add('visible');
+
+  if (s.type === 'info') {
+    el.innerHTML = `<div class="text-section"><h2>Info</h2><p>${DATA.infoText}</p></div>`;
+  } else if (s.type === 'contact') {
+    el.innerHTML = `
+      <div class="text-section">
+        <h2>Contact</h2>
+        <div class="cf-field"><label>Name *</label><input type="text" id="cf-name" placeholder="Your name"></div>
+        <div class="cf-field"><label>Email *</label><input type="email" id="cf-email" placeholder="your@email.com"></div>
+        <div class="cf-field"><label>Message *</label><textarea id="cf-msg" placeholder="Your message…"></textarea></div>
+        <button class="cf-submit" onclick="submitContact()">Send</button>
+        <p style="margin-top:24px;font-size:9.5px;color:var(--text-dim)">or directly: <a href="mailto:${esc(DATA.email)}" style="color:var(--text)">${esc(DATA.email)}</a></p>
+      </div>`;
+  } else if (s.type === 'links') {
+    let html = '';
+    DATA.links.forEach(sec => {
+      html += `<div class="text-section"><h2>${esc(sec.section)}</h2>`;
+      sec.items.forEach(it => {
+        if (it.name && it.url) html += `<a class="ext" href="${esc(it.url)}" target="_blank">${esc(it.name)}</a>`;
+      });
+      html += '</div>';
+    });
+    el.innerHTML = html;
+  }
+}
+
+function submitContact() {
+  const n = document.getElementById('cf-name')?.value.trim();
+  const e = document.getElementById('cf-email')?.value.trim();
+  const m = document.getElementById('cf-msg')?.value.trim();
+  if (!n || !e || !m) { alert('Please fill in all fields.'); return; }
+  const s = encodeURIComponent('Message from ' + n);
+  const b = encodeURIComponent(m + '\n\nFrom: ' + n + '\nEmail: ' + e);
+  window.location.href = 'mailto:' + DATA.email + '?subject=' + s + '&body=' + b;
+}
+
+// ════════════════════════════════════════════════════
+//  THEME
+// ════════════════════════════════════════════════════
+function toggleTheme() {
+  document.body.classList.toggle('light');
+  const isLight = document.body.classList.contains('light');
+  document.getElementById('theme-btn').textContent = isLight ? 'light' : 'dark';
+  localStorage.setItem('rc-theme', isLight ? 'light' : 'dark');
+}
+
+// ════════════════════════════════════════════════════
+//  UTILS
+// ════════════════════════════════════════════════════
+function esc(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── KEYBOARD ──
+document.addEventListener('keydown', e => {
+  if (isMobile()) return;
+  if (viewMode === 'slide') {
+    if (e.key === 'ArrowLeft')  navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
+    if (e.key === 'Escape')     setViewMode('grid');
+  }
+});
+
+// ── GO ──
+init();
+</script>
+</body>
+</html>
