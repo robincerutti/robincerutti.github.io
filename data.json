@@ -1,0 +1,41 @@
+{
+  "name": "ROBIN\nCERUTTI",
+  "email": "hello@robincerutti.com",
+  "infoText": "Robin Cerutti is a Canadian photographer and visual artist whose captivating work explores the boundaries between reality and imaginary worlds. His poetic and enigmatic photographs — series Mirror, Parallel, and Parts of Life — transport us into dreamlike universes that feel remarkably real. Without any digital alteration, he uses real elements — light, water, materials, and the human body — to create images that may appear digital at first glance, yet are entirely photographic.<br><br>His work has been exhibited in Canada and internationally, including the United States, France, Italy, Belgium, Mexico, and China.<br><br><strong>Prizes & Awards</strong><br>2014 — American Photography Artist, Category Lifestyle, United States<br><br><strong>Solo Exhibitions</strong><br>2018 — Mirrors, Galerie Mx, Montréal, Canada<br>2017 — Presence and Mirror, Art Avantage Paris, France<br>2016 — Mirrors, Galerie Las Olas Fine Art, Fort Lauderdale, United States<br>2009 — She's An Astronomer, Museo De La Luz, Mexico City, Mexico<br><br><strong>Selected Group Exhibitions</strong><br>2025 — Blossom Time, Swatch Art Peace Hotel, Shanghai, China<br>2023 — Real / Unreal, Vecchiato Arte, Padova, Italy<br>2023 — Cap-USA at Bergdorf Goodman, New York, United States<br>2023 — Fotofairs Shanghai, China<br>2022 — Palm Beach Modern + Contemporary, Galerie Capusa, United States<br>2022 — Landscape and Vision, Museo Civico, Bassano del Grappa, Italy<br>2022 — Context Miami, Capusa, United States<br>2018 — Embody, Galerie Vivendi, Paris, France<br>2017 — Cube Art Fair, Bruxelles, Belgium<br><br><strong>Permanent Collections</strong><br>2022 — Swatch, Bern, Switzerland<br><br><strong>Residencies</strong><br>2022 — Swatch Art Peace Hotel, Shanghai, China<br><br><strong>Press</strong><br>2025 — Top 10 Artistes Émergents, Maison Contemporain, Paris<br>2024 — Tokio Radio, Arles, France<br><br><strong>Education</strong><br>2002–2006 — PhD Microelectronics, Grenoble, France",
+  "links": [
+    {
+      "section": "Social",
+      "items": [
+        { "name": "Instagram", "url": "https://www.instagram.com/robincerutti" },
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/in/robincerutti/" },
+        { "name": "Twitter", "url": "http://twitter.com/robincerutti" }
+      ]
+    },
+    {
+      "section": "Galleries",
+      "items": [
+        { "name": "SalonArtClub — Montréal", "url": "http://www.salonartclub.com/" },
+        { "name": "ArtMajeur", "url": "https://www.artmajeur.com/robin-cerutti" },
+        { "name": "Galerie Levaillant — France", "url": "https://galerielevaillant.com/" }
+      ]
+    },
+    {
+      "section": "Shop & Catalog",
+      "items": [
+        { "name": "11x14 Editions — tchuti art", "url": "http://robincerutti.square.site" },
+        { "name": "Art Catalog 2023", "url": "https://indd.adobe.com/view/e042cc93-f2fb-4256-850e-0a2f02d1f6e3" }
+      ]
+    },
+    {
+      "section": "Press",
+      "items": [
+        { "name": "Press Review", "url": "https://indd.adobe.com/view/513b51ac-a2df-4511-b531-4f92da448968" }
+      ]
+    }
+  ],
+  "extraSections": [
+    { "id": "info", "label": "INFO", "type": "info", "group": "" },
+    { "id": "contact", "label": "CONTACT", "type": "contact", "group": "" },
+    { "id": "links", "label": "LINKS", "type": "links", "group": "" }
+  ]
+}
