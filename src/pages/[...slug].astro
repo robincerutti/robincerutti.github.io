@@ -23,7 +23,6 @@ function getFirstPhoto(s) {
 // ── static paths ──────────────────────────────────────────────────
 export function getStaticPaths() {
   function _slug(s) {
-    if (s.hidden) return null;
     if (!s.group) return s.id.toLowerCase().replace(/\s+/g, '-');
     const g = s.group.toLowerCase();
     const sub = s.id.slice(g.length + 1);
@@ -36,7 +35,6 @@ export function getStaticPaths() {
 
   const paths = [];
   for (const s of manifest.sections) {
-    if (s.hidden) continue;
     const slug = _slug(s);
     if (slug) paths.push({ params: { slug }, props: { section: s, manifest, data } });
   }
@@ -53,9 +51,7 @@ const firstPhoto = getFirstPhoto(section);
 const ogImage    = firstPhoto
   ? 'https://robincerutti.com/' + firstPhoto
   : 'https://robincerutti.github.io/photos/02-projects/010-mirror/01_-mirror%20-%20tornado%202024%20--.jpg';
-const pageTitle  = section.label !== 'INFO' && section.label !== 'CONTACT' && section.label !== 'LINKS'
-  ? `Robin Cerutti — ${section.label}`
-  : `Robin Cerutti — Photographer & Visual Artist`;
+const pageTitle  = 'ROBIN CERUTTI';
 const pageDesc   = (section.description || '').replace(/\[video:[^\]]+\]/gi, '').trim()
   || `Robin Cerutti — ${section.label}. Photographer & Visual Artist. Totally real surrealism.`;
 
@@ -84,7 +80,14 @@ const allPhotos = section.photos || (section.blocks
 <meta name="twitter:description" content={pageDesc}>
 <meta name="twitter:image" content={ogImage}>
 <meta name="twitter:site" content="@robincerutti">
-<link rel="icon" href="/favicon.ico">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MNJ4S6RDH6"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MNJ4S6RDH6');
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
@@ -450,8 +453,15 @@ body.light .view-toggle:hover, body.light .view-toggle.active, body.light .arrow
   #view-text { flex: none; overflow: visible; padding: 24px 20px 40px; max-width: 100%; }
 }
 
-/* ══ SEO SNAPSHOT — visible before JS, hidden after ══ */
-#seo-snapshot { display: none; }
+/* ══ SEO SNAPSHOT — visually hidden but readable by crawlers ══ */
+#seo-snapshot {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  pointer-events: none;
+}
 </style>
 </head>
 <body>
@@ -510,7 +520,7 @@ body.light .view-toggle:hover, body.light .view-toggle.active, body.light .arrow
 </div>
 
 <!-- SEO snapshot: pre-rendered HTML for search crawlers -->
-<div id="seo-snapshot" aria-hidden="true">
+<div id="seo-snapshot">
   <h1>{section.label}</h1>
   {section.description && <p>{section.description.replace(/\[video:[^\]]+\]/gi, '').trim()}</p>}
   {allPhotos.map(p => (
@@ -763,6 +773,8 @@ fsEl.addEventListener('touchend', e => {
   if (fsScale > 1) return;
 
   const dx = e.changedTouches[0].clientX - fsStartX;
+  const dy = e.changedTouches[0].clientY - fsStartY;
+
   const W = window.innerWidth;
   const cur = fsActive, nxt = fsOther();
 
@@ -795,6 +807,20 @@ fsEl.addEventListener('touchend', e => {
     fsScale = 1; fsPanX = 0; fsPanY = 0;
     fsLocked = false; fsPendingDir = 0;
   }, 220);
+}, { passive: true });
+
+// ── Swipe up to close (listener indépendant) ──
+let _swipeStartY = 0, _swipeStartX = 0;
+fsEl.addEventListener('touchstart', e => {
+  if (e.touches.length === 1) { _swipeStartY = e.touches[0].clientY; _swipeStartX = e.touches[0].clientX; }
+}, { passive: true });
+fsEl.addEventListener('touchend', e => {
+  if (fsScale > 1 || fsZooming || fsLocked) return;
+  const endY = e.changedTouches[0].clientY;
+  const endX = e.changedTouches[0].clientX;
+  const dy = endY - _swipeStartY;
+  const dx = endX - _swipeStartX;
+  if (dy < -120 && Math.abs(dy) > Math.abs(dx) * 1.2) closeMobileFS();
 }, { passive: true });
 
 // ════════════════════════════════════════════════════
@@ -860,7 +886,7 @@ function renderNav() {
 
 function navigateTo(id) {
   const s = allSections.find(x => x.id === id);
-  if (s) history.pushState(null, '', sectionToUrl(s));
+  if (s && !isMobile()) history.pushState(null, '', sectionToUrl(s));
   selectSection(id);
 }
 
