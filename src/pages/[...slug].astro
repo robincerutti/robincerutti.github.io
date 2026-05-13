@@ -35,6 +35,10 @@ export function getStaticPaths() {
 
   const paths = [];
   for (const s of manifest.sections) {
+    if (s.id === 'main') {
+      paths.push({ params: { slug: undefined }, props: { section: s, manifest, data } });
+      continue;
+    }
     const slug = _slug(s);
     if (slug) paths.push({ params: { slug }, props: { section: s, manifest, data } });
   }
@@ -54,6 +58,9 @@ const ogImage    = firstPhoto
 const pageTitle  = 'ROBIN CERUTTI';
 const pageDesc   = (section.description || '').replace(/\[video:[^\]]+\]/gi, '').trim()
   || `Robin Cerutti — ${section.label}. Photographer & Visual Artist. Totally real surrealism.`;
+const canonicalUrl = section.id === 'main'
+  ? 'https://robincerutti.com/'
+  : `https://robincerutti.com/${sectionToSlug(section)}/`;
 
 // All photos flat list (for structured data)
 const allPhotos = section.photos || (section.blocks
@@ -68,11 +75,11 @@ const allPhotos = section.photos || (section.blocks
 <title>{pageTitle}</title>
 <meta name="description" content={pageDesc}>
 <meta name="keywords" content="Robin Cerutti, photographer, visual artist, fine art photography, surrealism, Montreal, Canada, France">
-<link rel="canonical" href={`https://robincerutti.com/${sectionToSlug(section)}/`}>
+<link rel="canonical" href={canonicalUrl}>
 <meta property="og:title" content={pageTitle}>
 <meta property="og:description" content={pageDesc}>
 <meta property="og:image" content={ogImage}>
-<meta property="og:url" content={`https://robincerutti.com/${sectionToSlug(section)}/`}>
+<meta property="og:url" content={canonicalUrl}>
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
@@ -97,7 +104,7 @@ const allPhotos = section.photos || (section.blocks
     "@type": "ImageGallery",
     "name": `Robin Cerutti — ${section.label}`,
     "description": pageDesc,
-    "url": `https://robincerutti.com/${sectionToSlug(section)}/`,
+    "url": canonicalUrl,
     "author": {
       "@type": "Person",
       "name": "Robin Cerutti",
@@ -550,6 +557,7 @@ function isMobile() { return window.innerWidth <= 640; }
 //  URL ↔ SECTION
 // ════════════════════════════════════════════════════
 function sectionToUrl(s) {
+  if (s.id === 'main') return '/';
   if (!s.group) return '/' + s.id.toLowerCase().replace(/\s+/g, '-') + '/';
   const g = s.group.toLowerCase();
   const sub = s.id.slice(g.length + 1);
@@ -557,6 +565,7 @@ function sectionToUrl(s) {
 }
 
 function urlToSectionId(path) {
+  if (path === '/') return 'main';
   for (const s of allSections) {
     if (sectionToUrl(s) === path) return s.id;
   }
@@ -604,7 +613,7 @@ async function init() {
   }
 
   viewMode = 'grid';
-  const sectionId = urlToSectionId(window.location.pathname) || 'portraits';
+  const sectionId = urlToSectionId(window.location.pathname) || 'main';
   selectSection(sectionId);
 
   setTimeout(() => document.getElementById('loading').classList.add('done'), 200);
@@ -833,6 +842,7 @@ function renderNav() {
 
   allSections.forEach(s => {
     if (s.hidden) return;
+    if (s.id === 'main') return;
     if (!s.group) {
       const a = document.createElement('a');
       a.className = 'nav-item';
@@ -905,11 +915,11 @@ function selectSection(id) {
 }
 
 function goHome() {
-  navigateTo('portraits');
+  navigateTo('main');
 }
 
 window.addEventListener('popstate', () => {
-  const id = urlToSectionId(window.location.pathname) || 'portraits';
+  const id = urlToSectionId(window.location.pathname) || 'main';
   selectSection(id);
 });
 

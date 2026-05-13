@@ -32,11 +32,13 @@ export function GET() {
   const urls: string[] = [];
 
   for (const s of manifest.sections) {
-    const slug = sectionToSlug(s);
-    if (!slug) continue;
+    const isMain = s.id === 'main';
+    const slug = isMain ? '' : sectionToSlug(s);
+    if (slug === null) continue;
 
-    const priority = slug === 'portraits' ? '1.0' : '0.8';
-    const changefreq = slug === 'portraits' ? 'weekly' : 'monthly';
+    const loc = isMain ? `${baseUrl}/` : `${baseUrl}/${slug}/`;
+    const priority = isMain ? '1.0' : '0.8';
+    const changefreq = isMain ? 'weekly' : 'monthly';
     const photos = getPhotos(s);
 
     const imageBlocks = photos.slice(0, 50).map(p =>
@@ -44,7 +46,7 @@ export function GET() {
     ).join('\n');
 
     urls.push(
-      `  <url>\n    <loc>${baseUrl}/${slug}/</loc>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n    <lastmod>${today}</lastmod>\n${imageBlocks}\n  </url>`
+      `  <url>\n    <loc>${loc}</loc>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n    <lastmod>${today}</lastmod>\n${imageBlocks}\n  </url>`
     );
   }
 
