@@ -5,7 +5,7 @@
       "label": "MAIN",
       "type": "photos",
       "group": "",
-      "description": "Robin Cerutti — photographer and visual artist, Montréal.\nPortraits, fine art, documentary — from esports arenas to Shanghai.\nAvailable worldwide for projects that demand a specific eye.",
+      "description": "Robin Cerutti — photographer and visual artist, Montréal.\n\nPortraits, fine art, documentary — from esports arenas to Shanghai exhibitions.\nAvailable worldwide for projects that demand a specific eye.",
       "photos": [
         {
           "url": "photos/00-main/01_-Baba Paris 2015--.jpg",
@@ -176,10 +176,6 @@
           "caption": "mirror - frances"
         },
         {
-          "url": "photos/00-main/13_59e6f3f6-midtown athletic club campain--.jpg",
-          "caption": "midtown athletic club campain"
-        },
-        {
           "url": "photos/00-main/141_28a57ebc-sparkling--.jpg",
           "caption": "sparkling"
         },
@@ -297,10 +293,6 @@
         },
         {
           "url": "photos/00-main/20_06baf9ab-4730-483f-a485-7115186360d4_rw_1920.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/00-main/21_6851fd44-e05f-4c34-9f3d-51d9df8bad39_rw_3840.jpg",
           "caption": ""
         },
         {
@@ -428,14 +420,6 @@
           "caption": ""
         },
         {
-          "url": "photos/00-main/53_95f4fd5f-6034-4962-b67d-af0290317684_rw_1920.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/00-main/54_afd0bc3e-965d-4b45-9141-5591659fed9c_rw_3840.jpg",
-          "caption": ""
-        },
-        {
           "url": "photos/00-main/55_9815a234-zack--.jpg",
           "caption": "zack"
         },
@@ -544,19 +528,7 @@
           "caption": "brian nyc"
         },
         {
-          "url": "photos/00-main/83_20230924-RC-27-IMG_9750-Edit.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/00-main/84_03f3b2e7-cantons de l est--.jpg",
-          "caption": "cantons de l est"
-        },
-        {
           "url": "photos/00-main/85_db05d845-f3ea-43e3-9975-9a7c59a926f0_rw_1920.jpg",
-          "caption": ""
-        },
-        {
-          "url": "photos/00-main/86_df2f8352-fe01-446f-9547-bb136d267393_rw_1920.jpg",
           "caption": ""
         },
         {
@@ -566,10 +538,6 @@
         {
           "url": "photos/00-main/88_f7040196-Besh - DR--.jpg",
           "caption": "Besh - DR"
-        },
-        {
-          "url": "photos/00-main/89_e321eba9-dc77-4a03-b5b4-a94b1df27013_rw_3840.jpg",
-          "caption": ""
         },
         {
           "url": "photos/00-main/90_ecd53303-066c-43fb-9f02-5494d2cf15b1_rw_1920.jpg",
@@ -2708,5 +2676,5 @@
     }
   ],
   "groups": {},
-  "generated": "2026-05-13T15:06:56.612Z"
+  "generated": "2026-05-13T15:13:38.314Z"
 }
