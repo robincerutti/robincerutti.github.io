@@ -2,6 +2,10 @@
 set -e
 cd "$(dirname "$0")"
 
+echo "→ Commit git..."
+git add -A
+git diff --cached --quiet || git commit -m "sync $(date '+%Y-%m-%d %H:%M')"
+
 echo "→ Build manifest..."
 node ./scripts/build-manifest.js
 
