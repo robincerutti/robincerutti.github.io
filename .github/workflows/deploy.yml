@@ -19,20 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          lfs: false
 
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-
-      - name: Sync public assets from repo root
-        run: |
-          rsync -a --exclude='.git' photos/ public/photos/
-          cp manifest.json public/manifest.json
-          cp data.json public/data.json
-          cp info.txt public/info.txt
 
       - run: npm ci
 
