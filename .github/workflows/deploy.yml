@@ -25,13 +25,6 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Sync photos and assets to public/
-        run: |
-          rsync -a photos/ public/photos/
-          cp manifest.json public/manifest.json
-          cp data.json public/data.json
-          cp info.txt public/info.txt
-
       - run: npm ci
 
       - run: npm run build
