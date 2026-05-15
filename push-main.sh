@@ -1,6 +1,6 @@
 #!/bin/bash
 node scripts/build-manifest.js
-git add photos/ manifest.json index.html data.json scripts/
+git add photos/ manifest.json index.html data.json info.txt sitemap.xml scripts/ public/CNAME .github/
 git diff-index --quiet HEAD || git commit -m "${1:-deploy}"
 git checkout main
 git merge -X theirs dev
